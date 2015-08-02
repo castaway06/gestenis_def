@@ -1,0 +1,12 @@
+﻿@if ((Object)Session["SessionUserId"] != null)
+{
+    <div>
+        Hello @Session["SessionUserId"].ToString()
+    </div>
+}
+else
+{
+<div>
+   @{ Response.Redirect("~/HOME/About");}
+</div>
+}

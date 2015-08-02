@@ -8,7 +8,7 @@ namespace GesTenis
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            
         }
     }
 }

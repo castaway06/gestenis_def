@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GesTenis.Models;
 
 namespace GesTenis.Controllers
 {
@@ -10,6 +11,20 @@ namespace GesTenis.Controllers
     {
         public ActionResult Index()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(LoginViewModel model)
+        {
+            Session["SessionUserId"] = model.userId;
+            return RedirectToAction("Index", "Socio");
+        }
+
+        public ActionResult LogOff()
+        {
+            Session.Clear();
+            Session.Abandon();
             return View();
         }
 
