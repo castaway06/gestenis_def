@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="gestenis_defModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="facturas">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_reserva" Type="int" Nullable="false" />
+          <Property Name="xml_factura" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="recursos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="f_alta" Type="date" Nullable="false" />
+          <Property Name="f_baja" Type="date" />
+          <Property Name="nombre_rec" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="superficie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="disponible" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reservas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_soc" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="id_rec" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="hora" Type="tinyint" Nullable="false" />
+          <Property Name="pagado" Type="bit" Nullable="false" />
+          <Property Name="precio" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="socios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="512" Nullable="false" />
+          <Property Name="is_admin" Type="bit" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nif" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="direccion1" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="direccion2" Type="varchar" MaxLength="256" />
+          <Property Name="f_alta" Type="date" Nullable="false" />
+          <Property Name="f_baja" Type="date" />
+        </EntityType>
+        <Association Name="FK_facturas">
+          <End Role="reservas" Type="Self.reservas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="facturas" Type="Self.facturas" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="reservas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="facturas">
+              <PropertyRef Name="id_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rec">
+          <End Role="recursos" Type="Self.recursos" Multiplicity="1" />
+          <End Role="reservas" Type="Self.reservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="recursos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reservas">
+              <PropertyRef Name="id_rec" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reservas">
+          <End Role="socios" Type="Self.socios" Multiplicity="1" />
+          <End Role="reservas" Type="Self.reservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="socios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reservas">
+              <PropertyRef Name="id_soc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="gestenis_defModelStoreContainer">
+          <EntitySet Name="facturas" EntityType="Self.facturas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="recursos" EntityType="Self.recursos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reservas" EntityType="Self.reservas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="socios" EntityType="Self.socios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_facturas" Association="Self.FK_facturas">
+            <End Role="reservas" EntitySet="reservas" />
+            <End Role="facturas" EntitySet="facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rec" Association="Self.FK_rec">
+            <End Role="recursos" EntitySet="recursos" />
+            <End Role="reservas" EntitySet="reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reservas" Association="Self.FK_reservas">
+            <End Role="socios" EntitySet="socios" />
+            <End Role="reservas" EntitySet="reservas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="gestenis_defModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="facturas">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_reserva" Type="Int32" Nullable="false" />
+          <Property Name="xml_factura" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="reservas" Relationship="Self.FK_facturas" FromRole="facturas" ToRole="reservas" />
+        </EntityType>
+        <EntityType Name="recursos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="f_alta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="f_baja" Type="DateTime" Precision="0" />
+          <Property Name="nombre_rec" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="superficie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="disponible" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="reservas" Relationship="Self.FK_rec" FromRole="recursos" ToRole="reservas" />
+        </EntityType>
+        <EntityType Name="reservas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="hora" Type="Byte" Nullable="false" />
+          <Property Name="pagado" Type="Boolean" Nullable="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <NavigationProperty Name="facturas" Relationship="Self.FK_facturas" FromRole="reservas" ToRole="facturas" />
+          <NavigationProperty Name="recursos" Relationship="Self.FK_rec" FromRole="reservas" ToRole="recursos" />
+          <NavigationProperty Name="socios" Relationship="Self.FK_reservas" FromRole="reservas" ToRole="socios" />
+        </EntityType>
+        <EntityType Name="socios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="is_admin" Type="Boolean" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nif" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion1" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion2" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="f_alta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="f_baja" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="reservas" Relationship="Self.FK_reservas" FromRole="socios" ToRole="reservas" />
+        </EntityType>
+        <Association Name="FK_facturas">
+          <End Role="reservas" Type="Self.reservas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="facturas" Type="Self.facturas" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="reservas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="facturas">
+              <PropertyRef Name="id_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rec">
+          <End Role="recursos" Type="Self.recursos" Multiplicity="1" />
+          <End Role="reservas" Type="Self.reservas" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_reservas">
+          <End Role="socios" Type="Self.socios" Multiplicity="1" />
+          <End Role="reservas" Type="Self.reservas" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="gestenis_defEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="facturas" EntityType="Self.facturas" />
+          <EntitySet Name="recursos" EntityType="Self.recursos" />
+          <EntitySet Name="reservas" EntityType="Self.reservas" />
+          <EntitySet Name="socios" EntityType="Self.socios" />
+          <AssociationSet Name="FK_facturas" Association="Self.FK_facturas">
+            <End Role="reservas" EntitySet="reservas" />
+            <End Role="facturas" EntitySet="facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rec" Association="Self.FK_rec">
+            <End Role="recursos" EntitySet="recursos" />
+            <End Role="reservas" EntitySet="reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reservas" Association="Self.FK_reservas">
+            <End Role="socios" EntitySet="socios" />
+            <End Role="reservas" EntitySet="reservas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="gestenis_defModelStoreContainer" CdmEntityContainer="gestenis_defEntities">
+          <EntitySetMapping Name="facturas">
+            <EntityTypeMapping TypeName="gestenis_defModel.facturas">
+              <MappingFragment StoreEntitySet="facturas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+                <ScalarProperty Name="xml_factura" ColumnName="xml_factura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="recursos">
+            <EntityTypeMapping TypeName="gestenis_defModel.recursos">
+              <MappingFragment StoreEntitySet="recursos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="f_alta" ColumnName="f_alta" />
+                <ScalarProperty Name="f_baja" ColumnName="f_baja" />
+                <ScalarProperty Name="nombre_rec" ColumnName="nombre_rec" />
+                <ScalarProperty Name="superficie" ColumnName="superficie" />
+                <ScalarProperty Name="disponible" ColumnName="disponible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reservas">
+            <EntityTypeMapping TypeName="gestenis_defModel.reservas">
+              <MappingFragment StoreEntitySet="reservas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="pagado" ColumnName="pagado" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="socios">
+            <EntityTypeMapping TypeName="gestenis_defModel.socios">
+              <MappingFragment StoreEntitySet="socios">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="is_admin" ColumnName="is_admin" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="nif" ColumnName="nif" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion1" ColumnName="direccion1" />
+                <ScalarProperty Name="direccion2" ColumnName="direccion2" />
+                <ScalarProperty Name="f_alta" ColumnName="f_alta" />
+                <ScalarProperty Name="f_baja" ColumnName="f_baja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_rec" TypeName="gestenis_defModel.FK_rec" StoreEntitySet="reservas">
+            <EndProperty Name="recursos">
+              <ScalarProperty Name="id" ColumnName="id_rec" />
+            </EndProperty>
+            <EndProperty Name="reservas">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_reservas" TypeName="gestenis_defModel.FK_reservas" StoreEntitySet="reservas">
+            <EndProperty Name="socios">
+              <ScalarProperty Name="id" ColumnName="id_soc" />
+            </EndProperty>
+            <EndProperty Name="reservas">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

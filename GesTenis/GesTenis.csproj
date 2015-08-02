@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -159,11 +161,38 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SocioController.cs" />
+    <Compile Include="facturas.cs">
+      <DependentUpon>GesTenisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GesTenisModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GesTenisModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GesTenisModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GesTenisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GesTenisModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GesTenisModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="recursos.cs">
+      <DependentUpon>GesTenisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reservas.cs">
+      <DependentUpon>GesTenisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="socios.cs">
+      <DependentUpon>GesTenisModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="tools\Tools.cs" />
   </ItemGroup>
@@ -182,6 +211,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="GesTenisModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GesTenisModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="GesTenisModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GesTenisModel.edmx</DependentUpon>
+      <LastGenOutput>GesTenisModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="GesTenisModel.edmx.diagram">
+      <DependentUpon>GesTenisModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="GesTenisModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GesTenisModel.edmx</DependentUpon>
+      <LastGenOutput>GesTenisModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -239,6 +285,8 @@
     <Content Include="Views\Socio\Index.cshtml" />
     <Content Include="Views\Home\LogOff.cshtml" />
     <Content Include="Views\Socio\NoAcceso.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\NoAcceso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -249,6 +297,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
