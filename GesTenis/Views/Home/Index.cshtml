@@ -11,12 +11,10 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Si ya eres Socio ...</h2>
-        <h3>Accede !</h3>
+        <h2> Zona a rellenar</h2>
+        <h3> </h3>
         <p>usuario:</p>
-        <p>Contraseña: p********69</p>
-        <p>sha generado en una web: 86816fe8af9fbc21c87a3507d99cd05dcbb1afab4bdb120d368ed9524052ae35</p>
-        <p>sha generado por mi función: @GesTenis.tools.Tools.SHA256Encrypt("pepitogrillo69")</p>
+        <p>Contraseña: </p>
         <p><a class="btn btn-default">Login</a></p>
     </div>
     <div class="col-md-4">
@@ -27,30 +25,20 @@
         <h2>Inicio de sesión para SOCIOS</h2>
         @using (Html.BeginForm())
         {
-            <table>
-                <tr>
-                    <td align="left" ;>
-                        @Html.DisplayNameFor(m => m.userId)
-                    </td>
-                    <td>
-                        @Html.EditorFor(model => model.userId)
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" ;>
-                        @Html.DisplayNameFor(m => m.userPassword)
-                    </td>
-                    <td>
-                        @Html.PasswordFor(m => m.userPassword)
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td align="left" ;>
-                        <input id="btnLogin" type="submit" value="Login" />
-                    </td>
-                </tr>
-            </table>
+            <div class="form-group">
+                @Html.LabelFor(model => model.userId, new { @class="control-label"})
+                @Html.PasswordFor(model => model.userId, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.userPassword, new { @class = "control-label" })
+                @Html.PasswordFor(m => m.userPassword, new { @class = "form-control" })
+            </div>
+
+
+            <div class="col-md-offset-0 col-md-12">
+                <input id="btnLogin" type="submit" value="Login" />
+            </div>
         }
     </div>
 </div>

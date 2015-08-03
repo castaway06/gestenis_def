@@ -11,9 +11,24 @@ namespace GesTenis.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            // Retorna la vista
-            return View();
+            if ((object)Session["IsAdmin"] != null)
+            {
+                if ((bool)Session["IsAdmin"].Equals(true))
+                {
+                    return View();
+                }
+                return RedirectToAction("NoAcceso", "Admin");
+            }
+            else
+            {
+                return RedirectToAction("NoAcceso","Admin");
+            }
+            
         }
 
+        public ActionResult NoAcceso()
+        {
+            return View();
+        }
     }
 }
