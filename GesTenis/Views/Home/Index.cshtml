@@ -13,32 +13,32 @@
     <div class="col-md-4">
         <h2> Zona a rellenar</h2>
         <h3> </h3>
-        <p>usuario:</p>
-        <p>Contraseña: </p>
+        <p>usuario: un ejemplo</p>
+        <p>Contraseña: para visualizar</p>
         <p><a class="btn btn-default">Login</a></p>
     </div>
     <div class="col-md-4">
         <h2>Si aún no eres socio ...</h2>
-        <center>@Html.ActionLink("Registrate", "alta", "home", null, new { @class = "btn btn-default" })</center>
+        <center>@Html.ActionLink("Registrate", "Alta", "Home", null, new { @class = "btn btn-default" })</center>
     </div>
     <div class="col-md-4">
         <h2>Inicio de sesión para SOCIOS</h2>
-        @using (Html.BeginForm())
+        @*@using (Html.BeginForm())
         {
             <div class="form-group">
                 @Html.LabelFor(model => model.userId, new { @class="control-label"})
-                @Html.EditorFor(model => model.userId, new { @class = "form-control" })
+                @Html.EditorFor(model => model.userId, new { htmlAttributes = new { @class = "form-control" } })
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(m => m.userPassword, new { @class = "control-label" })
+                @Html.LabelFor(m => m.userPassword, new { htmlAttributes = new { @class = "control-label" } })
                 @Html.PasswordFor(m => m.userPassword, new { @class = "form-control" })
             </div>
-
 
             <div class="col-md-offset-0 col-md-12">
                 <input id="btnLogin" type="submit" value="Login" />
             </div>
-        }
+        }*@
+        <center>@Html.ActionLink("Accede", "Login", "Home", null, new { @class = "btn btn-default"})</center>
     </div>
 </div>

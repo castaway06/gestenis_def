@@ -1,0 +1,11 @@
+﻿VARIABLES SESSION
+
+Session["UserID"]
+Session["UserName"]
+Session["IsAdmin"]
+
+-----------------------------------------
+EMAIL
+
+User: proyecto.gestenis@gmail.com
+Pass: adminsocio12

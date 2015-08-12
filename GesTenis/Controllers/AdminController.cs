@@ -8,27 +8,63 @@ namespace GesTenis.Controllers
 {
     public class AdminController : Controller
     {
+
         // GET: Admin
         public ActionResult Index()
         {
-            if ((object)Session["IsAdmin"] != null)
+            if (isAdmin())
             {
-                if ((bool)Session["IsAdmin"].Equals(true))
-                {
-                    return View();
-                }
-                return RedirectToAction("NoAcceso", "Admin");
+                return View();
             }
             else
             {
-                return RedirectToAction("NoAcceso","Admin");
+                if (isSocio())
+                {
+                    return RedirectToAction("Index", "Socio");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
-            
         }
 
         public ActionResult NoAcceso()
         {
             return View();
         }
+
+        public bool isAdmin()
+        {
+            if ((object)Session["IsAdmin"] != null)
+            {
+                if ((bool)Session["IsAdmin"].Equals(true))
+                {
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool isSocio()
+        {
+            if ((object)Session["UserId"] != null)
+            {
+                if ((bool)Session["IsAdmin"].Equals(false))
+                {
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

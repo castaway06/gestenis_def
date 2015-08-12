@@ -1,8 +1,8 @@
-﻿@if ((Object)Session["SessionUserId"] != null)
+﻿@if ((Object)Session["UserId"] != null)
 {
     <h2>Pagina de  ADMINISTRADOR</h2>
     <div>
-        Hello @Session["SessionUserId"].ToString()
+        Hello @Session["UserId"].ToString()
     </div>
 }
 else

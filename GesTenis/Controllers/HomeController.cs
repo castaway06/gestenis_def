@@ -15,12 +15,24 @@ namespace GesTenis.Controllers
             return View();
         }
 
+        public ActionResult Login()
+        {
+            if ((object)Session["UserId"] == null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", (bool)Session["IsAdmin"] == true ? "Admin" : "Socio");
+            }
+        }
+
         [HttpPost]
-        public ActionResult Index(LoginViewModel model)
+        public ActionResult Login(LoginViewModel model)
         {
             var db_user = (from socio in db.socios where socio.id == model.userId select socio).FirstOrDefault();
 
-            if (db_user !=null)
+            if (db_user != null)
             {
                 string db_password = db_user.password;
                 if (model.userPassword == db_password)
@@ -28,19 +40,20 @@ namespace GesTenis.Controllers
                     bool db_user_is_admin = db_user.is_admin;
                     if (db_user_is_admin)
                     {
-                        Session["SessionUserId"] = model.userId;
-                        Session["SessionUserName"] = db_user.nombre;
+                        Session["UserId"] = model.userId;
+                        Session["UserName"] = db_user.nombre;
                         Session["IsAdmin"] = true;
                         return RedirectToAction("Index", "Admin");
                     }
-                    Session["SessionUserId"] = model.userId;
-                    Session["SessionUserName"] = db_user.nombre;
+                    Session["UserId"] = model.userId;
+                    Session["UserName"] = db_user.nombre;
                     Session["IsAdmin"] = false;
                     return RedirectToAction("Index", "Socio");
                 }
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Home");
         }
+
 
         public ActionResult LogOff()
         {
