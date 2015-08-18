@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace GesTenis.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
 
         // GET: Admin

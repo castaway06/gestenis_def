@@ -30,6 +30,20 @@
         </div>
     </div>
     <div class="container body-content">
+        @if (ViewBag.errors != null)
+        {
+            <div class="alert alert-danger">
+                <ul>
+                    @Html.Raw(ViewBag.errors)
+                </ul>
+            </div>
+        }
+        @if (ViewBag.message != null)
+        {
+            <div class="alert alert-success">
+                @Html.Raw(ViewBag.message)
+            </div>
+        }
         @RenderBody()
         <hr />
         <footer>

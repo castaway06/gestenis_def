@@ -11,7 +11,7 @@ using GesTenis.tools;
 
 namespace GesTenis.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private gestenis_defEntities db = new gestenis_defEntities();
         public ActionResult Index()
@@ -53,7 +53,7 @@ namespace GesTenis.Controllers
                             + "<p>Su nombre de usuario es: " + db_user.id + "</p>"
                             + "<p>Se logueó desde la dirección IP: " + requestIp;
                         Tools.sendEmail(db_user, subject, body);
-                        
+                        saveMessage("Se ha logueado correctamente como " + db_user.id);
                         return RedirectToAction("Index", "Admin");
                     }
                     Session["IsAdmin"] = false;
@@ -65,6 +65,8 @@ namespace GesTenis.Controllers
                     return RedirectToAction("Index", "Socio");
                 }
             }
+            addError("Login incorrecto");
+            saveErrors();
             return RedirectToAction("Login", "Home");
         }
 

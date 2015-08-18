@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace GesTenis.Controllers
 {
-    public class SocioController : Controller
+    public class SocioController : BaseController
     {
 
         // GET: Socio
