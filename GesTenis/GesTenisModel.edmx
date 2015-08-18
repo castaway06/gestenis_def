@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="gestenis_defModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="gestenis_defModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="facturas">
           <Key>
             <PropertyRef Name="id_reserva" />
@@ -51,8 +51,8 @@
           <Property Name="telefono" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="direccion1" Type="varchar" MaxLength="256" Nullable="false" />
           <Property Name="direccion2" Type="varchar" MaxLength="256" />
-          <Property Name="f_alta" Type="date" Nullable="false" />
-          <Property Name="f_baja" Type="date" />
+          <Property Name="f_alta" Type="datetime" Nullable="false" />
+          <Property Name="f_baja" Type="datetime" />
         </EntityType>
         <Association Name="FK_facturas">
           <End Role="reservas" Type="Self.reservas" Multiplicity="1">
@@ -110,8 +110,7 @@
             <End Role="reservas" EntitySet="reservas" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="gestenis_defModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -164,8 +163,8 @@
           <Property Name="telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="direccion1" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="direccion2" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="f_alta" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="f_baja" Type="DateTime" Precision="0" />
+          <Property Name="f_alta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="f_baja" Type="DateTime" Precision="3" />
           <NavigationProperty Name="reservas" Relationship="Self.FK_reservas" FromRole="socios" ToRole="reservas" />
         </EntityType>
         <Association Name="FK_facturas">

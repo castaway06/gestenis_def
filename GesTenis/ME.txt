@@ -2,6 +2,7 @@
 
 Session["UserID"]
 Session["UserName"]
+Session["Name"]
 Session["IsAdmin"]
 
 -----------------------------------------

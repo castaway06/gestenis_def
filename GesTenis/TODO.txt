@@ -4,3 +4,37 @@ Si estoy logueado (bien como admin o socio) y accedo a /Home/login me sale el fo
 Sol: modifico el controlador de login para que compruebe si la variable de Session es nula => lleva a login, o si Session["IsAdmin"] es
 	 true o false para redirigir a home de Admin o de Socio.
 
+
+
+HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Registro([Bind(Include = "password,nombre,apellidos,nif,email,telefono,direccion1,direccion2")] RegistroViewModel registro)
+        {
+            if (ModelState.IsValid)
+            {
+                socios socio = new socios();
+                socio.id = registro.nombre.Substring(0, 3) + registro.apellidos.Substring(0, 3) + registro.nif.Substring(0, 3);
+                socio.password = Tools.SHA256Encrypt(registro.password);
+                socio.nombre = registro.nombre;
+                socio.apellidos = registro.apellidos;
+                socio.nif = registro.nif;
+                socio.email = registro.email;
+                socio.telefono = registro.telefono;
+                socio.direccion1 = registro.direccion1;
+                socio.direccion2 = registro.direccion2;
+                socio.is_admin = false;
+                socio.f_alta = DateTime.Today;
+                socio.f_baja = null;
+                socio.reservas = null;
+                db.socios.Add(socio);
+                db.SaveChanges();
+                string subject2 = "REGISTRO correcto en Gestenis";
+                string body2 = "<h1>Esto es un mensaje automático del sistema</h1>"
+                    + "<p>Se ha registrado correctamente como SOCIO: " + socio.nombre + " " + socio.apellidos + ".</p>"
+                    + "<p>Su nombre de usuario es: " + socio.id + "</p>";
+                Tools.sendEmail(socio, subject2, body2);
+                return RedirectToAction("Login");
+            }
+
+            return RedirectToAction("Login", "Index");
+        }

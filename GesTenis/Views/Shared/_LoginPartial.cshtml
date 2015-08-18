@@ -6,7 +6,7 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Hello " + Session["UserId"].ToString() + "!", "Index", (bool)Session["IsAdmin"] ? "Admin" : "Socio", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink("Hello " + Session["Name"].ToString() + "!", "Index", (bool)Session["IsAdmin"] ? "Admin" : "Socio", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li>@Html.ActionLink("Log off","LogOff","Home")</li>
     </ul>
@@ -15,7 +15,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Index", "Home", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Register", "Registro", "Home", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

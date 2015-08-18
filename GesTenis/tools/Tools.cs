@@ -5,6 +5,8 @@ using System.Web;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web.Mvc;
+using System.Net;
+using System.Net.Mail;
 
 namespace GesTenis.tools
 {
@@ -23,6 +25,34 @@ namespace GesTenis.tools
                 output.Append(hashedBytes[i].ToString("x2").ToLower());
 
             return output.ToString();
+        }
+
+        public static void sendEmail(socios socio, string subject, string body)
+        {
+
+            var fromAddress = new MailAddress("proyecto.gestenis@gmail.com", "Proyecto Gestenis");
+            string fromPassword = "adminsocio12";
+            var toAddress = new MailAddress(socio.email, socio.nombre);
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+            using (var message = new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+            {
+                smtp.Send(message);
+            }
+
         }
 
     }
