@@ -73,5 +73,12 @@ namespace GesTenis.Controllers
             mainController.ViewData["errors"] = mainController.loadErrors();
             mainController.ViewData["message"] = mainController.loadMessage();
         }
+
+        public override void OnResultExecuting(ResultExecutingContext filterContext)
+        {
+            BaseController mainController = ((BaseController)filterContext.Controller);
+            mainController.ViewData["errors"] = mainController.loadErrors();
+            mainController.ViewData["message"] = mainController.loadMessage();
+        }
     }
 }

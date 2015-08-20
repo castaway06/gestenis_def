@@ -161,7 +161,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\intermedioController.cs" />
+    <Compile Include="Controllers\interSocioController.cs" />
     <Compile Include="Controllers\SocioController.cs" />
     <Compile Include="facturas.cs">
       <DependentUpon>GesTenisModel.tt</DependentUpon>

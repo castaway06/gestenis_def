@@ -43,29 +43,28 @@ namespace GesTenis.Controllers
                     Session["UserId"] = model.userId;
                     Session["UserName"] = db_user.nombre;
                     Session["Name"] = db_user.nombre;
-                    if (db_user.is_admin)
-                    {
-                        Session["IsAdmin"] = true;
-                        string requestIp = Request.UserHostAddress.ToString();
-                        string subject = "Login correcto en Gestenis";
-                        string body = "<h1>Esto es un mensaje automático del sistema</h1>"
-                            + "<p>Se ha logueado correctamente como ADMINISTRADOR: " + db_user.nombre + " " + db_user.apellidos + ".</p>"
-                            + "<p>Su nombre de usuario es: " + db_user.id + "</p>"
-                            + "<p>Se logueó desde la dirección IP: " + requestIp;
-                        Tools.sendEmail(db_user, subject, body);
-                        saveMessage("Se ha logueado correctamente como " + db_user.id);
-                        return RedirectToAction("Index", "Admin");
-                    }
-                    Session["IsAdmin"] = false;
-                    string subject2 = "Login correcto en Gestenis";
-                    string body2 = "<h1>Esto es un mensaje automático del sistema</h1>"
-                        + "<p>Se ha logueado correctamente como SOCIO: " + db_user.nombre + " " + db_user.apellidos + ".</p>"
-                        + "<p>Su nombre de usuario es: " + db_user.id + "</p>";
-                    Tools.sendEmail(db_user, subject2, body2);
-                    return RedirectToAction("Index", "Socio");
+                    Session["IsAdmin"] = db_user.is_admin ? true : false;
+                    //Lo siguiente comentado, era la versión inicial de la linea de arriba
+                    //if (db_user.is_admin)
+                    //{
+                    //    Session["IsAdmin"] = true;
+                    //}
+                    //else
+                    //{
+                    //    Session["IsAdmin"] = false;
+                    //}
+                    string requestIp = Request.UserHostAddress.ToString();
+                    string subject = "Login correcto en Gestenis";
+                    string body = "<h1>Esto es un mensaje automático del sistema</h1>"
+                        + "<p>Se ha logueado correctamente como " + ((bool)Session["IsAdmin"] ? "ADMINISTRADOR" : "SOCIO") + ": " + db_user.nombre + " " + db_user.apellidos + ".</p>"
+                        + "<p>Su nombre de usuario es: " + db_user.id + "</p>"
+                        + "<p>Se logueó desde la dirección IP: " + requestIp;
+                    Tools.sendEmail(db_user, subject, body);
+                    saveMessage("Se ha logueado correctamente como " + db_user.id);
+                    return RedirectToAction("Index", (bool)Session["IsAdmin"] ? "Admin" : "Socio");
                 }
             }
-            addError("Login incorrecto");
+            addError("Usuario o contraseña incorrectos");
             saveErrors();
             return RedirectToAction("Login", "Home");
         }
@@ -74,6 +73,7 @@ namespace GesTenis.Controllers
         {
             Session.Clear();
             Session.Abandon();
+            saveMessage("Se ha cerrado la sesión correctamente");
             return View();
         }
 

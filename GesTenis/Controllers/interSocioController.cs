@@ -10,7 +10,7 @@ using GesTenis;
 
 namespace GesTenis.Controllers
 {
-    public class intermedioController : Controller
+    public class interSocioController : Controller
     {
         private gestenis_defEntities db = new gestenis_defEntities();
 
