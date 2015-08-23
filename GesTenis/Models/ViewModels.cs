@@ -6,11 +6,11 @@ namespace GesTenis.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required()]
         [Display(Name = "Usuario")]
         public string userId { get; set; }
 
-        [Required]
+        [Required()]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string userPassword { get; set; }
@@ -20,24 +20,24 @@ namespace GesTenis.Models
     {
         [DataType(DataType.Password)]
         [Display(Name="Contraseña")]
-        [Required]
+        [Required()]
         public string password { get; set; }
         
         [Display(Name="Nombre")]
-        [Required]
+        [Required()]
         public string nombre { get; set; }
         
         [Display(Name = "Apellidos")]
-        [Required]
+        [Required()]
         public string apellidos { get; set; }
         
         [Display(Name = "DNI o NIE")]
-        [Required]
+        [Required()]
         public string nif { get; set; }
         
         [DataType(DataType.EmailAddress)]
         [Display(Name = "E-mail")]
-        [Required]
+        [Required()]
         public string email { get; set; }
         
         [Display(Name = "Teléfono")]

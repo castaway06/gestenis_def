@@ -45,15 +45,7 @@ namespace GesTenis.Controllers
                     Session["UserName"] = db_user.nombre;
                     Session["Name"] = db_user.nombre;
                     Session["IsAdmin"] = db_user.is_admin ? true : false;
-                    //Lo siguiente comentado, era la versión inicial de la linea de arriba
-                    //if (db_user.is_admin)
-                    //{
-                    //    Session["IsAdmin"] = true;
-                    //}
-                    //else
-                    //{
-                    //    Session["IsAdmin"] = false;
-                    //}
+                    
                     string requestIp = Request.UserHostAddress.ToString();
                     string subject = "Login correcto en Gestenis";
                     string body = "<h1>Esto es un mensaje automático del sistema</h1>"

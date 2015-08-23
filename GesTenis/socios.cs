@@ -25,27 +25,27 @@ namespace GesTenis
         
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
-        [Required]
+        [Required()]
         public string password { get; set; }
         
         [Display(Name = "Es Admin")]
         public bool is_admin { get; set; }
         
         [Display(Name = "Nombre")]
-        [Required]
+        [Required()]
         public string nombre { get; set; }
         
         [Display(Name = "Apellidos")]
-        [Required]
+        [Required()]
         public string apellidos { get; set; }
         
         [Display(Name = "NIF")]
-        [Required]
+        [Required()]
         public string nif { get; set; }
         
         [Display(Name = "E-mail")]
         [DataType(DataType.EmailAddress)]
-        [Required]
+        [Required()]
         public string email { get; set; }
         
         [Display(Name = "Teléfono")]
