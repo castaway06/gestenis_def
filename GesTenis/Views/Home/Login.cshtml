@@ -9,7 +9,7 @@
         <h2 class="form-signin-heading">Inicia sesion</h2>
 
         @Html.LabelFor(model => model.userId, new { @class = "control-label" })
-        @Html.EditorFor(model => model.userId, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.userId, new { htmlAttributes = new { @class = "form-control focus" } })
 
         @Html.LabelFor(m => m.userPassword, new { htmlAttributes = new { @class = "control-label" } })
         @Html.PasswordFor(m => m.userPassword, new { @class = "form-control" })
@@ -17,5 +17,11 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 
     }
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            initControls();
+        });
+    </script>
 
 </div> <!-- /container -->

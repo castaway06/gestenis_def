@@ -207,6 +207,7 @@
     <Content Include="Content\imgs\fondo_grupo_pelotas.jpg" />
     <Content Include="Content\imgs\fondo_pelota_embutida_tierra.jpg" />
     <Content Include="Content\imgs\fondo_pelota_tierra.jpg" />
+    <Content Include="Content\jquery.datetimepicker.css" />
     <Content Include="Content\Login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -233,10 +234,12 @@
       <LastGenOutput>GesTenisModel.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\gestenis.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
+    <Content Include="Scripts\jquery.datetimepicker.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -300,6 +303,8 @@
     <Content Include="Views\intermedio\Edit.cshtml" />
     <Content Include="Views\intermedio\Index.cshtml" />
     <Content Include="Views\Home\Registro.cshtml" />
+    <Content Include="Views\Admin\Socios.cshtml" />
+    <Content Include="Views\Admin\EditarSocio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
