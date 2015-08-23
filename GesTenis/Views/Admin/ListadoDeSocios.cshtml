@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Listado De Socios";
+}
+
+<h2>Listado de Socios</h2>
+
+<script type="text/javascript">
+    $(function () {
+        $('#showAllSociosButton').click(function () {
+            loadSocios();
+        });
+    });
+
+    $(function () {
+        $('#filterByIdButton').click(function () {
+            loadSocios($('#nif').val());
+        });
+    });
+
+    function loadSocios(nif) {
+        $('#resultados').html(getLoader());
+        $.ajax({
+            url: '/admin/loadSocios', type: 'post', data: {nif: nif}, success: function (result) {
+                $('#resultados').html(result);
+            }
+        });
+    }
+
+</script>
+
+<div>
+    <button id="showAllSociosButton">Pulsa para ver todos los socios</button>
+    <div>
+        <input type="text" id="nif" />
+        <button id="filterByIdButton">Pulsa para filtrar por NIE</button>
+    </div>
+</div>
+<div id="resultados">
+
+</div>

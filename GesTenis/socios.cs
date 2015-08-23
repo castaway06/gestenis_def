@@ -22,30 +22,47 @@ namespace GesTenis
     
         [Display(Name="ID")]
         public string id { get; set; }
+        
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
+        [Required]
         public string password { get; set; }
+        
         [Display(Name = "Es Admin")]
         public bool is_admin { get; set; }
+        
         [Display(Name = "Nombre")]
+        [Required]
         public string nombre { get; set; }
+        
         [Display(Name = "Apellidos")]
+        [Required]
         public string apellidos { get; set; }
+        
         [Display(Name = "NIF")]
+        [Required]
         public string nif { get; set; }
+        
         [Display(Name = "E-mail")]
         [DataType(DataType.EmailAddress)]
+        [Required]
         public string email { get; set; }
+        
         [Display(Name = "Teléfono")]
         [DataType(DataType.PhoneNumber)]
         public string telefono { get; set; }
+        
         [Display(Name = "Calle y número")]
         public string direccion1 { get; set; }
+        
         [Display(Name = "CP y localidad")]
         public string direccion2 { get; set; }
+        
         [Display(Name = "Fecha alta")]
         public System.DateTime f_alta { get; set; }
+        
         [Display(Name = "Fecha baja")]
+        
         public Nullable<System.DateTime> f_baja { get; set; }
     
         public virtual ICollection<reservas> reservas { get; set; }

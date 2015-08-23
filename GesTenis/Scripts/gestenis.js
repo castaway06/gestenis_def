@@ -3,3 +3,6 @@
     $('.focus').focus();
 }
 
+function getLoader() {
+    return "<p>Cargando  ... por favor, espere </p>";
+}

@@ -12,21 +12,8 @@ namespace GesTenis.Controllers
         // GET: Socio
         public ActionResult Index()
         {
-            if (isSocio())
-            {
-                return View();
-            }
-            else
-            {
-                if (isAdmin())
-                {
-                    return RedirectToAction("Index", "Admin");
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-            }
+            if (isSocio()) return View();
+            else return RedirectToAction("Index", isAdmin() ? "Admin" : "Home");
         }
 
         public ActionResult NoAcceso()

@@ -13,42 +13,40 @@ namespace GesTenis.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            if (isAdmin())
+            if (isAdmin()) return View();
+            else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        public ActionResult ListadoDeSocios()
+        {
+            if (isAdmin()) return View();
+            else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        [HttpPost]
+        public ActionResult LoadSocios(string nif)
+        {
+            List<GesTenis.socios> ret = null;
+            if (nif == null || nif == "")
             {
-                return View();
+                ret = db.socios.ToList();
             }
             else
             {
-                if (isSocio())
-                {
-                    return RedirectToAction("Index", "Socio");
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
-                }
+                ret = (from socio in db.socios where socio.nif == nif select socio).ToList();
+
             }
+            return PartialView(ret);
         }
 
         public ActionResult Socios()
         {
             if (isAdmin())
-            {
                 //Codigo que se ejecuta en caso de Admin
                 return View(db.socios.ToList());
-            }
             else
-            {
-                //Codigo que se ejecuta en caso de socio o no auth
-                if (isSocio())
-                {
-                    return RedirectToAction("Index", "Socio");
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-            }
+                // Codigo que se ejecuta en caso de socio o no auth
+                return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
         // GET: Admin/EditarSocio/id
@@ -63,27 +61,18 @@ namespace GesTenis.Controllers
                     saveErrors();
                     return RedirectToAction("Socios", "Admin");
                 }
-                socios socios = db.socios.Find(id);
-                if (socios == null)
+                socios socio = db.socios.Find(id);
+                if (socio == null)
                 {
                     addError("El socio seleccionado no existe");
                     saveErrors();
                     return RedirectToAction("Socios", "Admin");
                 }
-                return View(socios);
+                return View(socio);
             }
             else
-            {
                 //Codigo que se ejecuta en caso de socio o no auth
-                if (isSocio())
-                {
-                    return RedirectToAction("Index", "Socio");
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-            }
+                return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
         public ActionResult NoAcceso()

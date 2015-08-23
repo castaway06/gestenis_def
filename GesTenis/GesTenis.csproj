@@ -305,6 +305,9 @@
     <Content Include="Views\Home\Registro.cshtml" />
     <Content Include="Views\Admin\Socios.cshtml" />
     <Content Include="Views\Admin\EditarSocio.cshtml" />
+    <Content Include="Views\Admin\ListadoDeSocios.cshtml" />
+    <Content Include="Views\Admin\LoadSocios.cshtml" />
+    <Content Include="Views\Home\RecuperarContrasena.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

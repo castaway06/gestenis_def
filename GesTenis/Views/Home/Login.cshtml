@@ -1,10 +1,15 @@
 ﻿@model GesTenis.Models.LoginViewModel
 
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        initControls();
+    });
+</script>
+
 <div class="container">
 
-    @using (Html.BeginForm("Login", "Home",
-            null,
-            FormMethod.Post, new { @class = "form-signin" }))
+    @using (Html.BeginForm("Login", "Home", null, FormMethod.Post, new { @class = "form-signin" }))
     {
         <h2 class="form-signin-heading">Inicia sesion</h2>
 
@@ -16,12 +21,8 @@
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 
-    }
+        <p>@Html.ActionLink("Has olvidado tu contraseña?", "RecuperarContrasena", "Home")</p>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            initControls();
-        });
-    </script>
+    }
 
 </div> <!-- /container -->

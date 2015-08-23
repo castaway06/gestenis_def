@@ -1,0 +1,22 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        initControls();
+    });
+</script>
+
+<div class="container">
+
+    @using (Html.BeginForm("RecuperarContrasena", "Home", null, FormMethod.Post, new { @class = "form-signin" }))
+    {
+        <h2 class="form-signin-heading">Recuperar contraseña</h2>
+        
+        <p>Introduce tu email y te enviaremos una contraseña nueva.</p>
+        <label class="control-label" for="email">Introduce tu email</label>
+        
+        <input class="form-control focus" data-val="true" data-val-required="El campo email es obligatorio" id="email" name="email" type="text" />
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+    }
+
+</div> <!-- /container -->
