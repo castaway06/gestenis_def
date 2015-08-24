@@ -41,7 +41,7 @@ namespace GesTenis.Controllers
             {
                 if (Tools.SHA256Encrypt(model.userPassword) == db_user.password)
                 {
-                    Session["UserId"] = model.userId;
+                    Session["UserId"] = db_user.id;
                     Session["UserName"] = db_user.nombre;
                     Session["Name"] = db_user.nombre;
                     Session["IsAdmin"] = db_user.is_admin ? true : false;

@@ -51,4 +51,22 @@ namespace GesTenis.Models
         public string direccion2 { get; set; }
     }
 
+    public class CambiarContrasenaViewModel
+    {
+        [Display(Name= "Contraseña actual")]
+        [DataType(DataType.Password)]
+        [Required()]
+        public string oldPass {get; set;}
+
+        [Display(Name= "Contraseña nueva")]
+        [DataType(DataType.Password)]
+        [Required()]
+        public string newPass {get; set;}
+
+
+        [Display(Name= "Repita contraseña")]
+        [DataType(DataType.Password)]
+        [Required()]
+        public string verifyNewPass {get; set;}
+    }
 }
