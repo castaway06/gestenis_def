@@ -1,12 +1,5 @@
 ﻿@model GesTenis.Models.LoginViewModel
 
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        initControls();
-    });
-</script>
-
 <div class="container">
 
     @using (Html.BeginForm("Login", "Home", null, FormMethod.Post, new { @class = "form-signin" }))

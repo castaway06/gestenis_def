@@ -309,6 +309,7 @@
     <Content Include="Views\Admin\LoadSocios.cshtml" />
     <Content Include="Views\Home\RecuperarContrasena.cshtml" />
     <Content Include="Views\Socio\CambiarContrasena.cshtml" />
+    <Content Include="Views\Admin\CambiarContrasena.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

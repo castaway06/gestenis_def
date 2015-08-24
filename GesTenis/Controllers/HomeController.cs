@@ -15,6 +15,7 @@ namespace GesTenis.Controllers
     public class HomeController : BaseController
     {
         private gestenis_defEntities db = new gestenis_defEntities();
+        
         public ActionResult Index()
         {
             return View();
@@ -45,7 +46,7 @@ namespace GesTenis.Controllers
                     Session["UserName"] = db_user.nombre;
                     Session["Name"] = db_user.nombre;
                     Session["IsAdmin"] = db_user.is_admin ? true : false;
-                    
+
                     string requestIp = Request.UserHostAddress.ToString();
                     string subject = "Login correcto en Gestenis";
                     string body = "<h1>Esto es un mensaje automático del sistema</h1>"
@@ -66,7 +67,7 @@ namespace GesTenis.Controllers
         {
             Session.Clear();
             Session.Abandon();
-            saveMessage("Se ha cerrado la sesión correctamente");
+            saveMessage("Sesión cerrada con exito");
             return View();
         }
 
@@ -108,7 +109,7 @@ namespace GesTenis.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult RecuperarContrasena(string email)
         {
@@ -141,7 +142,7 @@ namespace GesTenis.Controllers
                           .ToArray());
             return result;
         }
-        
+
         public ActionResult About()
         {
             return View();
