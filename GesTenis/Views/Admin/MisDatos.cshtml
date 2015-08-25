@@ -1,0 +1,90 @@
+﻿@model GesTenis.socios
+
+@{
+    ViewBag.Title = "Mis datos";
+}
+
+<h2>Mis datos</h2>
+
+<div>
+    <h4>socios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.is_admin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_admin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion2)
+        </dd>
+
+        <dt>
+            Fecha de alta en el sistema
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f_alta)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Modificar mis datos", "ModificarDatos", "Admin")
+</div>
+

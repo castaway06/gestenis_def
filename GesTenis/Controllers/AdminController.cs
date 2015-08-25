@@ -115,6 +115,18 @@ namespace GesTenis.Controllers
             }
         }
 
+        public ActionResult MisDatos()
+        {
+            if (isAdmin())
+            {
+                string id = (string)Session["UserID"];
+                var db_socio = db.socios.Where(x => x.id == id).First();
+                return View(db_socio);
+            }
+            else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+
+        }
+
 
         public ActionResult NoAcceso()
         {
