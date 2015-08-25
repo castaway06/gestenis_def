@@ -69,4 +69,6 @@ namespace GesTenis.Models
         [Required()]
         public string verifyNewPass {get; set;}
     }
+
+
 }

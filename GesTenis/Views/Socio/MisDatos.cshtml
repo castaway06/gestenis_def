@@ -70,12 +70,11 @@
         </dt>
 
         <dd>
-            @*@{ string fecha_alta = Model.f_alta.ToString("dd/MM/yyyy");}*@
-            @Model.f_alta.ToString("dd/MM/yyyy")
+            @Html.DisplayFor(model => model.f_alta)
         </dd>
 
         <dt>
-            Expiración cuota
+            @Html.DisplayNameFor(model => model.f_alta)
         </dt>
 
         @{
@@ -102,4 +101,8 @@
         </dd>
 
     </dl>
+</div>
+
+<div>
+    @Html.ActionLink("Modificar mis datos", "ModificarDatos", "Socio")
 </div>

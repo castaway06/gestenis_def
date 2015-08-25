@@ -59,9 +59,10 @@ namespace GesTenis
         public string direccion2 { get; set; }
         
         [Display(Name = "Fecha alta")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public System.DateTime f_alta { get; set; }
         
-        [Display(Name = "Fecha baja")]
+        [Display(Name = "Expiración cuota")]
         
         public Nullable<System.DateTime> f_baja { get; set; }
     
