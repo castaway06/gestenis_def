@@ -26,13 +26,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi cuenta <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Mis Datos", "", "")</li>
-                            <li>@Html.ActionLink("Cambiar contraseña", "CambiarContrasena", "Socio")</li>
-                        </ul>
-                    </li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
@@ -58,7 +51,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - GesTenis</p>
+            <p>&copy; @DateTime.Now.Year - Proyecto GesTenis</p>
         </footer>
     </div>
 

@@ -57,6 +57,16 @@ namespace GesTenis.Controllers
             }
         }
 
+        public ActionResult Detalles()
+        {
+            if (isSocio())
+            {
+                string id = (string)Session["UserID"];
+                var db_socio = db.socios.Where(x => x.id == id).First();
+                return View(db_socio);
+            }
+            else return RedirectToAction("Index", isAdmin() ? "Admin" : "Home");
+        }
 
         public ActionResult NoAcceso()
         {

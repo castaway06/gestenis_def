@@ -50,7 +50,14 @@ namespace GesTenis.tools
                 IsBodyHtml = true
             })
             {
-                smtp.Send(message);
+                try // TODO: Mirar que hacer con esta excepción
+                {
+                    smtp.Send(message);
+                }
+                catch (Exception e)
+                {
+                    // ´TODO: mirar que hacer con esta excepción
+                }
             }
 
         }

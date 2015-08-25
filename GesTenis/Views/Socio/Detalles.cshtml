@@ -1,0 +1,106 @@
+﻿@model GesTenis.socios
+
+@{
+    ViewBag.Title = "Mis datos";
+}
+
+<h2>Mis datos</h2>
+
+<div>
+    <h4>socios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f_alta)
+        </dt>
+
+        <dd>
+            @*@{ string fecha_alta = Model.f_alta.ToString("dd/MM/yyyy");}*@
+            @Model.f_alta.ToString("dd/MM/yyyy")
+        </dd>
+
+        <dt>
+            Expiración cuota
+        </dt>
+
+        @{
+            string ret = null;
+            if (Model.f_baja == null)
+            {
+                ret = "Socio no activado por primera vez";
+            }
+            else
+            {
+                DateTime fecha_baja = Model.f_baja ?? default(DateTime);
+                if (DateTime.Compare(fecha_baja, DateTime.Today) < 0)
+                {
+                    ret = "Suscripción caducada a fecha " + fecha_baja.ToString("dd/MM/yyyy");
+                }
+                if (DateTime.Compare(fecha_baja, DateTime.Today) > 0)
+                {
+                    ret = "Suscripción activa hasta " + fecha_baja.ToString("dd/MM/yyyy");
+                }
+            }
+        }
+        <dd>
+            @ret
+        </dd>
+
+    </dl>
+</div>

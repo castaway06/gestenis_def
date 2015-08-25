@@ -4,8 +4,14 @@
 	Sol: modifico el controlador de login para que compruebe si la variable de Session es nula => lleva a login, o si Session["IsAdmin"] es
 	 true o false para redirigir a home de Admin o de Socio.
 
-- Revisar BaseController, las acciones que se realizan OnActionExecuting o OnResultExecuting
+- Excepción en Tools.sendEmail -> mirar que hacer con la excepción.
 
+
+- Revisar BaseController, las acciones que se realizan OnActionExecuting o OnResultExecuting (se deja OnActionExecuting)
+
+
+--------------------------------------------------------------------------------------------------------
+_loginpartial (version inicial, si sigue funcionando puedo borrar esto)
 @if ((Object)Session["UserId"]!=null)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Get, new { id = "logoutForm", @class = "navbar-right" }))
@@ -36,5 +42,6 @@ else
     </ul>
 }
 
+---------------------------------------------------------------------------------------------------------
 
 
