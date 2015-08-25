@@ -57,7 +57,7 @@ namespace GesTenis.Controllers
             }
         }
 
-        public ActionResult Detalles()
+        public ActionResult MisDatos()
         {
             if (isSocio())
             {

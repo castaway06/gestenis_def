@@ -7,7 +7,6 @@
 <h2>Mis datos</h2>
 
 <div>
-    <h4>socios</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -83,18 +82,18 @@
             string ret = null;
             if (Model.f_baja == null)
             {
-                ret = "Socio no activado por primera vez";
+                ret = "Su cuenta no ha sido aún activada. Ha de proporcionar recibo del pago en la conserjería del club.";
             }
             else
             {
                 DateTime fecha_baja = Model.f_baja ?? default(DateTime);
                 if (DateTime.Compare(fecha_baja, DateTime.Today) < 0)
                 {
-                    ret = "Suscripción caducada a fecha " + fecha_baja.ToString("dd/MM/yyyy");
+                    ret = "Cuota de socio caducada a fecha " + fecha_baja.ToString("dd/MM/yyyy");
                 }
                 if (DateTime.Compare(fecha_baja, DateTime.Today) > 0)
                 {
-                    ret = "Suscripción activa hasta " + fecha_baja.ToString("dd/MM/yyyy");
+                    ret = "Cuota de socio activa hasta " + fecha_baja.ToString("dd/MM/yyyy");
                 }
             }
         }

@@ -310,7 +310,7 @@
     <Content Include="Views\Home\RecuperarContrasena.cshtml" />
     <Content Include="Views\Socio\CambiarContrasena.cshtml" />
     <Content Include="Views\Admin\CambiarContrasena.cshtml" />
-    <Content Include="Views\Socio\Detalles.cshtml" />
+    <Content Include="Views\Socio\MisDatos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
