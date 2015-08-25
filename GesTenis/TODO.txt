@@ -6,6 +6,8 @@
 
 - Excepción en Tools.sendEmail -> mirar que hacer con la excepción.
 
+- SEGUIR EN RECUPERAR CONTRASEÑA
+
 
 - Revisar BaseController, las acciones que se realizan OnActionExecuting o OnResultExecuting (se deja OnActionExecuting)
 

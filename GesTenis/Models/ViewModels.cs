@@ -51,6 +51,14 @@ namespace GesTenis.Models
         public string direccion2 { get; set; }
     }
 
+    public class RecuperarContrasenaViewModel
+    {
+        [Display(Name = "Introduce tu email")]
+        [DataType(DataType.EmailAddress)]
+        [Required()]
+        public string email { get; set; }
+    }
+
     public class CambiarContrasenaViewModel
     {
         [Display(Name= "Contraseña actual")]

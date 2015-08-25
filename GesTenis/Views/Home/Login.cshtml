@@ -4,18 +4,22 @@
 
     @using (Html.BeginForm("Login", "Home", null, FormMethod.Post, new { @class = "form-signin" }))
     {
+        @Html.AntiForgeryToken()
+
         <h2 class="form-signin-heading">Inicia sesion</h2>
+        
         <div>
             @Html.LabelFor(model => model.userId, new { @class = "control-label" })
             @Html.EditorFor(model => model.userId, new { htmlAttributes = new { @class = "form-control focus" } })
             @Html.ValidationMessageFor(model => model.userId, "", new { @class = "text-danger" })
         </div>
+        
         <div>
             @Html.LabelFor(m => m.userPassword, new { htmlAttributes = new { @class = "control-label" } })
             @Html.PasswordFor(m => m.userPassword, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.userPassword, "", new { @class = "text-danger" })
-
         </div>
+        
         <div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </div>

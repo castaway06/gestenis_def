@@ -15,7 +15,7 @@ namespace GesTenis.Controllers
     public class HomeController : BaseController
     {
         private gestenis_defEntities db = new gestenis_defEntities();
-        
+
         public ActionResult Index()
         {
             return View();
@@ -34,6 +34,7 @@ namespace GesTenis.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model)
         {
             var db_user = (from socio in db.socios where socio.id == model.userId select socio).FirstOrDefault();
@@ -111,37 +112,37 @@ namespace GesTenis.Controllers
         }
 
         [HttpPost]
-        public ActionResult RecuperarContrasena(string email)
+        [ValidateAntiForgeryToken]
+        public ActionResult RecuperarContrasena([Bind(Include = "email")] RecuperarContrasenaViewModel model)
         {
-            string pass = newPassword();
-            Debug.WriteLine(pass);
-            socios socio = (from x in db.socios where x.email == email select x).FirstOrDefault();
-            socio.password = Tools.SHA256Encrypt(pass);
-            db.Entry(socio).State = EntityState.Modified;
-            db.SaveChanges();
-            // Mandar email con nueva contraseña
-            string subject = "Contraseña recuperada en Gestenis";
-            string body = "<h1>Esto es un mensaje automático del sistema</h1>"
-                + "<p>" + socio.nombre + ", ha restaurado correctamente su contraseña en Gestenis. " + "</p>"
-                + "<p>Su nombre de usuario es: " + socio.id + "</p>"
-                + "<p>Su nueva contraseña es: " + pass + "</p>"
-                + "<p>Le recomendamos que cambie esta contraseña por una nueva desde su área de usuario.</p>";
-            Tools.sendEmail(socio, subject, body);
-            string message = "Contraseña nueva enviada a su email: " + email;
-            saveMessage(message);
-            return RedirectToAction("Login", "Home");
+            socios db_socio = (from x in db.socios where x.email == model.email select x).FirstOrDefault();
+            if (db_socio == null)
+            {
+                addError("No existe usuario con esta dirección de e-mail.");
+                saveErrors();
+                return RedirectToAction("RecuperarContrasena", "Home");
+            }
+            else
+            {
+                string pass = Tools.randomPassword(6);
+                Debug.WriteLine(pass);
+                db_socio.password = Tools.SHA256Encrypt(pass);
+                db.Entry(db_socio).State = EntityState.Modified;
+                db.SaveChanges();
+                // Mandar email con nueva contraseña
+                string subject = "Contraseña recuperada en Gestenis";
+                string body = "<h1>Esto es un mensaje automático del sistema</h1>"
+                    + "<p>" + db_socio.nombre + ", ha restaurado correctamente su contraseña en Gestenis.</p>"
+                    + "<p>Su nombre de usuario es: " + db_socio.id + "</p>"
+                    + "<p>Su nueva contraseña es: " + pass + "</p>"
+                    + "<p>Le recomendamos que cambie esta contraseña por una nueva, que recuerde más fácilmente, desde su área de usuario.</p>";
+                Tools.sendEmail(db_socio, subject, body);
+                string message = "Contraseña nueva enviada a su email: " + "";
+                saveMessage(message);
+                return RedirectToAction("Login", "Home");
+            }
         }
 
-        private string newPassword()
-        {
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            var random = new Random();
-            var result = new string(
-                Enumerable.Repeat(chars, 6)
-                          .Select(s => s[random.Next(s.Length)])
-                          .ToArray());
-            return result;
-        }
 
         public ActionResult About()
         {
