@@ -127,6 +127,37 @@ namespace GesTenis.Controllers
 
         }
 
+        public ActionResult ModificarDatos()
+        {
+            if (isAdmin())
+            {
+                string id = (string)Session["UserID"];
+                var db_socio = db.socios.Where(x => x.id == id).First();
+                return View(db_socio);
+            }
+            else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ModificarDatos([Bind(Include = "id,password,is_admin,nombre,apellidos,nif,email,telefono,direccion1,direccion2,f_alta,f_baja")]socios socio)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(socio).State = EntityState.Modified;
+                db.SaveChanges();
+                string subject = "Datos de usuario modificados en Gestenis";
+                string body = "<h1>Esto es un mensaje automático del sistema</h1>"
+                    + "<p>" + socio.nombre + ", ha cambiado correctamente sus datos en GesTenis.</p>"
+                    + "<p>Le recordamos su nombre de usuario: " + socio.id + "</p>";
+                Tools.sendEmail(socio, subject, body);
+                saveMessage("Sus datos han sido modificados correctamente");
+                return RedirectToAction("MisDatos", "Admin");
+            }
+
+            return RedirectToAction("ModificarDatos", "Admin", socio);
+        }
+
 
         public ActionResult NoAcceso()
         {

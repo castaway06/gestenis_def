@@ -313,6 +313,7 @@
     <Content Include="Views\Socio\MisDatos.cshtml" />
     <Content Include="Views\Socio\ModificarDatos.cshtml" />
     <Content Include="Views\Admin\MisDatos.cshtml" />
+    <Content Include="Views\Admin\ModificarDatos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
