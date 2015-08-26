@@ -20,7 +20,7 @@ namespace GesTenis
             this.reservas = new HashSet<reservas>();
         }
     
-        [Display(Name="ID")]
+        [Display(Name="ID de usuario")]
         public string id { get; set; }
         
         [Display(Name = "Password")]
@@ -63,7 +63,7 @@ namespace GesTenis
         public System.DateTime f_alta { get; set; }
         
         [Display(Name = "Expiración cuota")]
-        
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> f_baja { get; set; }
     
         public virtual ICollection<reservas> reservas { get; set; }

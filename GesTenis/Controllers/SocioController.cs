@@ -61,9 +61,9 @@ namespace GesTenis.Controllers
         {
             if (isSocio())
             {
-                string id = (string)Session["UserID"];
-                var db_socio = db.socios.Where(x => x.id == id).First();
-                return View(db_socio);
+                //string id = (string)Session["UserID"];
+                //var db_socio = db.socios.Where(x => x.id == id).First();
+                return View(db.socios.Find((string)Session["UserID"]));
             }
             else return RedirectToAction("Index", isAdmin() ? "Admin" : "Home");
         }
@@ -72,9 +72,9 @@ namespace GesTenis.Controllers
         {
             if (isSocio())
             {
-                string id = (string)Session["UserID"];
-                var db_socio = db.socios.Where(x => x.id == id).First();
-                return View(db_socio);
+                //string id = (string)Session["UserID"];
+                //var db_socio = db.socios.Where(x => x.id == id).First();
+                return View(db.socios.Find((string)Session["UserID"]));
             }
             else return RedirectToAction("Index", isAdmin() ? "Admin" : "Home");
         }

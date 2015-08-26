@@ -82,11 +82,19 @@ namespace GesTenis.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Registro([Bind(Include = "password,nombre,apellidos,nif,email,telefono,direccion1,direccion2")] socios socio)
+        public ActionResult Registro([Bind(Include = "id, password,nombre,apellidos,nif,email,telefono,direccion1,direccion2")] socios socio)
         {
             if (ModelState.IsValid)
             {
-                socio.id = socio.nombre.Substring(0, 3) + socio.apellidos.Substring(0, 3) + socio.nif.Substring(0, 3);
+                //socio.id = socio.nombre.Substring(0, 3) + socio.apellidos.Substring(0, 3) + socio.nif.Substring(0, 3);
+                socios db_posible_socio = db.socios.Find(socio.id);
+                if (db_posible_socio !=null)
+                {
+                    addError("Ya existe un socio registrado con este ID. Por favor, elija otro");
+                    saveErrors();
+                    return RedirectToAction("Registro", "Home");
+                }
+                
                 socio.password = Tools.SHA256Encrypt(socio.password);
                 socio.is_admin = false;
                 socio.f_alta = DateTime.Today;
@@ -118,7 +126,7 @@ namespace GesTenis.Controllers
             socios db_socio = (from x in db.socios where x.email == model.email select x).FirstOrDefault();
             if (db_socio == null)
             {
-                addError("No existe usuario con esta dirección de e-mail.");
+                addError("No existe usuario la direccion e-mail especificada.");
                 saveErrors();
                 return RedirectToAction("RecuperarContrasena", "Home");
             }
@@ -137,7 +145,7 @@ namespace GesTenis.Controllers
                     + "<p>Su nueva contraseña es: " + pass + "</p>"
                     + "<p>Le recomendamos que cambie esta contraseña por una nueva, que recuerde más fácilmente, desde su área de usuario.</p>";
                 Tools.sendEmail(db_socio, subject, body);
-                string message = "Contraseña nueva enviada a su email: " + "";
+                string message = "Contraseña nueva enviada a su email: " + db_socio.email;
                 saveMessage(message);
                 return RedirectToAction("Login", "Home");
             }
