@@ -101,18 +101,6 @@
 
     </dl>
 
-
-    @*<script>
-            $(function () {
-                $('#deleteButton').click(function () {
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("EliminarSocioConfirmado", "Admin", new { id = @Model.id })'
-                    });
-                });
-            });
-        </script>*@
-
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()

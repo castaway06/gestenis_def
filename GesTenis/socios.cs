@@ -21,7 +21,7 @@ namespace GesTenis
         }
 
         [Display(Name = "ID de usuario")]
-        [Required(ErrorMessage = "El ID obligatorio")]
+        [Required(ErrorMessage = "El ID es obligatorio")]
         public string id { get; set; }
 
         [Display(Name = "Password")]
@@ -46,11 +46,11 @@ namespace GesTenis
 
         [Display(Name = "E-mail")]
         [DataType(DataType.EmailAddress)]
-        [Required(ErrorMessage = "email obligatorio")]
+        [Required(ErrorMessage = "Una dirección de email es obligatoria")]
         public string email { get; set; }
 
         [Display(Name = "Teléfono")]
-        [DataType(DataType.PhoneNumber]
+        [DataType(DataType.PhoneNumber)]
         public string telefono { get; set; }
 
         [Display(Name = "Calle y número")]

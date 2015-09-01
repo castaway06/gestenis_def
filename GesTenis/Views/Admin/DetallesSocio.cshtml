@@ -92,8 +92,33 @@
             @Html.DisplayNameFor(model => model.f_baja)
         </dt>
 
+        @{
+
+            string ret_f_baja = null;
+            if (Model.f_baja == null)
+            {
+                ret_f_baja = "No activo aún. El socio ha de proporcionar recibo del pago en la conserjería del club.";
+            }
+            else
+            {
+                DateTime fecha_baja = Model.f_baja ?? default(DateTime);
+                if (DateTime.Compare(fecha_baja, DateTime.Today) == 0)
+                {
+                    ret_f_baja = "HOY expira la cuota !!";
+                }
+                if (DateTime.Compare(fecha_baja, DateTime.Today) < 0)
+                {
+                    ret_f_baja = "Cuota de socio CADUCADA a fecha " + fecha_baja.ToString("dd/MM/yyyy");
+                }
+                if (DateTime.Compare(fecha_baja, DateTime.Today) > 0)
+                {
+                    ret_f_baja = "Cuota de socio activa hasta " + fecha_baja.ToString("dd/MM/yyyy");
+                }
+            }
+        }
+
         <dd>
-            @Html.DisplayFor(model => model.f_baja)
+            @ret_f_baja
         </dd>
 
     </dl>

@@ -1,15 +1,12 @@
 ﻿Cambiar links del menu superior en masters layouts
 
--Si estoy logueado (bien como admin o socio) y accedo a /Home/login me sale el formulario a rellenar, cambio esto???
+- (DONE) Si estoy logueado (bien como admin o socio) y accedo a /Home/login me sale el formulario a rellenar, cambio esto???
 	Sol: modifico el controlador de login para que compruebe si la variable de Session es nula => lleva a login, o si Session["IsAdmin"] es
 	 true o false para redirigir a home de Admin o de Socio.
 
-- Excepción en Tools.sendEmail -> mirar que hacer con la excepción.
+- (DONE) Excepción en Tools.sendEmail -> mirar que hacer con la excepción.
 
-- SEGUIR EN RECUPERAR CONTRASEÑA
-
-
-- Revisar BaseController, las acciones que se realizan OnActionExecuting o OnResultExecuting (se deja OnActionExecuting)
+- (DONE) Revisar BaseController, las acciones que se realizan OnActionExecuting o OnResultExecuting (se deja OnActionExecuting)
 
 
 --------------------------------------------------------------------------------------------------------
