@@ -22,7 +22,7 @@ namespace GesTenis.Controllers
 
         public ActionResult ListadoDeSocios()
         {
-            if (isAdmin()) return View();
+            if (isAdmin()) return View(db.socios.ToList());
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
@@ -36,21 +36,12 @@ namespace GesTenis.Controllers
             }
             else
             {
-                ret = (from socio in db.socios where socio.nif == nif select socio).ToList();
+                ret = (from socio in db.socios where socio.nif.Contains(nif) select socio).ToList();
 
             }
             return PartialView(ret);
         }
 
-        public ActionResult Socios()
-        {
-            if (isAdmin())
-                //Codigo que se ejecuta en caso de Admin
-                return View(db.socios.ToList());
-            else
-                // Codigo que se ejecuta en caso de socio o no auth
-                return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
-        }
 
         // GET: Admin/EditarSocio/id
         public ActionResult EditarSocio(string id)
@@ -62,14 +53,14 @@ namespace GesTenis.Controllers
                 {
                     addError("Ha de seleccionar un socio para editar");
                     saveErrors();
-                    return RedirectToAction("Socios", "Admin");
+                    return RedirectToAction("ListadoDeSocios", "Admin");
                 }
                 socios socio = db.socios.Find(id);
                 if (socio == null)
                 {
                     addError("El socio seleccionado no existe");
                     saveErrors();
-                    return RedirectToAction("Socios", "Admin");
+                    return RedirectToAction("ListadoDeSocios", "Admin");
                 }
                 return View(socio);
             }
@@ -77,6 +68,84 @@ namespace GesTenis.Controllers
                 //Codigo que se ejecuta en caso de socio o no auth
                 return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditarSocio([Bind(Include = "id,password,is_admin,nombre,apellidos,nif,email,telefono,direccion1,direccion2,f_alta,f_baja")]socios socio)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(socio).State = EntityState.Modified;
+                db.SaveChanges();
+                saveMessage("Los datos del socio " + socio.id + " han sido modificados correctamente");
+                return RedirectToAction("DetallesSocio", new { controller = "Admin", id = socio.id });
+            }
+
+            return RedirectToAction("ListadoDeSocios", "Admin");
+        }
+
+        public ActionResult DetallesSocio(string id)
+        {
+            if (isAdmin())
+            {
+                //Codigo que se ejecuta en caso de Admin
+                if (id == null)
+                {
+                    addError("Ha de seleccionar un socio para editar");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeSocios", "Admin");
+                }
+                socios socio = db.socios.Find(id);
+                if (socio == null)
+                {
+                    addError("El socio seleccionado no existe");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeSocios", "Admin");
+                }
+                return View(socio);
+            }
+            else
+                //Codigo que se ejecuta en caso de socio o no auth
+                return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        public ActionResult EliminarSocio(string id)
+        {
+            if (isAdmin())
+            {
+                //Codigo que se ejecuta en caso de Admin
+                if (id == null)
+                {
+                    addError("Ha de seleccionar un socio para eliminar");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeSocios", "Admin");
+                }
+                socios socio = db.socios.Find(id);
+                if (socio == null)
+                {
+                    addError("El socio seleccionado no existe");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeSocios", "Admin");
+                }
+                return View(socio);
+            }
+            else
+                //Codigo que se ejecuta en caso de socio o no auth
+                return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        // POST: intermedio/Delete/5
+        [HttpPost, ActionName("EliminarSocio")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EliminarSocioConfirmado(string id)
+        {
+            socios socio = db.socios.Find(id);
+            db.socios.Remove(socio);
+            db.SaveChanges();
+            saveMessage("El socio " + socio.id + " ha sido eliminado.");
+            return RedirectToAction("ListadoDeSocios", "Admin");
+        }
+
 
         public ActionResult CambiarContrasena()
         {

@@ -15,12 +15,13 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.password)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.id, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.id, new { htmlAttributes = new { @class = "form-control", disabled="disabled" } })
+                @Html.ValidationMessageFor(model => model.id, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -93,7 +94,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.f_alta, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.f_alta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.f_alta, new { htmlAttributes = new { @class = "form-control datepicker" } })
                 @Html.ValidationMessageFor(model => model.f_alta, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -101,19 +102,19 @@
         <div class="form-group">
             @Html.LabelFor(model => model.f_baja, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.f_baja, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.f_baja, new { htmlAttributes = new { @class = "form-control datepicker"} })
                 @Html.ValidationMessageFor(model => model.f_baja, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Guardar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver al Listado de socios", "ListadoDeSocios")
 </div>

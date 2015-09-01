@@ -1,21 +1,32 @@
 ﻿@model GesTenis.socios
 
 @{
-    ViewBag.Title = "Mis datos";
+    ViewBag.Title = "Eliminar socio";
 }
 
-<h2>Mis datos</h2>
+<h2>Eliminar socio</h2>
 
+<h3>Está seguro que desea eliminar el socio visualizado?</h3>
+<p>Todos los datos del socio se perderán !</p>
 <div>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
+        <dt id="id">
             @Html.DisplayNameFor(model => model.id)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.id)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_admin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_admin)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.nombre)
         </dt>
@@ -84,36 +95,42 @@
             @Html.DisplayNameFor(model => model.f_baja)
         </dt>
 
-        @{
-            string ret = null;
-            if (Model.f_baja == null)
-            {
-                ret = "Su cuenta no ha sido aún activada. Ha de proporcionar recibo del pago en la conserjería del club.";
-            }
-            else
-            {
-                DateTime fecha_baja = Model.f_baja ?? default(DateTime);
-                if (DateTime.Compare(fecha_baja, DateTime.Today) == 0)
-                {
-                    ret = "HOY expira tu cuota !! No olvides renovarla.";
-                }
-                if (DateTime.Compare(fecha_baja, DateTime.Today) < 0)
-                {
-                    ret = "Cuota de socio caducada a fecha " + fecha_baja.ToString("dd/MM/yyyy");
-                }
-                if (DateTime.Compare(fecha_baja, DateTime.Today) > 0)
-                {
-                    ret = "Cuota de socio activa hasta " + fecha_baja.ToString("dd/MM/yyyy");
-                }
-            }
-        }
         <dd>
-            @ret
+            @Html.DisplayFor(model => model.f_baja)
         </dd>
 
     </dl>
-</div>
 
-<div>
-    @Html.ActionLink("Modificar mis datos", "ModificarDatos", "Socio")
+
+    @*<script>
+            $(function () {
+                $('#deleteButton').click(function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("EliminarSocioConfirmado", "Admin", new { id = @Model.id })'
+                    });
+                });
+            });
+        </script>*@
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="row">
+            <h4>Acciones</h4>
+            <div class="col-md-12">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" type="submit">Eliminar socio</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <span class="input-group-btn">
+                    @Html.ActionLink("Volver al listado de socios", "ListadoDeSocios", "Admin")
+                </span>
+            </div>
+        </div>
+    }
 </div>

@@ -12,60 +12,63 @@ namespace GesTenis
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    
+
     public partial class socios
     {
         public socios()
         {
             this.reservas = new HashSet<reservas>();
         }
-    
-        [Display(Name="ID de usuario")]
+
+        [Display(Name = "ID de usuario")]
+        [Required(ErrorMessage = "El ID obligatorio")]
         public string id { get; set; }
-        
+
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
-        [Required()]
+        [Required(ErrorMessage = "La contraseña es obligatoria")]
         public string password { get; set; }
-        
+
         [Display(Name = "Es Admin")]
         public bool is_admin { get; set; }
-        
+
         [Display(Name = "Nombre")]
-        [Required()]
+        [Required(ErrorMessage = "El nombre es obligatorio")]
         public string nombre { get; set; }
-        
+
         [Display(Name = "Apellidos")]
-        [Required()]
+        [Required(ErrorMessage = "Al menos un apellido es obligatorio")]
         public string apellidos { get; set; }
-        
+
         [Display(Name = "NIF")]
-        [Required()]
+        [Required(ErrorMessage = "Introduce un NIF valido")]
         public string nif { get; set; }
-        
+
         [Display(Name = "E-mail")]
         [DataType(DataType.EmailAddress)]
-        [Required()]
+        [Required(ErrorMessage = "email obligatorio")]
         public string email { get; set; }
-        
+
         [Display(Name = "Teléfono")]
-        [DataType(DataType.PhoneNumber)]
+        [DataType(DataType.PhoneNumber]
         public string telefono { get; set; }
-        
+
         [Display(Name = "Calle y número")]
         public string direccion1 { get; set; }
-        
+
         [Display(Name = "CP y localidad")]
         public string direccion2 { get; set; }
-        
+
         [Display(Name = "Fecha alta")]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime f_alta { get; set; }
-        
+
         [Display(Name = "Expiración cuota")]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> f_baja { get; set; }
-    
+
         public virtual ICollection<reservas> reservas { get; set; }
     }
 }

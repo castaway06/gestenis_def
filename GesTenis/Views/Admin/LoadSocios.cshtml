@@ -6,7 +6,7 @@
         <thead>
             <tr class="bold">
                 <th>
-                    @Html.DisplayNameFor(model => model.is_admin)
+                    @Html.DisplayNameFor(model => model.id)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.nombre)
@@ -24,12 +24,6 @@
                     @Html.DisplayNameFor(model => model.telefono)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.direccion1)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.direccion2)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.f_alta)
                 </th>
                 <th>
@@ -43,9 +37,42 @@
 
         @foreach (var item in Model)
         {
-            <tr>
+
+            string ret_f_baja = null;
+            string clase = null;
+            if (item.f_baja == null)
+            {
+                ret_f_baja = "No activo aún";
+                clase = "warning";
+            }
+            else
+            {
+                DateTime fecha_baja = item.f_baja ?? default(DateTime);
+                if (DateTime.Compare(fecha_baja, DateTime.Today) == 0)
+                {
+                    clase = "";
+                    ret_f_baja = fecha_baja.ToString("dd/MM/yyyy");
+                }
+                if (DateTime.Compare(fecha_baja, DateTime.Today) < 0)
+                {
+                    ret_f_baja = "Caducada el " + fecha_baja.ToString("dd/MM/yyyy");
+                    clase = "danger";
+                }
+                if (DateTime.Compare(fecha_baja, DateTime.Today) > 0)
+                {
+                    clase = "";
+                    ret_f_baja = fecha_baja.ToString("dd/MM/yyyy");
+                }
+            }
+            if (item.is_admin)
+            {
+                clase = "success";
+                ret_f_baja = "";
+            }
+
+            <tr class="@clase">
                 <td>
-                    @Html.DisplayFor(modelItem => item.is_admin)
+                    @Html.DisplayFor(modelItem => item.id)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.nombre)
@@ -63,21 +90,16 @@
                     @Html.DisplayFor(modelItem => item.telefono)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.direccion1)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.direccion2)
-                </td>
-                <td class="datetimepicker">
                     @Html.DisplayFor(modelItem => item.f_alta)
                 </td>
+
                 <td>
-                    @Html.DisplayFor(modelItem => item.f_baja)
+                    @ret_f_baja
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "EditarSocio", new { id = item.id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    @Html.ActionLink("Editar", "EditarSocio", new { id = item.id }) |
+                    @Html.ActionLink("Detalles", "DetallesSocio", new { id = item.id }) |
+                    @Html.ActionLink("Eliminar", "EliminarSocio", new { id = item.id })
                 </td>
             </tr>
         }

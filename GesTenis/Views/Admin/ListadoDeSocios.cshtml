@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<GesTenis.socios>
+@{
     ViewBag.Title = "Listado De Socios";
 }
 
@@ -20,7 +21,7 @@
     function loadSocios(nif) {
         $('#resultados').html(getLoader());
         $.ajax({
-            url: '/admin/loadSocios', type: 'post', data: {nif: nif}, success: function (result) {
+            url: '/admin/loadSocios', type: 'post', data: { nif: nif }, success: function (result) {
                 $('#resultados').html(result);
             }
         });
@@ -28,13 +29,141 @@
 
 </script>
 
-<div>
-    <button id="showAllSociosButton">Pulsa para ver todos los socios</button>
-    <div>
-        <input type="text" id="nif" />
-        <button id="filterByIdButton">Pulsa para filtrar por NIE</button>
+@*<div>
+        <ul>
+            <li><button class="btn btn-default" id="showAllSociosButton">Pulsa para ver todos los socios</button></li>
+            <li>
+                <div>
+                    <button class="btn btn-default" id="filterByIdButton">Pulsa para filtrar por NIF</button>
+                    <label class="btn" for="nif">NIF</label><input class="form-control" type="text" id="nif" />
+                </div>
+            </li>
+        </ul>
+    </div>*@
+
+<div class="form-inline">
+    <div class="row">
+        <div class="col-xs-2">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" id="showAllSociosButton">Mostrar todos</button>
+                </span>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" id="filterByIdButton">Filtrar por NIF</button>
+                </span>
+                <input type="text" class="form-control" placeholder="Introduce NIF ..." id="nif">
+            </div>
+        </div>
     </div>
 </div>
+
 <div id="resultados">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover table-condensed">
+            <thead>
+                <tr class="bold">
+                    <th>
+                        @Html.DisplayNameFor(model => model.id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.apellidos)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nif)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.telefono)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.f_alta)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.f_baja)
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                string ret_f_baja = null;
+                string clase = null;
+                if (item.f_baja == null)
+                {
+                    ret_f_baja = "No activo aún";
+                    clase = "warning";
+                }
+                else
+                {
+                    DateTime fecha_baja = item.f_baja ?? default(DateTime);
+                    if (DateTime.Compare(fecha_baja, DateTime.Today) == 0)
+                    {
+                        clase = "";
+                        ret_f_baja = fecha_baja.ToString("dd/MM/yyyy");
+                    }
+                    if (DateTime.Compare(fecha_baja, DateTime.Today) < 0)
+                    {
+                        ret_f_baja = "Caducada el " + fecha_baja.ToString("dd/MM/yyyy");
+                        clase = "danger";
+                    }
+                    if (DateTime.Compare(fecha_baja, DateTime.Today) > 0)
+                    {
+                        clase = "";
+                        ret_f_baja = fecha_baja.ToString("dd/MM/yyyy");
+                    }
+                }
+                if (item.is_admin)
+                {
+                    clase = "success";
+                    ret_f_baja = "";
+                }
+                <tr class="@clase">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.apellidos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nif)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f_alta)
+                    </td>
+                    <td>
+                        @ret_f_baja
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarSocio", new { id = item.id }) |
+                        @Html.ActionLink("Detalles", "DetallesSocio", new { id = item.id }) |
+                        @Html.ActionLink("Eliminar", "EliminarSocio", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
 
 </div>

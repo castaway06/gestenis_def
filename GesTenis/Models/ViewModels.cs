@@ -6,11 +6,11 @@ namespace GesTenis.Models
 
     public class LoginViewModel
     {
-        [Required()]
+        [Required(ErrorMessage = "El usuario es obligatorio")]
         [Display(Name = "Usuario")]
         public string userId { get; set; }
 
-        [Required()]
+        [Required(ErrorMessage = "La contraseña es obligatoria")]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string userPassword { get; set; }
@@ -58,8 +58,8 @@ namespace GesTenis.Models
     public class RecuperarContrasenaViewModel
     {
         [Display(Name = "Introduce tu email")]
-        [DataType(DataType.EmailAddress)]
-        [Required()]
+        [EmailAddress(ErrorMessage="Introduce un email válido")]
+        [Required(ErrorMessage = "El email es obligatorio")]
         public string email { get; set; }
     }
 
@@ -67,18 +67,18 @@ namespace GesTenis.Models
     {
         [Display(Name= "Contraseña actual")]
         [DataType(DataType.Password)]
-        [Required()]
+        [Required(ErrorMessage = "Campo obligatorio")]
         public string oldPass {get; set;}
 
         [Display(Name= "Contraseña nueva")]
         [DataType(DataType.Password)]
-        [Required()]
+        [Required(ErrorMessage = "Campo obligatorio")]
         public string newPass {get; set;}
 
 
         [Display(Name= "Repita contraseña")]
         [DataType(DataType.Password)]
-        [Required()]
+        [Required(ErrorMessage = "Campo obligatorio")]
         public string verifyNewPass {get; set;}
     }
 

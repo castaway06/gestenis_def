@@ -303,7 +303,6 @@
     <Content Include="Views\intermedio\Edit.cshtml" />
     <Content Include="Views\intermedio\Index.cshtml" />
     <Content Include="Views\Home\Registro.cshtml" />
-    <Content Include="Views\Admin\Socios.cshtml" />
     <Content Include="Views\Admin\EditarSocio.cshtml" />
     <Content Include="Views\Admin\ListadoDeSocios.cshtml" />
     <Content Include="Views\Admin\LoadSocios.cshtml" />
@@ -314,6 +313,8 @@
     <Content Include="Views\Socio\ModificarDatos.cshtml" />
     <Content Include="Views\Admin\MisDatos.cshtml" />
     <Content Include="Views\Admin\ModificarDatos.cshtml" />
+    <Content Include="Views\Admin\DetallesSocio.cshtml" />
+    <Content Include="Views\Admin\EliminarSocio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
