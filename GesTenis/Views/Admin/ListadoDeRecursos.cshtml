@@ -1,0 +1,77 @@
+﻿@model IEnumerable<GesTenis.recursos>
+
+@{
+    ViewBag.Title = "Listado de recursos";
+}
+
+<h2>Listado de recursos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo recurso", "NuevoRecurso", null, new { @class = "btn btn-default" })
+</p>
+<div id="resultado">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tipo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nombre_rec)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.f_alta)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.f_baja)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.superficie)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.disponible)
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                string clase = "";
+                if (!item.disponible)
+                {
+                    clase = "warning";
+                }
+                <tr class="@clase">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tipo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre_rec)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f_alta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f_baja)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.superficie)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.disponible)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarRecurso", new { id = item.id }) |
+                        @Html.ActionLink("Detalles", "DetallesRecurso", new { id = item.id }) |
+                        @Html.ActionLink("Eliminar", "EliminarRecurso", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

@@ -1,8 +1,10 @@
 ﻿@if ((Object)Session["UserId"] != null)
 {
-    <h2>Pagina de  ADMINISTRADOR</h2>
+    <h2>ADMINISTRACIÓN de GesTenis</h2>
     <div>
-        Hello @Session["UserId"].ToString()
+        <p>Hello @Session["UserName"].ToString()</p>
+        <p>El número de socios del club es: @ViewBag.n_socios</p>
+        <p>El número de recursos del club es: @ViewBag.n_recursos</p>
     </div>
 }
 else

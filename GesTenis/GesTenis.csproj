@@ -161,6 +161,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\interRecursosController.cs" />
     <Compile Include="Controllers\interSocioController.cs" />
     <Compile Include="Controllers\SocioController.cs" />
     <Compile Include="facturas.cs">
@@ -315,6 +316,16 @@
     <Content Include="Views\Admin\ModificarDatos.cshtml" />
     <Content Include="Views\Admin\DetallesSocio.cshtml" />
     <Content Include="Views\Admin\EliminarSocio.cshtml" />
+    <Content Include="Views\interRecursos\Create.cshtml" />
+    <Content Include="Views\interRecursos\Delete.cshtml" />
+    <Content Include="Views\interRecursos\Details.cshtml" />
+    <Content Include="Views\interRecursos\Edit.cshtml" />
+    <Content Include="Views\interRecursos\Index.cshtml" />
+    <Content Include="Views\Admin\ListadoDeRecursos.cshtml" />
+    <Content Include="Views\Admin\DetallesRecurso.cshtml" />
+    <Content Include="Views\Admin\EditarRecurso.cshtml" />
+    <Content Include="Views\Admin\EliminarRecurso.cshtml" />
+    <Content Include="Views\Admin\NuevoRecurso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,15 +16,25 @@ namespace GesTenis.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            if (isAdmin()) return View();
+            if (isAdmin())
+            {
+                ViewBag.n_socios = db.socios.Count().ToString();
+                ViewBag.n_recursos = db.recursos.Count().ToString();
+                return View();
+            }
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
+        #region SOCIOS
+        
+        
+        
         public ActionResult ListadoDeSocios()
         {
             if (isAdmin()) return View(db.socios.ToList());
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
+
 
         [HttpPost]
         public ActionResult LoadSocios(string nif)
@@ -91,7 +101,7 @@ namespace GesTenis.Controllers
                 //Codigo que se ejecuta en caso de Admin
                 if (id == null)
                 {
-                    addError("Ha de seleccionar un socio para editar");
+                    addError("Ha de seleccionar un socio");
                     saveErrors();
                     return RedirectToAction("ListadoDeSocios", "Admin");
                 }
@@ -146,7 +156,158 @@ namespace GesTenis.Controllers
             return RedirectToAction("ListadoDeSocios", "Admin");
         }
 
+        #endregion SOCIOS
 
+
+
+        #region RECURSOS
+        public ActionResult ListadoDeRecursos()
+        {
+            if (isAdmin()) return View(db.recursos.ToList());
+            else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        public ActionResult NuevoRecurso()
+        {
+            if (isAdmin()) return View();
+            else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        // POST: admin/NuevoRecurso
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult NuevoRecurso([Bind(Include = "tipo,f_alta,nombre_rec,superficie")] recursos recurso) //falta id, f_baja y disponible en el bindado
+        {
+            if (ModelState.IsValid)
+            {
+                recurso.f_baja = null;
+                recurso.disponible = true;
+                db.recursos.Add(recurso);
+                db.SaveChanges();
+                saveMessage("El recurso " + recurso.nombre_rec + " ha sido creado con éxito");
+                return RedirectToAction("ListadoDeRecursos");
+            }
+
+            return View(recurso);
+        }
+
+        public ActionResult EditarRecurso(string id)
+        {
+            int id2;
+            Int32.TryParse(id, out id2);
+            if (isAdmin())
+            {
+                //Codigo que se ejecuta en caso de Admin
+                if (id2 == 0)
+                {
+                    addError("Ha de seleccionar un recurso para editar");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeRecursos", "Admin");
+                }
+                recursos recurso = db.recursos.Find(id2);
+                if (recurso == null)
+                {
+                    addError("El recurso seleccionado no existe");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeRecursos", "Admin");
+                }
+                return View(recurso);
+            }
+            else
+                //Codigo que se ejecuta en caso de socio o no auth
+                return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditarRecurso([Bind(Include = "id,tipo,f_alta,f_baja,nombre_rec,superficie,disponible")] recursos recurso)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(recurso).State = EntityState.Modified;
+                db.SaveChanges();
+                saveMessage("Los datos del recurso " + recurso.nombre_rec + " han sido modificados correctamente");
+                return RedirectToAction("DetallesRecurso", new { controller = "Admin", id = recurso.id });
+            }
+
+            return RedirectToAction("ListadoDeSocios", "Admin");
+        }
+
+        public ActionResult DetallesRecurso(string id)
+        {
+            int id2;
+            Int32.TryParse(id, out id2);
+            if (isAdmin())
+            {
+                //Codigo que se ejecuta en caso de Admin
+                if (id2 == 0)
+                {
+                    addError("Ha de seleccionar un recurso.");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeRecursos", "Admin");
+                }
+                recursos recurso = db.recursos.Find(id2);
+                if (recurso == null)
+                {
+                    addError("El recurso seleccionado no existe");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeRecursos", "Admin");
+                }
+                return View(recurso);
+            }
+            else
+                //Codigo que se ejecuta en caso de socio o no auth
+                return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        public ActionResult EliminarRecurso(string id)
+        {
+            int id2;
+            Int32.TryParse(id, out id2);
+            if (isAdmin())
+            {
+                //Codigo que se ejecuta en caso de Admin
+                if (id2 == 0)
+                {
+                    addError("Ha de seleccionar un recurso para eliminar");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeRecursos", "Admin");
+                }
+                recursos recurso = db.recursos.Find(id2);
+                if (recurso == null)
+                {
+                    addError("El recurso seleccionado no existe");
+                    saveErrors();
+                    return RedirectToAction("ListadoDerecursos", "Admin");
+                }
+                return View(recurso);
+            }
+            else
+                //Codigo que se ejecuta en caso de socio o no auth
+                return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        // POST: intermedio/Delete/5
+        [HttpPost, ActionName("EliminarRecurso")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EliminarRecursoConfirmado(string id)
+        {
+            int id2;
+            Int32.TryParse(id, out id2);
+            recursos recurso = db.recursos.Find(id2);
+            db.recursos.Remove(recurso);
+            db.SaveChanges();
+            saveMessage("El recurso " + recurso.nombre_rec + " ha sido eliminado.");
+            return RedirectToAction("ListadoDeRecursos", "Admin");
+        }
+
+
+        #endregion RECURSOS
+
+
+        #region Datos Admin
         public ActionResult CambiarContrasena()
         {
             if (isAdmin()) return View();
@@ -227,6 +388,7 @@ namespace GesTenis.Controllers
             return RedirectToAction("ModificarDatos", "Admin", socio);
         }
 
+        #endregion Datos Admin
 
         public ActionResult NoAcceso()
         {
