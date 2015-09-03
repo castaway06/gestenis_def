@@ -162,6 +162,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\interRecursosController.cs" />
+    <Compile Include="Controllers\interReservasController.cs" />
     <Compile Include="Controllers\interSociosController.cs" />
     <Compile Include="Controllers\SocioController.cs" />
     <Compile Include="facturas.cs">
@@ -328,6 +329,15 @@
     <Content Include="Views\interSocios\Index.cshtml" />
     <Content Include="Views\Admin\NuevoSocio.cshtml" />
     <Content Include="Views\Admin\ListadoDeReservas.cshtml" />
+    <Content Include="Views\interReservas\Create.cshtml" />
+    <Content Include="Views\interReservas\Delete.cshtml" />
+    <Content Include="Views\interReservas\Details.cshtml" />
+    <Content Include="Views\interReservas\Edit.cshtml" />
+    <Content Include="Views\interReservas\Index.cshtml" />
+    <Content Include="Views\Admin\DetallesReserva.cshtml" />
+    <Content Include="Views\Admin\EditarReserva.cshtml" />
+    <Content Include="Views\Admin\EliminarReserva.cshtml" />
+    <Content Include="Views\Admin\NuevaReserva.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

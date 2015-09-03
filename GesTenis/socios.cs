@@ -20,7 +20,7 @@ namespace GesTenis
             this.reservas = new HashSet<reservas>();
         }
 
-        [Display(Name = "ID de usuario")]
+        [Display(Name = "ID de socio")]
         [Required(ErrorMessage = "El ID es obligatorio")]
         public string id { get; set; }
 

@@ -1,0 +1,92 @@
+﻿@model GesTenis.reservas
+
+@{
+    ViewBag.Title = "Eliminar reserva";
+}
+
+<h2>Eliminar reserva</h2>
+
+<h3>Está seguro que desea eliminar la reserva seleccionada?</h3>
+<p>Todos los datos de la reserva se perderán</p>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.socios.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.socios.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recursos.nombre_rec)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recursos.nombre_rec)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pagado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pagado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.facturas.xml_factura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.facturas.xml_factura)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="row">
+        <h4>Acciones</h4>
+        <div class="col-md-12">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="submit">Eliminar reserva</button>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <span class="input-group-btn">
+                @Html.ActionLink("Volver al listado de reservas", "ListadoDeReservas", "Admin")
+            </span>
+        </div>
+    </div>
+
+    }
+</div>

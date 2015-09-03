@@ -7,8 +7,16 @@
     });
     $('.datepicker').datetimepicker({
         format: 'd/m/Y',
+        minDate: 0,
         closeOnDateSelect: true,
         timepicker: false
+    });
+    $('.timepicker').datetimepicker({
+        format: 'H:i',
+        formattime: 'H:i',
+        step: 60,
+        closeOnDateSelect: true,
+        datepicker: false
     });
     $('.focus').focus();
 }

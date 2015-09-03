@@ -7,6 +7,7 @@ using System.Text;
 using System.Web.Mvc;
 using System.Net;
 using System.Net.Mail;
+using System.Diagnostics;
 
 namespace GesTenis.tools
 {
@@ -57,6 +58,7 @@ namespace GesTenis.tools
                 catch (Exception e)
                 {
                     // ´TODO: mirar que hacer con esta excepción
+                    Debug.WriteLine(e);
                 }
             }
 

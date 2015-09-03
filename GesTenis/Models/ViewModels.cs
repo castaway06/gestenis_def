@@ -4,6 +4,35 @@ using System.ComponentModel.DataAnnotations;
 namespace GesTenis.Models
 {
 
+    public class nuevaReservaAdminViewModel
+    {
+        [Display(Name = "ID de socio")]
+        [Required(ErrorMessage = "El ID es obligatorio")]
+        public string id_soc { get; set; }
+
+        [Display(Name = "Id de recurso")]
+        [Required(ErrorMessage = "Hay que proporcionar el id de recurso")]
+        public int id_rec { get; set; }
+
+        [Display(Name = "Fecha reserva")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required()]
+        public System.DateTime fecha { get; set; }
+
+        [Display(Name = "Hora reserva")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:HH:00}", ApplyFormatInEditMode = true)]
+        [Required()]
+        public System.DateTime hora { get; set; }
+
+        [Display(Name = "Pagado")]
+        public bool pagado { get; set; }
+
+        [Display(Name = "Precio")]
+        public double precio { get; set; }
+    }
+
     public class LoginViewModel
     {
         [Required(ErrorMessage = "El usuario es obligatorio")]

@@ -7,13 +7,16 @@
 <h2>Listado de reservas</h2>
 
 <p>
-    @Html.ActionLink("Nueva reserva", "")
+    @Html.ActionLink("Nueva reserva", "NuevaReserva", null, new { @class = "btn btn-default"})
 </p>
 <hr />
 <div id="resultados">
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover table-condensed">
             <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.socios.id)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.fecha)
                 </th>
@@ -37,6 +40,9 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.socios.id)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.fecha)
                     </td>

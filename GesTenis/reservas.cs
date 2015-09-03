@@ -26,7 +26,7 @@ namespace GesTenis
 
         [Display(Name = "Hora reserva")]
         [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:HH}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:HH:00}", ApplyFormatInEditMode = true)]
         [Required()]
         public System.DateTime hora { get; set; }
 

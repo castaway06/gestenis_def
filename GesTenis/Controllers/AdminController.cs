@@ -332,7 +332,7 @@ namespace GesTenis.Controllers
                 {
                     addError("El recurso seleccionado no existe");
                     saveErrors();
-                    return RedirectToAction("ListadoDerecursos", "Admin");
+                    return RedirectToAction("ListadoDeRecursos", "Admin");
                 }
                 return View(recurso);
             }
@@ -369,6 +369,177 @@ namespace GesTenis.Controllers
                 return View(reservas.ToList());
             }
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        public ActionResult NuevaReserva()
+        {
+            if (isAdmin())
+            {
+                ViewBag.id = new SelectList(db.facturas, "id_reserva", "xml_factura");
+                return View();
+            }
+            else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        // POST: Admin/NuevaReserva
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult NuevaReserva([Bind(Include = "id_soc,id_rec,fecha,hora,pagado,precio")] nuevaReservaAdminViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                socios db_socio = db.socios.Find(model.id_soc);
+                if (db_socio == null)
+                {
+                    addError("El socio no existe");
+                }
+                recursos db_recurso = db.recursos.Find(model.id_rec);
+                if (db_recurso == null)
+                {
+                    addError("El recurso no existe");
+                }
+                if (DateTime.Compare(model.fecha, DateTime.Today) <0)
+                {
+                    addError("La fecha de la reserva no puede ser anterior a hoy");
+                }
+                if (DateTime.Compare(model.hora, DateTime.Now) <0)
+                {
+                    addError("La hora de la reserva no puede ser anterior a ahora");
+                }
+                if (errors != null)
+                {
+                    saveErrors();
+                    return View(model);
+                }
+                reservas reserva = new reservas();
+                reserva.fecha = model.fecha;
+                reserva.hora = new DateTime(reserva.fecha.Year, reserva.fecha.Month, reserva.fecha.Day, model.hora.Hour, model.hora.Minute, model.hora.Second);
+                reserva.pagado = model.pagado;
+                reserva.precio = model.precio;
+                reserva.socios = db_socio;
+                reserva.recursos = db_recurso;
+                facturas factura = new facturas();
+                factura.xml_factura = "<Reserva de " + db_socio.id + " >";
+                reserva.facturas = factura;
+                db.reservas.Add(reserva);
+                factura.id_reserva = reserva.id;
+                db.facturas.Add(factura);
+                db.SaveChanges();
+                return RedirectToAction("ListadoDeReservas");
+            }
+
+            ViewBag.id = new SelectList(db.facturas, "id_reserva", "xml_factura");
+            return View(model);
+        }
+
+
+        public ActionResult EditarReserva(int? id)
+        {
+            if (isAdmin())
+            {
+                if (id == null)
+                {
+                    addError("Ha de seleccionar una reserva para editar");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeReservas", "Admin");
+                }
+                reservas reserva = db.reservas.Find(id);
+                if (reserva == null)
+                {
+                    addError("La reserva seleccionada no existe");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeReservas", "Admin");
+                }
+                ViewBag.id = new SelectList(db.facturas, "id_reserva", "xml_factura", reserva.id);
+                return View(reserva);
+            }
+            else
+            {
+                //Codigo que se ejecuta en caso de socio o no auth
+                return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+            }
+        }
+
+        // POST: Admin/EditarReserva/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditarReserva([Bind(Include = "id,fecha,hora,pagado,precio")] reservas reserva)
+        {
+            if (ModelState.IsValid)
+            {
+                reserva.hora = new DateTime(reserva.fecha.Year, reserva.fecha.Month, reserva.fecha.Day, reserva.hora.Hour, reserva.hora.Minute, reserva.hora.Second);
+                db.Entry(reserva).State = EntityState.Modified;
+                db.SaveChanges();
+                saveMessage("Los datos de la reserva " + reserva.id + " han sido modificados correctamente");
+                return RedirectToAction("ListadoDeReservas");
+            }
+            ViewBag.id = new SelectList(db.facturas, "id_reserva", "xml_factura", reserva.id);
+            return View(reserva);
+        }
+
+
+        public ActionResult DetallesReserva(int? id)
+        {
+            if (isAdmin())
+            {
+                //Codigo que se ejecuta en caso de Admin
+                if (id == null)
+                {
+                    addError("Ha de seleccionar una reserva");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeReservas", "Admin");
+                }
+                reservas reserva = db.reservas.Find(id);
+                if (reserva == null)
+                {
+                    addError("La reserva seleccionada no existe");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeReservas", "Admin");
+                }
+                return View(reserva);
+            }
+            else
+                //Codigo que se ejecuta en caso de socio o no auth
+                return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
+
+        public ActionResult EliminarReserva(int? id)
+        {
+            if (isAdmin())
+            {
+                //Codigo que se ejecuta en caso de Admin
+                if (id == null)
+                {
+                    addError("Ha de seleccionar una reserva para eliminar");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeReservas", "Admin");
+                }
+                reservas reserva = db.reservas.Find(id);
+                if (reserva == null)
+                {
+                    addError("La reserva seleccionada no existe");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeReservas", "Admin");
+                }
+                return View(reserva);
+            }
+            else
+            {
+                //Codigo que se ejecuta en caso de socio o no auth
+                return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+            }
+        }
+
+        // POST: Admin/EliminarReserva/5
+        [HttpPost, ActionName("EliminarReserva")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EliminarReservaConfirmado(int id)
+        {
+            reservas reserva = db.reservas.Find(id);
+            db.reservas.Remove(reserva);
+            db.SaveChanges();
+            saveMessage("La reserva " + reserva.id + " ha sido eliminada");
+            return RedirectToAction("ListadoDeReservas");
         }
 
 
