@@ -20,15 +20,17 @@ namespace GesTenis.Controllers
             {
                 ViewBag.n_socios = db.socios.Count().ToString();
                 ViewBag.n_recursos = db.recursos.Count().ToString();
+                ViewBag.n_reservas = db.reservas.Count().ToString();
+                ViewBag.n_reservas_hoy = db.reservas.Where(x => x.fecha == DateTime.Today).Count().ToString();
                 return View();
             }
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
         #region SOCIOS
-        
+
         //-----------------------------------------------------------------------------------------------------
-        
+
         public ActionResult ListadoDeSocios()
         {
             if (isAdmin()) return View(db.socios.ToList());
@@ -359,6 +361,15 @@ namespace GesTenis.Controllers
         #region RESERVAS
         //---------------------------------------------------------------------------------------
 
+        public ActionResult ListadoDeReservas()
+        {
+            if (isAdmin())
+            {
+                var reservas = db.reservas.Include(r => r.facturas);
+                return View(reservas.ToList());
+            }
+            else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
+        }
 
 
 

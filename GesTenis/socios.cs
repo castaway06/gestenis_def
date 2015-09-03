@@ -45,7 +45,7 @@ namespace GesTenis
         public string nif { get; set; }
 
         [Display(Name = "E-mail")]
-        [EmailAddress(ErrorMessage="Introduce una dirección de email válida")]
+        [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "Una dirección de email es obligatoria")]
         public string email { get; set; }
 
@@ -54,7 +54,6 @@ namespace GesTenis
         public string telefono { get; set; }
 
         [Display(Name = "Calle y número")]
-        [Required(ErrorMessage="Debe proporcionar una dirección")]
         public string direccion1 { get; set; }
 
         [Display(Name = "CP y localidad")]

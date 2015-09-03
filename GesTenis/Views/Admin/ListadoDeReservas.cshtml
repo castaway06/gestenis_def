@@ -1,0 +1,65 @@
+﻿@model IEnumerable<GesTenis.reservas>
+
+@{
+    ViewBag.Title = "Listado de reservas";
+}
+
+<h2>Listado de reservas</h2>
+
+<p>
+    @Html.ActionLink("Nueva reserva", "")
+</p>
+<hr />
+<div id="resultados">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover table-condensed">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.fecha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.hora)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.pagado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.facturas.xml_factura)
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.hora)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pagado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.precio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.facturas.xml_factura)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarReserva", new { id = item.id }) |
+                        @Html.ActionLink("Detalles", "DetallesReserva", new { id = item.id }) |
+                        @Html.ActionLink("Eliminar", "EliminarReserva", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

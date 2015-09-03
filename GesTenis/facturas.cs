@@ -11,11 +11,17 @@ namespace GesTenis
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class facturas
     {
+        [Display(Name = "Id factura")]
         public int id { get; set; }
+        
+        [Display(Name = "Id reserva")]
         public int id_reserva { get; set; }
+        
+        [Display(Name = "xml asociado")]
         public string xml_factura { get; set; }
     
         public virtual reservas reservas { get; set; }

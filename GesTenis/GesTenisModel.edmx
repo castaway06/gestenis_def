@@ -19,8 +19,8 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tipo" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="f_alta" Type="date" Nullable="false" />
-          <Property Name="f_baja" Type="date" />
+          <Property Name="f_alta" Type="datetime" Nullable="false" />
+          <Property Name="f_baja" Type="datetime" />
           <Property Name="nombre_rec" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="superficie" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="disponible" Type="bit" Nullable="false" />
@@ -30,10 +30,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_soc" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="id_soc" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="id_rec" Type="int" Nullable="false" />
-          <Property Name="fecha" Type="date" Nullable="false" />
-          <Property Name="hora" Type="tinyint" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="hora" Type="datetime" Nullable="false" />
           <Property Name="pagado" Type="bit" Nullable="false" />
           <Property Name="precio" Type="float" Nullable="false" />
         </EntityType>
@@ -41,7 +41,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="id" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="512" Nullable="false" />
           <Property Name="is_admin" Type="bit" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
@@ -129,8 +129,8 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="f_alta" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="f_baja" Type="DateTime" Precision="0" />
+          <Property Name="f_alta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="f_baja" Type="DateTime" Precision="3" />
           <Property Name="nombre_rec" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="superficie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="disponible" Type="Boolean" Nullable="false" />
@@ -141,7 +141,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="hora" Type="Byte" Nullable="false" />
           <Property Name="pagado" Type="Boolean" Nullable="false" />
           <Property Name="precio" Type="Double" Nullable="false" />
@@ -153,7 +153,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="is_admin" Type="Boolean" Nullable="false" />
           <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
