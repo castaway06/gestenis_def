@@ -162,7 +162,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\interRecursosController.cs" />
-    <Compile Include="Controllers\interSocioController.cs" />
+    <Compile Include="Controllers\interSociosController.cs" />
     <Compile Include="Controllers\SocioController.cs" />
     <Compile Include="facturas.cs">
       <DependentUpon>GesTenisModel.tt</DependentUpon>
@@ -298,11 +298,6 @@
     <Content Include="Views\Admin\NoAcceso.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\_NavbarPartial.cshtml" />
-    <Content Include="Views\intermedio\Create.cshtml" />
-    <Content Include="Views\intermedio\Delete.cshtml" />
-    <Content Include="Views\intermedio\Details.cshtml" />
-    <Content Include="Views\intermedio\Edit.cshtml" />
-    <Content Include="Views\intermedio\Index.cshtml" />
     <Content Include="Views\Home\Registro.cshtml" />
     <Content Include="Views\Admin\EditarSocio.cshtml" />
     <Content Include="Views\Admin\ListadoDeSocios.cshtml" />
@@ -326,6 +321,12 @@
     <Content Include="Views\Admin\EditarRecurso.cshtml" />
     <Content Include="Views\Admin\EliminarRecurso.cshtml" />
     <Content Include="Views\Admin\NuevoRecurso.cshtml" />
+    <Content Include="Views\interSocios\Create.cshtml" />
+    <Content Include="Views\interSocios\Delete.cshtml" />
+    <Content Include="Views\interSocios\Details.cshtml" />
+    <Content Include="Views\interSocios\Edit.cshtml" />
+    <Content Include="Views\interSocios\Index.cshtml" />
+    <Content Include="Views\Admin\NuevoSocio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,108 +1,114 @@
 ﻿@model IEnumerable<GesTenis.socios>
 
+@if (Model == null)
+{
+    <p>No hay resultados</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover table-condensed">
+            <thead>
+                <tr class="bold">
+                    <th>
+                        @Html.DisplayNameFor(model => model.id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.apellidos)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nif)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.telefono)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.f_alta)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.f_baja)
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
 
-<div class="table-responsive">
-    <table class="table table-bordered table-striped table-hover table-condensed">
-        <thead>
-            <tr class="bold">
-                <th>
-                    @Html.DisplayNameFor(model => model.id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.apellidos)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.nif)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.email)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.telefono)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.f_alta)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.f_baja)
-                </th>
-                <th>
-                    Acciones
-                </th>
-            </tr>
-        </thead>
-
-        @foreach (var item in Model)
-        {
-
-            string ret_f_baja = null;
-            string clase = null;
-            if (item.f_baja == null)
+            @foreach (var item in Model)
             {
-                ret_f_baja = "No activo aún";
-                clase = "warning";
-            }
-            else
-            {
-                DateTime fecha_baja = item.f_baja ?? default(DateTime);
-                if (DateTime.Compare(fecha_baja, DateTime.Today) == 0)
+
+                string ret_f_baja = null;
+                string clase = null;
+                if (item.f_baja == null)
                 {
-                    clase = "";
-                    ret_f_baja = fecha_baja.ToString("dd/MM/yyyy");
+                    ret_f_baja = "No activo aún";
+                    clase = "warning";
                 }
-                if (DateTime.Compare(fecha_baja, DateTime.Today) < 0)
+                else
                 {
-                    ret_f_baja = "Caducada el " + fecha_baja.ToString("dd/MM/yyyy");
-                    clase = "danger";
+                    DateTime fecha_baja = item.f_baja ?? default(DateTime);
+                    if (DateTime.Compare(fecha_baja, DateTime.Today) == 0)
+                    {
+                        clase = "";
+                        ret_f_baja = fecha_baja.ToString("dd/MM/yyyy");
+                    }
+                    if (DateTime.Compare(fecha_baja, DateTime.Today) < 0)
+                    {
+                        ret_f_baja = "Caducada el " + fecha_baja.ToString("dd/MM/yyyy");
+                        clase = "danger";
+                    }
+                    if (DateTime.Compare(fecha_baja, DateTime.Today) > 0)
+                    {
+                        clase = "";
+                        ret_f_baja = fecha_baja.ToString("dd/MM/yyyy");
+                    }
                 }
-                if (DateTime.Compare(fecha_baja, DateTime.Today) > 0)
+                if (item.is_admin)
                 {
-                    clase = "";
-                    ret_f_baja = fecha_baja.ToString("dd/MM/yyyy");
+                    clase = "success";
+                    ret_f_baja = "";
                 }
-            }
-            if (item.is_admin)
-            {
-                clase = "success";
-                ret_f_baja = "";
+
+                <tr class="@clase">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.apellidos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nif)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.f_alta)
+                    </td>
+
+                    <td>
+                        @ret_f_baja
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarSocio", new { id = item.id }) |
+                        @Html.ActionLink("Detalles", "DetallesSocio", new { id = item.id }) |
+                        @Html.ActionLink("Eliminar", "EliminarSocio", new { id = item.id })
+                    </td>
+                </tr>
             }
 
-            <tr class="@clase">
-                <td>
-                    @Html.DisplayFor(modelItem => item.id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.apellidos)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nif)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.telefono)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.f_alta)
-                </td>
-
-                <td>
-                    @ret_f_baja
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "EditarSocio", new { id = item.id }) |
-                    @Html.ActionLink("Detalles", "DetallesSocio", new { id = item.id }) |
-                    @Html.ActionLink("Eliminar", "EliminarSocio", new { id = item.id })
-                </td>
-            </tr>
-        }
-
-    </table>
-</div>
+        </table>
+    </div>
+}

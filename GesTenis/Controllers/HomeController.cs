@@ -98,8 +98,6 @@ namespace GesTenis.Controllers
                 socio.password = Tools.SHA256Encrypt(socio.password);
                 socio.is_admin = false;
                 socio.f_alta = DateTime.Today;
-                //socio.f_baja = null;
-                //socio.reservas = null;
                 db.socios.Add(socio);
                 db.SaveChanges();
                 string subject = "REGISTRO correcto en Gestenis";
@@ -133,7 +131,6 @@ namespace GesTenis.Controllers
             else
             {
                 string pass = Tools.randomPassword(6);
-                Debug.WriteLine(pass);
                 db_socio.password = Tools.SHA256Encrypt(pass);
                 db.Entry(db_socio).State = EntityState.Modified;
                 db.SaveChanges();

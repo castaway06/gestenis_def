@@ -7,7 +7,8 @@
     });
     $('.datepicker').datetimepicker({
         format: 'd/m/Y',
-        closeOnDateSelect: true
+        closeOnDateSelect: true,
+        timepicker: false
     });
     $('.focus').focus();
 }

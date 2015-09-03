@@ -10,17 +10,17 @@ using GesTenis;
 
 namespace GesTenis.Controllers
 {
-    public class interSocioController : Controller
+    public class interSociosController : Controller
     {
         private gestenis_defEntities db = new gestenis_defEntities();
 
-        // GET: intermedio
+        // GET: interSocios
         public ActionResult Index()
         {
             return View(db.socios.ToList());
         }
 
-        // GET: intermedio/Details/5
+        // GET: interSocios/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -35,10 +35,30 @@ namespace GesTenis.Controllers
             return View(socios);
         }
 
-        // GET: intermedio/Create
-        
+        // GET: interSocios/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-        // GET: intermedio/Edit/5
+        // POST: interSocios/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "id,password,is_admin,nombre,apellidos,nif,email,telefono,direccion1,direccion2,f_alta,f_baja")] socios socios)
+        {
+            if (ModelState.IsValid)
+            {
+                db.socios.Add(socios);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(socios);
+        }
+
+        // GET: interSocios/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -53,7 +73,7 @@ namespace GesTenis.Controllers
             return View(socios);
         }
 
-        // POST: intermedio/Edit/5
+        // POST: interSocios/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -69,7 +89,7 @@ namespace GesTenis.Controllers
             return View(socios);
         }
 
-        // GET: intermedio/Delete/5
+        // GET: interSocios/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -84,7 +104,7 @@ namespace GesTenis.Controllers
             return View(socios);
         }
 
-        // POST: intermedio/Delete/5
+        // POST: interSocios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
