@@ -12,7 +12,7 @@ namespace GesTenis
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
+    
     public partial class reservas
     {
         [Display(Name = "Id reserva")]
@@ -21,24 +21,23 @@ namespace GesTenis
         [Display(Name = "Fecha reserva")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "La fecha de reserva es obligatoria")]
+        [Required()]
         public System.DateTime fecha { get; set; }
 
-        [Display(Name = "Fecha alta")]
+        [Display(Name = "Hora reserva")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:HH}", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "La hora de reserva es obligatoria")]
-        public DateTime hora { get; set; }
-        
+        [Required()]
+        public System.DateTime hora { get; set; }
+
         [Display(Name = "Pagado")]
         public bool pagado { get; set; }
         
         [Display(Name = "Precio")]
         public double precio { get; set; }
-
+    
         public virtual facturas facturas { get; set; }
         public virtual recursos recursos { get; set; }
         public virtual socios socios { get; set; }
     }
 }
-

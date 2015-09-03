@@ -142,7 +142,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="hora" Type="Byte" Nullable="false" />
+          <Property Name="hora" Type="DateTime" Nullable="false" />
           <Property Name="pagado" Type="Boolean" Nullable="false" />
           <Property Name="precio" Type="Double" Nullable="false" />
           <NavigationProperty Name="facturas" Relationship="Self.FK_facturas" FromRole="reservas" ToRole="facturas" />

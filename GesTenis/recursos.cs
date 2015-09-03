@@ -12,7 +12,7 @@ namespace GesTenis
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
+    
     public partial class recursos
     {
         public recursos()
@@ -45,11 +45,10 @@ namespace GesTenis
         [Required(ErrorMessage = "Superficie obligatoria")]
         public string superficie { get; set; }
 
-
         [Display(Name = "Disponible")]
         [Required(ErrorMessage = "Campo obligatorio")]
         public bool disponible { get; set; }
-
+    
         public virtual ICollection<reservas> reservas { get; set; }
     }
 }
