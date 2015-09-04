@@ -50,8 +50,8 @@ namespace GesTenis.Models
         [Display(Name = "Pagado")]
         public bool pagado { get; set; }
 
-        [Display(Name = "Precio")]
-        public double precio { get; set; }
+        //[Display(Name = "Precio")]
+        //public double precio { get; set; }
     }
 
     public class LoginViewModel

@@ -385,7 +385,7 @@ namespace GesTenis.Controllers
         // POST: Admin/NuevaReserva
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult NuevaReserva([Bind(Include = "id_soc,id_rec,fecha,hora,pagado,precio")] nuevaReservaAdminViewModel model)
+        public ActionResult NuevaReserva([Bind(Include = "id_soc,id_rec,fecha,hora,pagado")] nuevaReservaAdminViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -399,24 +399,46 @@ namespace GesTenis.Controllers
                 {
                     addError("El recurso no existe");
                 }
-                if (DateTime.Compare(model.fecha, DateTime.Today) <0)
+                if (db_recurso.disponible == false)
+                {
+                    addError("El recurso seleccionado no está disponible");
+                }
+                
+                reservas reserva = new reservas();
+                reserva.fecha = model.fecha;
+                reserva.hora = new DateTime(reserva.fecha.Year, reserva.fecha.Month, reserva.fecha.Day, model.hora.Hour, model.hora.Minute, model.hora.Second);
+                reserva.pagado = model.pagado;
+                reserva.precio = 3;
+
+                if (DateTime.Compare(reserva.fecha, DateTime.Today) <0)
                 {
                     addError("La fecha de la reserva no puede ser anterior a hoy");
                 }
-                if (DateTime.Compare(model.hora, DateTime.Now) <0)
+                if (DateTime.Compare(reserva.hora, DateTime.Now) <0)
                 {
                     addError("La hora de la reserva no puede ser anterior a ahora");
+                }
+                reservas res_soc = db.reservas.Where(x => x.socios.id == model.id_soc && x.fecha == model.fecha).FirstOrDefault();
+                if (res_soc != null)
+                {
+                    addError("El socio ya ha hecho reserva en esta fecha (solo se permite una reserva por dia)");
+                }
+
+                reservas existe_reserva = db.reservas.Where(x => x.recursos.id == model.id_rec && x.hora == reserva.hora).FirstOrDefault();
+                if (existe_reserva != null)
+                {
+                    addError("El recurso se encuentra ocupado en esa fecha y hora");
                 }
                 if (errors != null)
                 {
                     saveErrors();
                     return RedirectToAction("NuevaReserva","Admin");
                 }
-                reservas reserva = new reservas();
-                reserva.fecha = model.fecha;
-                reserva.hora = new DateTime(reserva.fecha.Year, reserva.fecha.Month, reserva.fecha.Day, model.hora.Hour, model.hora.Minute, model.hora.Second);
-                reserva.pagado = model.pagado;
-                reserva.precio = model.precio;
+                //reservas reserva = new reservas();
+                //reserva.fecha = model.fecha;
+                //reserva.hora = new DateTime(reserva.fecha.Year, reserva.fecha.Month, reserva.fecha.Day, model.hora.Hour, model.hora.Minute, model.hora.Second);
+                //reserva.pagado = model.pagado;
+                //reserva.precio = 3;
                 reserva.socios = db_socio;
                 reserva.recursos = db_recurso;
                 facturas factura = new facturas();
