@@ -22,15 +22,13 @@ namespace GesTenis
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js",
-                      "~/Scripts/bootstrap-select.min.js"));
+                      "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/login.css",
-                      "~/Content/jquery.datetimepicker.css",
-                      "~/Content/bottstrap-select.min.css"));
+                      "~/Content/jquery.datetimepicker.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
                         "~/Scripts/gestenis.js"));

@@ -1,0 +1,74 @@
+﻿@model GesTenis.Models.nuevaReservaSocioViewModel
+
+@{
+    ViewBag.Title = "Nueva Reserva";
+
+    gestenis_defEntities db = new gestenis_defEntities();
+    IEnumerable<recursos> recursos = db.recursos.ToList();
+    List<SelectListItem> listaRecursos = new List<SelectListItem>();
+    foreach (var item in recursos)
+    {
+        listaRecursos.Add(new SelectListItem
+        {
+            Text = item.nombre_rec,
+            Value = item.id.ToString()
+        });
+    }
+}
+
+<h2>Nueva reserva</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.id_rec, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.id_rec, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.id_rec, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.id_rec, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.id_rec, listaRecursos, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.id_rec, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fecha, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.hora, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.hora, new { htmlAttributes = new { @class = "form-control timepicker", data_val = "false" } })
+                @Html.ValidationMessageFor(model => model.hora, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Reservar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver a mis reservas", "MisReservas")
+</div>

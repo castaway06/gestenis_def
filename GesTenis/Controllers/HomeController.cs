@@ -69,7 +69,8 @@ namespace GesTenis.Controllers
             Session.Clear();
             Session.Abandon();
             saveMessage("Sesión cerrada con exito");
-            return View();
+            return RedirectToAction("Login", "Home");
+            //return View();
         }
 
         public ActionResult Registro()

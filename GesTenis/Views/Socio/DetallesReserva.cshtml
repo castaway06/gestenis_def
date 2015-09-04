@@ -1,0 +1,73 @@
+﻿@model GesTenis.reservas
+
+@{
+    ViewBag.Title = "Detalles de la reserva";
+}
+
+<h2>Detalles de la reserva</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.socios.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.socios.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recursos.nombre_rec)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recursos.nombre_rec)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pagado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pagado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.facturas.xml_factura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.facturas.xml_factura)
+        </dd>
+
+    </dl>
+</div>
+<ul>
+    <h4>Acciones</h4>
+    <li>@Html.ActionLink("Ir a mis reservas", "MisReservas")</li>
+</ul>

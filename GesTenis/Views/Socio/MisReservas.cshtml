@@ -1,0 +1,90 @@
+﻿@model IEnumerable<GesTenis.reservas>
+
+@{
+    ViewBag.Title = "Mis reservas";
+}
+
+<h2>Mis reservas</h2>
+
+<p>
+    @Html.ActionLink("Nueva reserva", "NuevaReserva", null, new { @class = "btn btn-default" })
+</p>
+<div id="resultados">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover table-condensed">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.recursos.nombre_rec)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.socios.id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fecha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.hora)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.pagado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.facturas.xml_factura)
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                string clase = null;
+                string acciones = null;
+                if (DateTime.Compare(item.fecha, DateTime.Today) < 0)
+                {
+                    clase = "warning";
+                }
+                <tr class="@clase">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.recursos.nombre_rec)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.socios.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.hora)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pagado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.precio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.facturas.xml_factura)
+                    </td>
+                    @if (DateTime.Compare(item.fecha, DateTime.Today) >= 0)
+                    {
+                        <td>
+                            @Html.ActionLink("Detalles", "DetallesReserva", new { id = item.id }) |
+                            @Html.ActionLink("Eliminar", "EliminarReserva", new { id = item.id })
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            No puede realizar acciones
+                        </td>
+                    }
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

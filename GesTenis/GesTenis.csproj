@@ -338,6 +338,10 @@
     <Content Include="Views\Admin\EditarReserva.cshtml" />
     <Content Include="Views\Admin\EliminarReserva.cshtml" />
     <Content Include="Views\Admin\NuevaReserva.cshtml" />
+    <Content Include="Views\Socio\MisReservas.cshtml" />
+    <Content Include="Views\Socio\NuevaReserva.cshtml" />
+    <Content Include="Views\Socio\DetallesReserva.cshtml" />
+    <Content Include="Views\Socio\EliminarReserva.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

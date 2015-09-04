@@ -4,6 +4,27 @@ using System.ComponentModel.DataAnnotations;
 namespace GesTenis.Models
 {
 
+    public class nuevaReservaSocioViewModel
+    {
+
+        [Display(Name = "Id de recurso")]
+        [Required(ErrorMessage = "Hay que proporcionar el id de recurso")]
+        public int id_rec { get; set; }
+
+        [Display(Name = "Fecha reserva")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required()]
+        public System.DateTime fecha { get; set; }
+
+        [Display(Name = "Hora reserva")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:HH:00}", ApplyFormatInEditMode = true)]
+        [Required()]
+        public System.DateTime hora { get; set; }
+    }
+
+
     public class nuevaReservaAdminViewModel
     {
         [Display(Name = "ID de socio")]
@@ -55,31 +76,31 @@ namespace GesTenis.Models
     //    [Display(Name="Contraseña")]
     //    [Required()]
     //    public string password { get; set; }
-        
+
     //    [Display(Name="Nombre")]
     //    [Required()]
     //    public string nombre { get; set; }
-        
+
     //    [Display(Name = "Apellidos")]
     //    [Required()]
     //    public string apellidos { get; set; }
-        
+
     //    [Display(Name = "DNI o NIE")]
     //    [Required()]
     //    public string nif { get; set; }
-        
+
     //    [DataType(DataType.EmailAddress)]
     //    [Display(Name = "E-mail")]
     //    [Required()]
     //    public string email { get; set; }
-        
+
     //    [Display(Name = "Teléfono")]
     //    [DataType(DataType.PhoneNumber)]
     //    public string telefono { get; set; }
-        
+
     //    [Display(Name = "Calle y número")]
     //    public string direccion1 { get; set; }
-        
+
     //    [Display(Name = "CP y Localidad")]
     //    public string direccion2 { get; set; }
     //}
@@ -87,28 +108,28 @@ namespace GesTenis.Models
     public class RecuperarContrasenaViewModel
     {
         [Display(Name = "Introduce tu email")]
-        [EmailAddress(ErrorMessage="Introduce un email válido")]
+        [EmailAddress(ErrorMessage = "Introduce un email válido")]
         [Required(ErrorMessage = "El email es obligatorio")]
         public string email { get; set; }
     }
 
     public class CambiarContrasenaViewModel
     {
-        [Display(Name= "Contraseña actual")]
+        [Display(Name = "Contraseña actual")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Campo obligatorio")]
-        public string oldPass {get; set;}
+        public string oldPass { get; set; }
 
-        [Display(Name= "Contraseña nueva")]
+        [Display(Name = "Contraseña nueva")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Campo obligatorio")]
-        public string newPass {get; set;}
+        public string newPass { get; set; }
 
 
-        [Display(Name= "Repita contraseña")]
+        [Display(Name = "Repita contraseña")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Campo obligatorio")]
-        public string verifyNewPass {get; set;}
+        public string verifyNewPass { get; set; }
     }
 
 
