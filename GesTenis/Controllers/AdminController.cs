@@ -372,6 +372,22 @@ namespace GesTenis.Controllers
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
+        [HttpPost]
+        public ActionResult LoadReservas(DateTime fecha)
+        {
+            List<GesTenis.reservas> ret = null;
+            if (fecha == null)
+            {
+                ret = null;
+            }
+            else
+            {
+                ret = db.reservas.Where(x => x.fecha == fecha).ToList();
+            }
+            return PartialView(ret);
+        }
+
+
         public ActionResult NuevaReserva()
         {
             if (isAdmin())

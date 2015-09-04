@@ -1,57 +1,11 @@
 ﻿@model IEnumerable<GesTenis.reservas>
 
-@{
-    ViewBag.Title = "Listado de reservas";
+@if (Model.Count() == 0)
+{
+    <p>No hay reservas para la fecha seleccionada</p>
 }
-
-<h2>Listado de reservas</h2>
-
-<script type="text/javascript">
-    $(function () {
-        $('#filterByFechaButton').click(function () {
-            loadReservas($('#input_fecha').val());
-        });
-    });
-
-    function loadReservas(fecha) {
-        $('#resultados').html(getLoader());
-        $.ajax({
-            url: '/admin/loadReservas', type: 'post', data: { fecha: fecha }, success: function (result) {
-                $('#resultados').html(result);
-            }
-        });
-    }
-
-    $(document).ready(function () {
-        $("#input_fecha").keypress(function (event) {
-            if (event.which == 13) {
-                $("#filterByIdButton").click();
-            }
-        });
-    });
-
-</script>
-
-
-<p>
-    @Html.ActionLink("Nueva reserva", "NuevaReserva", null, new { @class = "btn btn-default" })
-</p>
-
-<div class="form-inline">
-    <div class="row">
-        <div class="col-xs-8">
-            <div class="input-group">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" id="filterByFechaButton">Filtrar por fecha</button>
-                </span>
-                <input type="text" class="form-control datepicker" placeholder="Introduce fecha ..." id="input_fecha">
-            </div>
-        </div>
-    </div>
-</div>
-
-<hr />
-<div id="resultados">
+else
+{
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover table-condensed">
             <tr>
@@ -109,4 +63,5 @@
 
         </table>
     </div>
-</div>
+}
+

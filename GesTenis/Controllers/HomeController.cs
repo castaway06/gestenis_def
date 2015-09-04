@@ -150,12 +150,12 @@ namespace GesTenis.Controllers
         }
 
 
-        public ActionResult About()
+        public ActionResult Tarifas()
         {
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contacto()
         {
             return View();
         }
