@@ -2,33 +2,74 @@
 
 @{
     ViewBag.Title = "Nueva Reserva";
+
+    gestenis_defEntities db = new gestenis_defEntities();
+    IEnumerable<recursos> recursos = db.recursos.ToList();
+    List<SelectListItem> listaRecursos = new List<SelectListItem>();
+    foreach (var item in recursos)
+    {
+        listaRecursos.Add(new SelectListItem
+        {
+            Text = item.nombre_rec,
+            Value = item.id.ToString()
+        });
+    }
+    var socios = db.socios.ToList();
+    List<SelectListItem> listaSocios = new List<SelectListItem>();
+    foreach (var item in socios)
+    {
+        listaSocios.Add(new SelectListItem
+        {
+            Text = item.apellidos + ", " + item.nombre,
+            Value = item.id
+        });
+    }
 }
 
 <h2>Nueva reserva</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.id_soc, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.id_soc, new { htmlAttributes = new { @class = "form-control focus" } })
+                    @Html.ValidationMessageFor(model => model.id_soc, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
         <div class="form-group">
-            @Html.LabelFor(model => model.id_soc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="id_soc">Socio</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.id_soc, new { htmlAttributes = new { @class = "form-control focus" } })
+                @Html.DropDownListFor(model => model.id_soc, listaSocios, new { @class = "form-control focus" })
                 @Html.ValidationMessageFor(model => model.id_soc, "", new { @class = "text-danger" })
             </div>
         </div>
 
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.id_rec, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.id_rec, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.id_rec, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
         <div class="form-group">
             @Html.LabelFor(model => model.id_rec, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.id_rec, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.id_rec, listaRecursos, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.id_rec, "", new { @class = "text-danger" })
             </div>
         </div>
+
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.fecha, htmlAttributes: new { @class = "control-label col-md-2" })

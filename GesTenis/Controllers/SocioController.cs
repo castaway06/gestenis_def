@@ -20,6 +20,18 @@ namespace GesTenis.Controllers
             else return RedirectToAction("Index", isAdmin() ? "Admin" : "Home");
         }
 
+        #region RESERVAS SOCIO
+        //----------------------------------------------------------------
+
+
+
+
+
+        //----------------------------------------------------------------
+        #endregion RESERVAS SOCIO
+
+        #region DATOS SOCIO
+        //--------------------------------------------------------------------------------
         public ActionResult CambiarContrasena()
         {
             if (isSocio()) return View();
@@ -98,6 +110,9 @@ namespace GesTenis.Controllers
 
             return RedirectToAction("ModificarDatos", "Socio", socio);
         }
+
+        //------------------------------------------------------------------------------------------------
+        #endregion DATOS SOCIO
 
         public ActionResult NoAcceso()
         {

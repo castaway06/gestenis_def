@@ -18,6 +18,7 @@
         closeOnDateSelect: true,
         datepicker: false
     });
+
     $('.focus').focus();
 }
 

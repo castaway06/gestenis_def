@@ -365,7 +365,8 @@ namespace GesTenis.Controllers
         {
             if (isAdmin())
             {
-                var reservas = db.reservas.Include(r => r.facturas);
+                // todas las reservas ordenadas por recurso y por fecha-hora
+                var reservas = db.reservas.OrderBy(x => x.recursos.id).ThenBy(y => y.hora);
                 return View(reservas.ToList());
             }
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
@@ -409,7 +410,7 @@ namespace GesTenis.Controllers
                 if (errors != null)
                 {
                     saveErrors();
-                    return View(model);
+                    return RedirectToAction("NuevaReserva","Admin");
                 }
                 reservas reserva = new reservas();
                 reserva.fecha = model.fecha;
