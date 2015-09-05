@@ -75,5 +75,13 @@ namespace GesTenis.tools
             return result;
         }
 
+        public static string generarXmlFactura(facturas factura, reservas reserva)
+        {
+            string ret = "xml para factura " + factura.id + ". Socio: " + reserva.socios.nombre + " " + reserva.socios.apellidos
+                + ". Ha reservado el recurso " + reserva.recursos.nombre_rec + " el dia " + reserva.fecha + " a las " + reserva.hora
+                + ". El precio es de " + reserva.precio + " Euros.";
+            return ret;
+        }
+
     }
 }

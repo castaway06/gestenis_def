@@ -5,6 +5,11 @@
         step: 5,
         todayButton: false
     });
+    $('.alldatepicker').datetimepicker({
+        format: 'd/m/Y',
+        closeOnDateSelect: true,
+        timepicker: false
+    });
     $('.datepicker').datetimepicker({
         format: 'd/m/Y',
         minDate: 0,

@@ -209,6 +209,7 @@
     <Content Include="Content\imgs\fondo_grupo_pelotas.jpg" />
     <Content Include="Content\imgs\fondo_pelota_embutida_tierra.jpg" />
     <Content Include="Content\imgs\fondo_pelota_tierra.jpg" />
+    <Content Include="Content\imgs\logo eupla.jpg" />
     <Content Include="Content\jquery.datetimepicker.css" />
     <Content Include="Content\Login.css" />
     <Content Include="favicon.ico" />

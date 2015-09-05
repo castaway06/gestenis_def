@@ -8,6 +8,7 @@
 
 - (DONE) Revisar BaseController, las acciones que se realizan OnActionExecuting o OnResultExecuting (se deja OnActionExecuting)
 
+SESGUIR EN GESTION DE RESERVAS USUARIO
 
 --------------------------------------------------------------------------------------------------------
 _loginpartial (version inicial, si sigue funcionando puedo borrar esto)

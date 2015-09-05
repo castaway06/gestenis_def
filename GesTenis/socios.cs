@@ -54,6 +54,7 @@ namespace GesTenis
         public string telefono { get; set; }
 
         [Display(Name = "Calle y número")]
+        [Required(ErrorMessage = "Debe proporcionar una direccion valida")]
         public string direccion1 { get; set; }
 
         [Display(Name = "CP y localidad")]

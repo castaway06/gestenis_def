@@ -17,9 +17,6 @@
                     @Html.DisplayNameFor(model => model.recursos.nombre_rec)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.socios.id)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.fecha)
                 </th>
                 <th>
@@ -30,9 +27,6 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.precio)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.facturas.xml_factura)
                 </th>
                 <th>
                     Acciones
@@ -52,9 +46,6 @@
                         @Html.DisplayFor(modelItem => item.recursos.nombre_rec)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.socios.id)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.fecha)
                     </td>
                     <td>
@@ -65,9 +56,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.precio)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.facturas.xml_factura)
                     </td>
                     @if (DateTime.Compare(item.fecha, DateTime.Today) >= 0)
                     {

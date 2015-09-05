@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using GesTenis.tools;
 using GesTenis.Models;
 using System.Data.Entity;
+using GesTenis.tools;
 
 namespace GesTenis.Controllers
 {
@@ -67,6 +68,7 @@ namespace GesTenis.Controllers
                 socio.f_alta = DateTime.Today;
                 db.socios.Add(socio);
                 db.SaveChanges();
+                // Envío de email de alta al socio
                 string subject = "REGISTRO correcto en Gestenis";
                 string body = "<h1>Esto es un mensaje automático del sistema</h1>"
                     + "<p>El administrador de sistema le ha registrado correctamente como SOCIO: " + socio.nombre + " " + socio.apellidos + ".</p>"
@@ -405,11 +407,19 @@ namespace GesTenis.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Comprobacion existencia de socio, si su cuota está expirada y disponibilidad del recurso
                 socios db_socio = db.socios.Find(model.id_soc);
                 if (db_socio == null)
                 {
                     addError("El socio no existe");
                 }
+                DateTime fecha_baja = db_socio.f_baja ?? default(DateTime);
+                if (DateTime.Compare(fecha_baja, DateTime.Today) < 0)
+                {
+                    addError("El socio tiene expirada su cuota de socio o aún no ha sido activado");
+                }
+
+                // Recuperamos el recurso y comprobamos si existe y esta disponible
                 recursos db_recurso = db.recursos.Find(model.id_rec);
                 if (db_recurso == null)
                 {
@@ -426,6 +436,7 @@ namespace GesTenis.Controllers
                 reserva.pagado = model.pagado;
                 reserva.precio = 3;
 
+                // Comprobacion que la fecha y/u hora no son anteriores a hoy
                 if (DateTime.Compare(reserva.fecha, DateTime.Today) <0)
                 {
                     addError("La fecha de la reserva no puede ser anterior a hoy");
@@ -434,12 +445,15 @@ namespace GesTenis.Controllers
                 {
                     addError("La hora de la reserva no puede ser anterior a ahora");
                 }
+
+                // Comprobacion que el socio no ha realizado reserva la fecha seleccionada
                 reservas res_soc = db.reservas.Where(x => x.socios.id == model.id_soc && x.fecha == model.fecha).FirstOrDefault();
                 if (res_soc != null)
                 {
                     addError("El socio ya ha hecho reserva en esta fecha (solo se permite una reserva por dia)");
                 }
 
+                // Comprobación que el recurso se encuentra libre
                 reservas existe_reserva = db.reservas.Where(x => x.recursos.id == model.id_rec && x.hora == reserva.hora).FirstOrDefault();
                 if (existe_reserva != null)
                 {
@@ -450,24 +464,36 @@ namespace GesTenis.Controllers
                     saveErrors();
                     return RedirectToAction("NuevaReserva","Admin");
                 }
-                //reservas reserva = new reservas();
-                //reserva.fecha = model.fecha;
-                //reserva.hora = new DateTime(reserva.fecha.Year, reserva.fecha.Month, reserva.fecha.Day, model.hora.Hour, model.hora.Minute, model.hora.Second);
-                //reserva.pagado = model.pagado;
-                //reserva.precio = 3;
+                // Guardamos los datos en la BBDD
                 reserva.socios = db_socio;
                 reserva.recursos = db_recurso;
                 facturas factura = new facturas();
-                factura.xml_factura = "<Reserva de " + db_socio.id + " >";
+                factura.xml_factura = "";
                 reserva.facturas = factura;
                 db.reservas.Add(reserva);
                 factura.id_reserva = reserva.id;
                 db.facturas.Add(factura);
                 db.SaveChanges();
+                factura.xml_factura = Tools.generarXmlFactura(factura, reserva);
+                db.Entry(factura).State = EntityState.Modified;
+                db.SaveChanges();
+
+                // Envio de email al socio con los datos de la reserva
+                string subject = "Reserva realizada en Gestenis";
+                string body = "<h1>Esto es un mensaje automático del sistema</h1>"
+                    + "<p>" +db_socio.nombre +" el administrador de sistema le ha realizado correctamente una reserva en GesTenis.</p>"
+                    + "<p>Estos son los datos de la reserva:</p>"
+                    + "<p>Nombre del recurso: " + reserva.recursos.nombre_rec + "</p>"
+                    + "<p>Día: " + reserva.fecha.Date.ToString() + "</p>"
+                    + "<p>Hora: " + reserva.hora.Hour.ToString() + "</p>"
+                    + "<p>Una vez realizado el pago en conserjería, podrá visualizar la factura en su área de usuario.</p>";
+                Tools.sendEmail(db_socio, subject, body);
+
+                saveMessage("La reserva se ha realizado con éxito.");
                 return RedirectToAction("ListadoDeReservas");
             }
 
-            ViewBag.id = new SelectList(db.facturas, "id_reserva", "xml_factura");
+            //ViewBag.id = new SelectList(db.facturas, "id_reserva", "xml_factura");
             return View(model);
         }
 
@@ -489,7 +515,7 @@ namespace GesTenis.Controllers
                     saveErrors();
                     return RedirectToAction("ListadoDeReservas", "Admin");
                 }
-                ViewBag.id = new SelectList(db.facturas, "id_reserva", "xml_factura", reserva.id);
+                //ViewBag.id = new SelectList(db.facturas, "id_reserva", "xml_factura", reserva.id);
                 return View(reserva);
             }
             else
