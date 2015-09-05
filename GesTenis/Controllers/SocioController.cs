@@ -161,7 +161,7 @@ namespace GesTenis.Controllers
                 reservas reserva = db.reservas.Find(id);
                 if (reserva == null)
                 {
-                    addError("La reserva seleccionada no existe");
+                    addError("No tiene permiso para visualizar esta reserva");
                     saveErrors();
                     return RedirectToAction("MisReservas", "Socio");
                 }

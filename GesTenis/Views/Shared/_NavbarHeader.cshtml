@@ -1,0 +1,89 @@
+﻿@if ((Object)Session["UserId"] != null)
+{
+    if ((bool)Session["IsAdmin"] == true)
+    {
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Area de Administración", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Portada", "Index", "Home")</li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">SOCIOS<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Nuevo socio", "NuevoSocio", "Admin")</li>
+                        <li>@Html.ActionLink("Listado de socios", "ListadoDeSocios", "Admin")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">RECURSOS<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Nuevo recurso", "NuevoRecurso", "Admin")</li>
+                        <li>@Html.ActionLink("Listado de recursos", "ListadoDeRecursos", "Admin")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">RESERVAS<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Nueva reserva", "NuevaReserva", "Admin")</li>
+                        <li>@Html.ActionLink("Listado de reservas", "ListadoDeReservas", "Admin")</li>
+                    </ul>
+                </li>
+                <li>@Html.ActionLink("Tarifas", "Tarifas", "Home")</li>
+                <li>@Html.ActionLink("Contacto", "Contacto", "Home")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    }
+    else
+    {
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Area de Socio", "Index", "Socio", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Portada", "Index", "Home")</li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">RESERVAS<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Nueva reserva", "NuevaReserva", "Socio")</li>
+                        <li>@Html.ActionLink("Mis reservas", "MisReservas", "Socio")</li>
+                    </ul>
+                </li>
+
+                <li>@Html.ActionLink("Tarifas", "Tarifas", "Home")</li>
+                <li>@Html.ActionLink("Contacto", "Contacto", "Home")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    }
+
+}
+else
+{
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        @Html.ActionLink("Area Pública", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Portada", "Index", "Home")</li>
+            <li>@Html.ActionLink("Tarifas", "Tarifas", "Home")</li>
+            <li>@Html.ActionLink("Contacto", "Contacto", "Home")</li>
+        </ul>
+        @Html.Partial("_LoginPartial")
+    </div>}

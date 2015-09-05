@@ -299,7 +299,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\NoAcceso.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Shared\_NavbarPartial.cshtml" />
+    <Content Include="Views\Shared\_NavbarHeader.cshtml" />
     <Content Include="Views\Home\Registro.cshtml" />
     <Content Include="Views\Admin\EditarSocio.cshtml" />
     <Content Include="Views\Admin\ListadoDeSocios.cshtml" />

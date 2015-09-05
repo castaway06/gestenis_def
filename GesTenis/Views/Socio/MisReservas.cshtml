@@ -55,7 +55,7 @@
                         @Html.DisplayFor(modelItem => item.pagado)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.precio)
+                        @Html.DisplayFor(modelItem => item.precio) &euro;
                     </td>
                     @if (DateTime.Compare(item.fecha, DateTime.Today) >= 0)
                     {
