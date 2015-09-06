@@ -11,9 +11,15 @@ namespace GesTenis.Controllers
 {
     public class SocioController : BaseController
     {
-
+        /// <summary>
+        /// Instancia del contexto que referencia a la BBDD
+        /// </summary>
         private gestenis_defEntities db = new gestenis_defEntities();
-        // GET: Socio
+        
+        /// <summary>
+        /// Devuelve la pagina de inicio del socio si esta logueado.
+        /// </summary>
+        /// <returns>Vista /Socio/Index si socio, sino redirige a /Admin/index o /Home/index dependiendo si es admin o no logueado</returns>
         public ActionResult Index()
         {
             if (isSocio())
@@ -28,6 +34,10 @@ namespace GesTenis.Controllers
         #region RESERVAS SOCIO
         //----------------------------------------------------------------
 
+        /// <summary>
+        /// Devuelve la pagina en que aparecen las reservas que tiene el socio logueado
+        /// </summary>
+        /// <returns>Vista /Socio/MisReservas si socio, sino redirige a /Home/index o /Admin/index dependiendo si es admin o no logueado</returns>
         public ActionResult MisReservas()
         {
             if (isSocio())
@@ -41,7 +51,10 @@ namespace GesTenis.Controllers
             else return RedirectToAction("Index", isAdmin() ? "Admin" : "Home");
         }
 
-
+        /// <summary>
+        /// Devuelve la vista para realizar una nueva reserva
+        /// </summary>
+        /// <returns>Vista /Socio/NuevaReserva si socio, sino redirige a /Home/index o /Admin/index dependiendo si es admin o no logueado</returns>
         public ActionResult NuevaReserva()
         {
             if (isSocio())
@@ -51,7 +64,12 @@ namespace GesTenis.Controllers
             else return RedirectToAction("Index", isAdmin() ? "Admin" : "Home");
         }
 
-        // POST: Socio/NuevaReserva
+        /// <summary>
+        /// Metodo POST para nueva reserva. Si el formulario es correcto y se puede realizar la reserva, guarda la misma en la BBDD y
+        /// envia un email de confirmacion al socio.
+        /// </summary>
+        /// <param name="model">nuevaReservaSocioViewModel con los datos de la reserva a realizar</param>
+        /// <returns>Si tiene exito la reserva, al listado de reservas del socio. Si no, a /Socio/NuevaReserva</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult NuevaReserva([Bind(Include = "id_rec,fecha,hora")] nuevaReservaSocioViewModel model)
@@ -147,6 +165,11 @@ namespace GesTenis.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Devuelve la vista con los detalles de la reserva seleccionada, si la misma pertenece al socio.
+        /// </summary>
+        /// <param name="id">id de la reserva</param>
+        /// <returns>Vista /Socio/DetallesReserva si socio, sino redirige a /Home/index o /Admin/index dependiendo si es admin o no logueado</returns>
         public ActionResult DetallesReserva(int? id)
         {
             if (isSocio())
@@ -180,6 +203,11 @@ namespace GesTenis.Controllers
                 return RedirectToAction("Index", isAdmin() ? "Admin" : "Home");
         }
 
+        /// <summary>
+        /// Devuelve la vista para eliminar la reserva, si existe la misma y pertenece al socio
+        /// </summary>
+        /// <param name="id">id de la reserva a eliminar</param>
+        /// <returns>Vista /Socio/EliminarReserva si socio, sino redirige a /Home/index o /Admin/index dependiendo si es admin o no logueado</returns>
         public ActionResult EliminarReserva(int? id)
         {
             if (isSocio())
@@ -201,13 +229,13 @@ namespace GesTenis.Controllers
                 string id_soc = Session["UserID"].ToString();
                 if (reserva.socios.id != id_soc)
                 {
-                    addError("No tiene permiso para eliminar esta reserva");
+                    addError("La reserva seleccionada no existe");
                     saveErrors();
                     return RedirectToAction("MisReservas", "Socio");
                 }
                 if (DateTime.Compare(reserva.fecha, DateTime.Today) < 0)
                 {
-                    addError("No puede eliminar una reserva con fecha anterior a hoy");
+                    addError("La reserva seleccionada no existe");
                     saveErrors();
                     return RedirectToAction("MisReservas", "Socio");
                 }
@@ -221,7 +249,11 @@ namespace GesTenis.Controllers
             }
         }
 
-        // POST: Socio/EliminarReserva/5
+        /// <summary>
+        /// Metodo POST para eliminar reserva. Elimina la reserva de la BBDD
+        /// </summary>
+        /// <param name="id">id de la reserva a eliminar</param>
+        /// <returns>Vista de listado de reservas</returns>
         [HttpPost, ActionName("EliminarReserva")]
         [ValidateAntiForgeryToken]
         public ActionResult EliminarReservaConfirmado(int id)
@@ -239,12 +271,22 @@ namespace GesTenis.Controllers
 
         #region DATOS SOCIO
         //--------------------------------------------------------------------------------
+        
+        /// <summary>
+        /// Devuelve la vista para cambiar la contraseña del socio.
+        /// </summary>
+        /// <returns>Vista /Socio/CambiarContrasena si socio, sino redirige a /Home/index o /Admin/index dependiendo si es admin o no logueado</returns>
         public ActionResult CambiarContrasena()
         {
             if (isSocio()) return View();
             else return RedirectToAction("Index", isAdmin() ? "Admin" : "Home");
         }
 
+        /// <summary>
+        /// Metodo POST para cambiar contraseña. Cambia la contraseña del socio.
+        /// </summary>
+        /// <param name="model">CambiarContrasenaViewModel que contiene la contraseña vieja y la nueva a cambiar.</param>
+        /// <returns>Si cambio contraseña correcto, redirige a /Socio/Index. Si no, a /Socio/CambiarContrasena</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CambiarContrasena(CambiarContrasenaViewModel model)
@@ -276,6 +318,10 @@ namespace GesTenis.Controllers
             }
         }
 
+        /// <summary>
+        /// Devuelve la vista donde visualizar los datos del socio.
+        /// </summary>
+        /// <returns>Vista /Socio/MisDatos si socio, sino redirige a /Home/index o /Admin/index dependiendo si es admin o no logueado</returns>
         public ActionResult MisDatos()
         {
             if (isSocio())
@@ -287,6 +333,10 @@ namespace GesTenis.Controllers
             else return RedirectToAction("Index", isAdmin() ? "Admin" : "Home");
         }
 
+        /// <summary>
+        /// Devuelve la vista donde modificar los datos del socio
+        /// </summary>
+        /// <returns>Vista /Socio/ModificarDatos si socio, sino redirige a /Home/index o /Admin/index dependiendo si es admin o no logueado</returns>
         public ActionResult ModificarDatos()
         {
             if (isSocio())
@@ -298,6 +348,11 @@ namespace GesTenis.Controllers
             else return RedirectToAction("Index", isAdmin() ? "Admin" : "Home");
         }
 
+        /// <summary>
+        /// Metodo POST para /Socio/ModificarDatos. Si los nuevos datos son validos, los guarda en la BBDD y envia un email al socio confirmando el cambio correcto.
+        /// </summary>
+        /// <param name="socio">objeto GesTenis.Socios con los nuevos datos del socio.</param>
+        /// <returns>Si el cambio tiene exito, a /Socio/MisDatos. Si no, a /Socio/ModificarDatos</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ModificarDatos([Bind(Include = "id,password,is_admin,nombre,apellidos,nif,email,telefono,direccion1,direccion2,f_alta,f_baja")]socios socio)
@@ -321,11 +376,11 @@ namespace GesTenis.Controllers
         //------------------------------------------------------------------------------------------------
         #endregion DATOS SOCIO
 
-        public ActionResult NoAcceso()
-        {
-            return View();
-        }
-
+        
+        /// <summary>
+        /// Metodo de apoyo para saber si el usuario es admin o no lo es.
+        /// </summary>
+        /// <returns>Bool, true si es administrador o false si no lo es.</returns>
         public bool isAdmin()
         {
             if ((object)Session["IsAdmin"] != null)
@@ -342,6 +397,10 @@ namespace GesTenis.Controllers
             }
         }
 
+        /// <summary>
+        /// Metodo de apoyo para saber si el usuario es socio o no lo es.
+        /// </summary>
+        /// <returns>Bool, true si es socio o false si no lo es.</returns>
         private bool isSocio()
         {
             if ((object)Session["UserId"] != null)

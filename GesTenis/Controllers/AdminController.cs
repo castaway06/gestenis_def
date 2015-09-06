@@ -6,15 +6,20 @@ using System.Web.Mvc;
 using GesTenis.tools;
 using GesTenis.Models;
 using System.Data.Entity;
-using GesTenis.tools;
 
 namespace GesTenis.Controllers
 {
     public class AdminController : BaseController
     {
+        /// <summary>
+        /// Instancia del contexto que referencia a la BBDD
+        /// </summary>
         private gestenis_defEntities db = new gestenis_defEntities();
 
-        // GET: Admin
+        /// <summary>
+        /// Muestra la vista Admin/index
+        /// </summary>
+        /// <returns>Vista Admin/Index si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado </returns>
         public ActionResult Index()
         {
             if (isAdmin())
@@ -32,21 +37,31 @@ namespace GesTenis.Controllers
 
         //-----------------------------------------------------------------------------------------------------
 
+        /// <summary>
+        /// Muestra el listado de socios /Admin/Listadodesocios
+        /// </summary>
+        /// <returns>Vista Admin/Listadodesocios si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult ListadoDeSocios()
         {
             if (isAdmin()) return View(db.socios.ToList());
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
+        /// <summary>
+        /// Muestra el formulario para dar de alta un socio /Admin/Nuevosocio
+        /// </summary>
+        /// <returns>Vista Admin/Nuevosocio si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult NuevoSocio()
         {
             if (isAdmin()) return View();
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
-        // POST: Admin/NuevoSocio
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Metodo POST de NuevoSocio. Si formulario valido guarda el socio en la BBDD, sino retorna a la vista de NuevoSocio
+        /// </summary>
+        /// <param name="socio">Instancia del socio nuevo</param>
+        /// <returns>Si formulario valido, al listado de socios. Sino a nuevo socio.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult NuevoSocio([Bind(Include = "id,password,is_admin,nombre,apellidos,nif,email,direccion1,direccion2,telefono")] socios socio)
@@ -84,7 +99,11 @@ namespace GesTenis.Controllers
             return View(socio);
         }
 
-
+        /// <summary>
+        /// Devuelve listado de socios filtrado por nif, dentro de una vista parcial
+        /// </summary>
+        /// <param name="nif">nif por el que filtrar la búsqueda</param>
+        /// <returns>Lista de socios filtrada por nif si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         [HttpPost]
         public ActionResult LoadSocios(string nif)
         {
@@ -106,7 +125,11 @@ namespace GesTenis.Controllers
         }
 
 
-        // GET: Admin/EditarSocio/id
+        /// <summary>
+        /// Muestra la vista para editar socio si admin
+        /// </summary>
+        /// <param name="id">id del socio a editar</param>
+        /// <returns>Vista Admin/Editarsocio si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult EditarSocio(string id)
         {
             if (isAdmin())
@@ -132,6 +155,11 @@ namespace GesTenis.Controllers
                 return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
+        /// <summary>
+        /// Metodo POST para EditarSocio. Si el formulario es valido, lo guarda en la BBDD. Sino, vuelve al Listado de socios
+        /// </summary>
+        /// <param name="socio">id del socio a editar</param>
+        /// <returns>Si formulario valido, a detalles del socio. Sino al listado de socios</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditarSocio([Bind(Include = "id,password,is_admin,nombre,apellidos,nif,email,telefono,direccion1,direccion2,f_alta,f_baja")]socios socio)
@@ -147,6 +175,11 @@ namespace GesTenis.Controllers
             return RedirectToAction("ListadoDeSocios", "Admin");
         }
 
+        /// <summary>
+        /// Muestra la vista de detalles del socio
+        /// </summary>
+        /// <param name="id">id del socio para el que mostrar los detalles</param>
+        /// <returns>Vista Admin/Detallessocio si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult DetallesSocio(string id)
         {
             if (isAdmin())
@@ -172,6 +205,11 @@ namespace GesTenis.Controllers
                 return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
+        /// <summary>
+        /// Muestra la vista para eliminar un socio con los datos del mismo
+        /// </summary>
+        /// <param name="id">id del socio a eliminar</param>
+        /// <returns>Vista Admin/Eliminarsocio si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult EliminarSocio(string id)
         {
             if (isAdmin())
@@ -197,7 +235,11 @@ namespace GesTenis.Controllers
                 return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
-        // POST: intermedio/Delete/5
+        /// <summary>
+        /// Metodo POST para eliminar socio. Elimina el socio de la BBDD
+        /// </summary>
+        /// <param name="id">id del socio a eliminar</param>
+        /// <returns>Vista de listado de socios</returns>
         [HttpPost, ActionName("EliminarSocio")]
         [ValidateAntiForgeryToken]
         public ActionResult EliminarSocioConfirmado(string id)
@@ -215,21 +257,32 @@ namespace GesTenis.Controllers
 
 
         #region RECURSOS
+        
+        /// <summary>
+        /// Muestra el listado de recursos /Admin/Listadoderecursos
+        /// </summary>
+        /// <returns>Vista Admin/Listadoderecursos si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult ListadoDeRecursos()
         {
             if (isAdmin()) return View(db.recursos.ToList());
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
+        /// <summary>
+        /// Devuelve la vista para agregar un nuevo recurso
+        /// </summary>
+        /// <returns>Vista Admin/NuevoRecurso si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult NuevoRecurso()
         {
             if (isAdmin()) return View();
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
-        // POST: admin/NuevoRecurso
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Metodo POST para NuevoRecurso. Si formulario válido, guarda recurso en la BBDD, sino vuelve al listado de recursos
+        /// </summary>
+        /// <param name="recurso">Instancia de recurso a guardar en la BBDD</param>
+        /// <returns>Si formulario valido, al listado de recursos. Sino a nuevo recurso</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult NuevoRecurso([Bind(Include = "tipo,f_alta,nombre_rec,superficie")] recursos recurso) //falta id, f_baja y disponible en el bindado
@@ -247,6 +300,11 @@ namespace GesTenis.Controllers
             return View(recurso);
         }
 
+        /// <summary>
+        /// Muestra la vista para editar el recurso si es administrador
+        /// </summary>
+        /// <param name="id">id del recurso a editar</param>
+        /// <returns>Vista Admin/EditarRecurso si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult EditarRecurso(string id)
         {
             int id2;
@@ -274,6 +332,11 @@ namespace GesTenis.Controllers
                 return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
+        /// <summary>
+        /// Metodo POST para editar recurso
+        /// </summary>
+        /// <param name="recurso">id del recurso a editar</param>
+        /// <returns>Si formulario válido, al listado de recursos. Sino, a nuevo recurso</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditarRecurso([Bind(Include = "id,tipo,f_alta,f_baja,nombre_rec,superficie,disponible")] recursos recurso)
@@ -289,6 +352,11 @@ namespace GesTenis.Controllers
             return RedirectToAction("ListadoDeSocios", "Admin");
         }
 
+        /// <summary>
+        /// Muestra la vista de detalles del recurso pasado por parametro
+        /// </summary>
+        /// <param name="id">id del recurso para el que mostrar los detalles</param>
+        /// <returns>Vista Admin/DetallesRecurso si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult DetallesRecurso(string id)
         {
             int id2;
@@ -316,6 +384,11 @@ namespace GesTenis.Controllers
                 return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
+        /// <summary>
+        /// Muestra la vista para eliminar un recurso con los datos del mismo
+        /// </summary>
+        /// <param name="id">id del recurso a eliminar</param>
+        /// <returns>Vista Admin/EliminarRecurso si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult EliminarRecurso(string id)
         {
             int id2;
@@ -343,7 +416,11 @@ namespace GesTenis.Controllers
                 return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
-        // POST: intermedio/Delete/5
+        /// <summary>
+        /// Método POST para eliminar un recurso. Elimina el recurso de la BBDD
+        /// </summary>
+        /// <param name="id">id del recurso a eliminar</param>
+        /// <returns>Vuelve a la vista del listado de recursos</returns>
         [HttpPost, ActionName("EliminarRecurso")]
         [ValidateAntiForgeryToken]
         public ActionResult EliminarRecursoConfirmado(string id)
@@ -363,6 +440,10 @@ namespace GesTenis.Controllers
         #region RESERVAS
         //---------------------------------------------------------------------------------------
 
+        /// <summary>
+        /// Muestra el listado de reservas Admin/ListadoDeReservas
+        /// </summary>
+        /// <returns>Vista Admin/ListadoDeReservas si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult ListadoDeReservas()
         {
             if (isAdmin())
@@ -374,6 +455,11 @@ namespace GesTenis.Controllers
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
+        /// <summary>
+        /// Devuelve el listado de reservas filtrado por fecha, dentro de una vista parcial
+        /// </summary>
+        /// <param name="fecha">fecha sobre la que filtrar la busqueda</param>
+        /// <returns>Lista de reservas filtrada por fecha si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         [HttpPost]
         public ActionResult LoadReservas(DateTime fecha)
         {
@@ -389,7 +475,10 @@ namespace GesTenis.Controllers
             return PartialView(ret);
         }
 
-
+        /// <summary>
+        /// Muestra la vista para realizar una nueva reserva
+        /// </summary>
+        /// <returns>Vista Admin/NuevaReserva si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult NuevaReserva()
         {
             if (isAdmin())
@@ -400,7 +489,11 @@ namespace GesTenis.Controllers
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
-        // POST: Admin/NuevaReserva
+        /// <summary>
+        /// Metodo POST para Nueva reserva. Si formulario valido, guarda la reseva en la BBDD y envia e-mail de confirmacion al socio
+        /// </summary>
+        /// <param name="model">Instancia de nueva reserva a guardar en la BBDD</param>
+        /// <returns>Si formulario valido, al listado de reservas. Sino, a nueva reserva.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult NuevaReserva([Bind(Include = "id_soc,id_rec,fecha,hora,pagado")] nuevaReservaAdminViewModel model)
@@ -496,7 +589,11 @@ namespace GesTenis.Controllers
             return View(model);
         }
 
-
+        /// <summary>
+        /// Muestra la vista para editar la reserva con el id que pasamos como parametro (si existe la reserva)
+        /// </summary>
+        /// <param name="id">id de la reserva a editar</param>
+        /// <returns>Vista Admin/EditarReserva si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult EditarReserva(int? id)
         {
             if (isAdmin())
@@ -514,7 +611,6 @@ namespace GesTenis.Controllers
                     saveErrors();
                     return RedirectToAction("ListadoDeReservas", "Admin");
                 }
-                //ViewBag.id = new SelectList(db.facturas, "id_reserva", "xml_factura", reserva.id);
                 return View(reserva);
             }
             else
@@ -524,7 +620,11 @@ namespace GesTenis.Controllers
             }
         }
 
-        // POST: Admin/EditarReserva/5
+        /// <summary>
+        /// Metodo POST para editar reserva. Si el formulario es valido guarda la reseva en la BBDD, sino redirige a editar reserva.
+        /// </summary>
+        /// <param name="reserva">id de la reserva a editar</param>
+        /// <returns>Si formulario valido al listado de reservas. Sino a editar reserva.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditarReserva([Bind(Include = "id,fecha,hora,pagado,precio")] reservas reserva)
@@ -541,7 +641,11 @@ namespace GesTenis.Controllers
             return View(reserva);
         }
 
-
+        /// <summary>
+        /// Muestra la vista de detalles de la reserva con el id que pasamos como parametro (si existe la reserva)
+        /// </summary>
+        /// <param name="id">id de la reserva para ver sus detalles</param>
+        /// <returns>Vista Admin/DetallesReserva si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult DetallesReserva(int? id)
         {
             if (isAdmin())
@@ -567,6 +671,11 @@ namespace GesTenis.Controllers
                 return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
+        /// <summary>
+        /// Muestra la vista para eliminar una reserva, si ésta existe
+        /// </summary>
+        /// <param name="id">id de la reserva a eliminar</param>
+        /// <returns>Vista Admin/EliminarReserva si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult EliminarReserva(int? id)
         {
             if (isAdmin())
@@ -594,7 +703,11 @@ namespace GesTenis.Controllers
             }
         }
 
-        // POST: Admin/EliminarReserva/5
+        /// <summary>
+        /// Metodo POST para eliminar la reserva. Elimina la reserva de la BBDD
+        /// </summary>
+        /// <param name="id">id de la reserva a eliminar</param>
+        /// <returns>Vista de listado de reservas</returns>
         [HttpPost, ActionName("EliminarReserva")]
         [ValidateAntiForgeryToken]
         public ActionResult EliminarReservaConfirmado(int id)
@@ -613,12 +726,22 @@ namespace GesTenis.Controllers
 
 
         #region Datos Admin
+
+        /// <summary>
+        /// Muestra la vista para cambiar la contraseña del administrador
+        /// </summary>
+        /// <returns>Vista Admin/CambiarContrasena si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult CambiarContrasena()
         {
             if (isAdmin()) return View();
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
+        /// <summary>
+        /// Metodo POST para cambiar la contraseña del administrador. Si el modelo es correcto, cambia la contraseña.
+        /// </summary>
+        /// <param name="model">ViewModel para cambiar la contraseña.</param>
+        /// <returns>Si cambio correcto, al indice de administrador. Sino a Admin/CambiarContrasena</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CambiarContrasena(CambiarContrasenaViewModel model)
@@ -650,6 +773,10 @@ namespace GesTenis.Controllers
             }
         }
 
+        /// <summary>
+        /// Muestra la vista de Datos del administrador
+        /// </summary>
+        /// <returns>Vista Admin/MisDatos si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult MisDatos()
         {
             if (isAdmin())
@@ -662,6 +789,10 @@ namespace GesTenis.Controllers
 
         }
 
+        /// <summary>
+        /// Muestra la vista de modificar datos del administrador si admin.
+        /// </summary>
+        /// <returns>Vista Admin/ModificarDatos si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
         public ActionResult ModificarDatos()
         {
             if (isAdmin())
@@ -673,6 +804,11 @@ namespace GesTenis.Controllers
             else return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
+        /// <summary>
+        /// Metodo POST para Modificar datos del administrador. Modifica los datos del administrador en la BBDD.
+        /// </summary>
+        /// <param name="socio">Instancia del administrador a editar</param>
+        /// <returns>Si formulario correcto al indice del administrador. sino a modificar datos.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ModificarDatos([Bind(Include = "id,password,is_admin,nombre,apellidos,nif,email,telefono,direccion1,direccion2,f_alta,f_baja")]socios socio)
@@ -700,6 +836,10 @@ namespace GesTenis.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Metodo de apoyo para saber si el usuario es admin o no lo es.
+        /// </summary>
+        /// <returns>Bool, true si es administrador o false si no lo es.</returns>
         public bool isAdmin()
         {
             if ((object)Session["IsAdmin"] != null)
@@ -716,6 +856,10 @@ namespace GesTenis.Controllers
             }
         }
 
+        /// <summary>
+        /// Metodo de apoyo para saber si el usuario es socio o no lo es.
+        /// </summary>
+        /// <returns>Bool, true si es socio o false si no lo es.</returns>
         private bool isSocio()
         {
             if ((object)Session["UserId"] != null)

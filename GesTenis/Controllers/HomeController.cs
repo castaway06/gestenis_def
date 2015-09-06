@@ -14,13 +14,24 @@ namespace GesTenis.Controllers
 {
     public class HomeController : BaseController
     {
+        /// <summary>
+        /// Instancia del contexto que referencia a la BBDD
+        /// </summary>
         private gestenis_defEntities db = new gestenis_defEntities();
 
+        /// <summary>
+        /// Devuelve la pagina inicial de la aplicacion
+        /// </summary>
+        /// <returns>Vista Home/Index</returns>
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Devuelve la pagina de login a la aplicacion
+        /// </summary>
+        /// <returns>Vista Home/login</returns>
         public ActionResult Login()
         {
             if ((object)Session["UserId"] == null)
@@ -33,6 +44,15 @@ namespace GesTenis.Controllers
             }
         }
 
+        /// <summary>
+        /// Metodo POST para Home/login. Comprueba que el usuario existe, la contraseña es correcta.
+        /// Inicializa las variables de sesion necesarias con los datos del socio.
+        /// Envia al socio e-mail de confirmacion de login
+        /// </summary>
+        /// <param name="model">LoginViewModel para comprobar usuario y contraseña.</param>
+        /// <returns>Vista de pagina de inicio de "socio" o "admin" dependiendo de si el socio es admin o no.
+        /// Si usuario o contraseña no validos, devuelve la vista /Home/login
+        /// </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model)
@@ -64,23 +84,33 @@ namespace GesTenis.Controllers
             return RedirectToAction("Login", "Home");
         }
 
+        /// <summary>
+        /// Abandona la sesion. borra las variables de sesion y nos redirige a la pagina de login de la aplicacion.
+        /// </summary>
+        /// <returns>Vista de login de la aplicacion /Home/login</returns>
         public ActionResult LogOff()
         {
             Session.Clear();
             Session.Abandon();
             saveMessage("Sesión cerrada con exito");
             return RedirectToAction("Login", "Home");
-            //return View();
         }
 
+        /// <summary>
+        /// Redirige a la pagina de registro en la aplicacion.
+        /// </summary>
+        /// <returns>Vista de registro de la aplicacion</returns>
         public ActionResult Registro()
         {
             return View();
         }
 
-        // POST: Home/registro
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Metodo POST para Registro. Si los datos del formulario son correctos, guarda el socio en la BBDD y envía email de confirmacion al socio.
+        /// </summary>
+        /// <param name="socio">socios model. Modelo de socios.</param>
+        /// <returns>Si registro correcto, a la pagina de login /home/login.
+        /// Si registro no correcto, a la pagina de registro</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Registro([Bind(Include = "id, password,nombre,apellidos,nif,email,telefono,direccion1,direccion2")] socios socio)
@@ -110,14 +140,23 @@ namespace GesTenis.Controllers
                 return RedirectToAction("Login", "Home");
             }
 
-            return RedirectToAction("Login", "Index");
+            return RedirectToAction("Registro", "Home");
         }
 
+        /// <summary>
+        /// Devuelve la pagina de recuperar contraseña
+        /// </summary>
+        /// <returns>Vista /home/recuperarcontrasena</returns>
         public ActionResult RecuperarContrasena()
         {
             return View();
         }
 
+        /// <summary>
+        /// Metodo POST para /home/recuperarcontrasena. Recibe el email como parametro y si existe un socio con ese email, envia al mismo una contraseña aleatoria nueva
+        /// </summary>
+        /// <param name="model">email al que mandar la contraseña nueva</param>
+        /// <returns>si cambio contraseña correcto, a pagina de login. En caso contrario a la pagina de recuperar contraseña</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult RecuperarContrasena([Bind(Include = "email")] RecuperarContrasenaViewModel model)
@@ -149,12 +188,19 @@ namespace GesTenis.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Devuelve la vista con las tarifas del club
+        /// </summary>
+        /// <returns>Vista /home/tarifas</returns>
         public ActionResult Tarifas()
         {
             return View();
         }
 
+        /// <summary>
+        /// Devuelve la vista con el contacto del club
+        /// </summary>
+        /// <returns>Vista /home/contacto</returns>
         public ActionResult Contacto()
         {
             return View();

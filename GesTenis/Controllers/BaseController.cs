@@ -9,10 +9,19 @@ namespace GesTenis.Controllers
     [SetupErrors]
     public abstract class BaseController : Controller
     {
+        /// <summary>
+        /// Salva el mensaje en la variable de sesion
+        /// </summary>
+        /// <param name="message">Mensaje a guardar</param>
         public void saveMessage(string message)
         {
             HttpContext.Session["message"] = message;
         }
+       
+        /// <summary>
+        /// Devuelve en mensaje que se encuentra guardado en la variable de sesion (si existe)
+        /// </summary>
+        /// <returns>string con el mensaje; si no existe, devuelve null</returns>
         public string loadMessage()
         {
             if (HttpContext.Session["message"] != null)
@@ -27,7 +36,15 @@ namespace GesTenis.Controllers
             }
         }
 
+        /// <summary>
+        /// Lista de errores
+        /// </summary>
         public List<string> errors = null;
+        
+        /// <summary>
+        /// Añade error a la lista de errores, si no hay errores, inicializa la lista de errores y guarda el error.
+        /// </summary>
+        /// <param name="message">error a guardar</param>
         public void addError(string message)
         {
             if (errors == null)
@@ -36,6 +53,10 @@ namespace GesTenis.Controllers
             }
             errors.Add(message);
         }
+        
+        /// <summary>
+        /// Guarda la lista de errores en la variable de sesion como una lista html
+        /// </summary>
         public void saveErrors()
         {
             if (errors != null)
@@ -49,6 +70,11 @@ namespace GesTenis.Controllers
             }
 
         }
+        
+        /// <summary>
+        /// Devuelve los errores que se encuentran en la variable de sesion. Borra los errores en la variable de sesion.
+        /// </summary>
+        /// <returns>string con los errores si existen; sino, devuelve null.</returns>
         public string loadErrors()
         {
             if (HttpContext.Session["errors"] != null)
@@ -67,6 +93,10 @@ namespace GesTenis.Controllers
     //Setup Errors and Messages
     public class SetupErrorsAttribute : ActionFilterAttribute
     {
+        /// <summary>
+        /// Se sobreescribe este metodo que se ejecuta antes de la llamada a cada metodo de action 
+        /// </summary>
+        /// <param name="filterContext"></param>
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             BaseController mainController = ((BaseController)filterContext.Controller);
@@ -74,11 +104,5 @@ namespace GesTenis.Controllers
             mainController.ViewData["message"] = mainController.loadMessage();
         }
 
-        //public override void OnResultExecuting(ResultExecutingContext filterContext)
-        //{
-        //    BaseController mainController = ((BaseController)filterContext.Controller);
-        //    mainController.ViewData["errors"] = mainController.loadErrors();
-        //    mainController.ViewData["message"] = mainController.loadMessage();
-        //}
     }
 }

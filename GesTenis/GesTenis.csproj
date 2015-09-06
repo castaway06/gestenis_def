@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <NuGetPackageImportStamp>a79bf2b3</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +41,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PDFNet">
+      <HintPath>..\packages\PDFNet.6.5.1.31640\lib\net40\PDFNet.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PDFNetLoader">
+      <HintPath>..\packages\PDFNet.6.5.1.31640\lib\net40\PDFNetLoader.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -346,6 +354,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\PDFNet.6.5.1.31640\build\net40\PDFNet.targets" Condition="Exists('..\packages\PDFNet.6.5.1.31640\build\net40\PDFNet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\PDFNet.6.5.1.31640\build\net40\PDFNet.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PDFNet.6.5.1.31640\build\net40\PDFNet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
