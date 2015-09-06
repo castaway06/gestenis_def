@@ -99,6 +99,7 @@ namespace GesTenis.Controllers
         /// <param name="filterContext"></param>
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+
             BaseController mainController = ((BaseController)filterContext.Controller);
             mainController.ViewData["errors"] = mainController.loadErrors();
             mainController.ViewData["message"] = mainController.loadMessage();

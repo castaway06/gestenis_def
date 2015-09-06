@@ -20,7 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <NuGetPackageImportStamp>a79bf2b3</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>4a8e2aeb</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -42,7 +43,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PDFNet">
-      <HintPath>..\packages\PDFNet.6.5.1.31640\lib\net40\PDFNet.dll</HintPath>
+      <HintPath>..\packages\PDFNetNoLoader.6.5.1\lib\net40\PDFNet.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PDFNetLoader">
@@ -278,9 +279,7 @@
     <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Socio\Index.cshtml" />
     <Content Include="Views\Home\LogOff.cshtml" />
-    <Content Include="Views\Socio\NoAcceso.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\NoAcceso.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\_NavbarHeader.cshtml" />
     <Content Include="Views\Home\Registro.cshtml" />
@@ -360,7 +359,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\PDFNet.6.5.1.31640\build\net40\PDFNet.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PDFNet.6.5.1.31640\build\net40\PDFNet.targets'))" />
+    <Error Condition="!Exists('..\packages\PDFNetNoLoader.6.5.1\build\net40\PDFNetNoLoader.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PDFNetNoLoader.6.5.1\build\net40\PDFNetNoLoader.targets'))" />
   </Target>
+  <Import Project="..\packages\PDFNetNoLoader.6.5.1\build\net40\PDFNetNoLoader.targets" Condition="Exists('..\packages\PDFNetNoLoader.6.5.1\build\net40\PDFNetNoLoader.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

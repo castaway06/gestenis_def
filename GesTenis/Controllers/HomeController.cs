@@ -19,6 +19,9 @@ namespace GesTenis.Controllers
         /// </summary>
         private gestenis_defEntities db = new gestenis_defEntities();
 
+        private static pdftron.PDFNetLoader loader = pdftron.PDFNetLoader.Instance();
+
+
         /// <summary>
         /// Devuelve la pagina inicial de la aplicacion
         /// </summary>

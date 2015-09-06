@@ -6,6 +6,12 @@ using System.Web.Mvc;
 using GesTenis.tools;
 using GesTenis.Models;
 using System.Data.Entity;
+using pdftron.FDF;
+using pdftron;
+using pdftron.PDF;
+using pdftron.Common;
+using pdftron.SDF;
+using System.Diagnostics;
 
 namespace GesTenis.Controllers
 {
@@ -15,6 +21,8 @@ namespace GesTenis.Controllers
         /// Instancia del contexto que referencia a la BBDD
         /// </summary>
         private gestenis_defEntities db = new gestenis_defEntities();
+
+        private static pdftron.PDFNetLoader loader = pdftron.PDFNetLoader.Instance();
 
         /// <summary>
         /// Muestra la vista Admin/index
@@ -719,7 +727,44 @@ namespace GesTenis.Controllers
             return RedirectToAction("ListadoDeReservas");
         }
 
+        public ActionResult VisualizarFactura()
+        {
 
+            PDFNet.Initialize();
+
+            // Ruta relavita a las carpetas que contienen los archivos (Relative path to the folder containing test files)
+            string input_path = "c:/Google Drive/PFC/pdf/";
+            string output_path = "c:/Google Drive/PFC/pdf/Output/";
+            try
+            {
+                // Merge XFDF from string
+                PDFDoc in_doc = new PDFDoc(input_path + "factura.pdf");
+                {
+                    in_doc.InitSecurityHandler();
+
+                    Debug.WriteLine("Merge XFDF string into PDF.");
+
+                    //string str = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><xfdf xmlns=\"http://ns.adobe.com/xfdf\" xml:space=\"preserve\"><square subject=\"Rectangle\" page=\"0\" name=\"cf4d2e58-e9c5-2a58-5b4d-9b4b1a330e45\" title=\"user\" creationdate=\"D:20120827112326-07'00'\" date=\"D:20120827112326-07'00'\" rect=\"227.7814207650273,597.6174863387978,437.07103825136608,705.0491803278688\" color=\"#000000\" interior-color=\"#FFFF00\" flags=\"print\" width=\"1\"><popup flags=\"print,nozoom,norotate\" open=\"no\" page=\"0\" rect=\"0,792,0,792\" /></square></xfdf>";
+                    facturas fac = db.facturas.Find(35);
+                    string str = fac.xml_factura;
+                    Debug.WriteLine(str);
+
+                    using (FDFDoc fdoc = new FDFDoc(FDFDoc.CreateFromXFDF(str)))
+                    {
+                        in_doc.FDFMerge(fdoc);
+                        in_doc.Save(output_path + "numbered_modified.pdf", SDFDoc.SaveOptions.e_linearized);
+                        Debug.WriteLine("Merge complete.");
+                    }
+                }
+            }
+            catch (PDFNetException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+            return File("c:/Google drive/PFC/pdf/output/numbered_modified.pdf", "application/pdf");
+        }
 
         //---------------------------------------------------------------------------------------
         #endregion RESERVAS
@@ -831,10 +876,6 @@ namespace GesTenis.Controllers
 
         #endregion Datos Admin
 
-        public ActionResult NoAcceso()
-        {
-            return View();
-        }
 
         /// <summary>
         /// Metodo de apoyo para saber si el usuario es admin o no lo es.
