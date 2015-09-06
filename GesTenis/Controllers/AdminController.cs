@@ -493,7 +493,6 @@ namespace GesTenis.Controllers
                 return RedirectToAction("ListadoDeReservas");
             }
 
-            //ViewBag.id = new SelectList(db.facturas, "id_reserva", "xml_factura");
             return View(model);
         }
 
