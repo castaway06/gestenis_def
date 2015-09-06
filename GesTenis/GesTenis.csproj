@@ -161,9 +161,6 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\interRecursosController.cs" />
-    <Compile Include="Controllers\interReservasController.cs" />
-    <Compile Include="Controllers\interSociosController.cs" />
     <Compile Include="Controllers\SocioController.cs" />
     <Compile Include="facturas.cs">
       <DependentUpon>GesTenisModel.tt</DependentUpon>
@@ -267,32 +264,10 @@
     <Content Include="Views\Home\Contacto.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_SocioLayout.cshtml" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Socio\_ViewStart.cshtml" />
     <Content Include="Views\Admin\_ViewStart.cshtml" />
     <Content Include="Views\Home\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_HomeLayout.cshtml" />
     <Content Include="Views\Socio\Index.cshtml" />
     <Content Include="Views\Home\LogOff.cshtml" />
     <Content Include="Views\Socio\NoAcceso.cshtml" />
@@ -313,28 +288,13 @@
     <Content Include="Views\Admin\ModificarDatos.cshtml" />
     <Content Include="Views\Admin\DetallesSocio.cshtml" />
     <Content Include="Views\Admin\EliminarSocio.cshtml" />
-    <Content Include="Views\interRecursos\Create.cshtml" />
-    <Content Include="Views\interRecursos\Delete.cshtml" />
-    <Content Include="Views\interRecursos\Details.cshtml" />
-    <Content Include="Views\interRecursos\Edit.cshtml" />
-    <Content Include="Views\interRecursos\Index.cshtml" />
     <Content Include="Views\Admin\ListadoDeRecursos.cshtml" />
     <Content Include="Views\Admin\DetallesRecurso.cshtml" />
     <Content Include="Views\Admin\EditarRecurso.cshtml" />
     <Content Include="Views\Admin\EliminarRecurso.cshtml" />
     <Content Include="Views\Admin\NuevoRecurso.cshtml" />
-    <Content Include="Views\interSocios\Create.cshtml" />
-    <Content Include="Views\interSocios\Delete.cshtml" />
-    <Content Include="Views\interSocios\Details.cshtml" />
-    <Content Include="Views\interSocios\Edit.cshtml" />
-    <Content Include="Views\interSocios\Index.cshtml" />
     <Content Include="Views\Admin\NuevoSocio.cshtml" />
     <Content Include="Views\Admin\ListadoDeReservas.cshtml" />
-    <Content Include="Views\interReservas\Create.cshtml" />
-    <Content Include="Views\interReservas\Delete.cshtml" />
-    <Content Include="Views\interReservas\Details.cshtml" />
-    <Content Include="Views\interReservas\Edit.cshtml" />
-    <Content Include="Views\interReservas\Index.cshtml" />
     <Content Include="Views\Admin\DetallesReserva.cshtml" />
     <Content Include="Views\Admin\EditarReserva.cshtml" />
     <Content Include="Views\Admin\EliminarReserva.cshtml" />
@@ -347,7 +307,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
