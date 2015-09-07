@@ -105,7 +105,7 @@ namespace GesTenis.Controllers
                 saveMessage("El socio " + socio.id + " se ha registrado correctamente en GesTenis");
                 return RedirectToAction("ListadoDeSocios", "Admin");
             }
-            addError("el Binder ha fallado");
+            //addError("el Binder ha fallado");
             saveErrors();
             return View(socio);
         }
@@ -592,8 +592,8 @@ namespace GesTenis.Controllers
                     + "<p>" + db_socio.nombre + " el administrador de sistema le ha realizado correctamente una reserva en GesTenis.</p>"
                     + "<p>Estos son los datos de la reserva:</p>"
                     + "<p>Nombre del recurso: " + reserva.recursos.nombre_rec + "</p>"
-                    + "<p>Día: " + reserva.fecha.Date.ToString() + "</p>"
-                    + "<p>Hora: " + reserva.hora.Hour.ToString() + "</p>"
+                    + "<p>Día: " + reserva.fecha.ToString("dd/MM/yyyy") + "</p>"
+                    + "<p>Hora: " + reserva.hora.ToString("HH:00") + "</p>"
                     + "<p>Una vez realizado el pago en conserjería, podrá visualizar la factura en su área de usuario.</p>";
                 Tools.sendEmail(db_socio, subject, body);
 

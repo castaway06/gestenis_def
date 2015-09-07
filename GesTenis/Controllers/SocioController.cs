@@ -165,11 +165,11 @@ namespace GesTenis.Controllers
                 // Envio de email al socio con los datos de la reserva
                 string subject = "Reserva realizada en Gestenis";
                 string body = "<h1>Esto es un mensaje automático del sistema</h1>"
-                    + "<p>" + db_socio.nombre + " ha realizado correctamente una reserva en GesTenis.</p>"
+                    + "<p>" + db_socio.nombre + " has realizado correctamente una reserva en GesTenis.</p>"
                     + "<p>Estos son los datos de su reserva:</p>"
                     + "<p>Nombre del recurso: " + reserva.recursos.nombre_rec + "</p>"
-                    + "<p>Día: " + reserva.fecha.Date.ToString() + "</p>"
-                    + "<p>Hora: " + reserva.hora.Hour.ToString() + "</p>"
+                    + "<p>Día: " + reserva.fecha.ToString("dd/MM/yyyy") + "</p>"
+                    + "<p>Hora: " + reserva.hora.ToString("HH:00") + "</p>"
                     + "<p>Una vez realizado el pago en conserjería, podrá visualizar la factura en su área de usuario.</p>";
                 Tools.sendEmail(db_socio, subject, body);
 
