@@ -30,7 +30,7 @@ namespace GesTenis.Controllers
         /// <summary>
         /// Muestra la vista Admin/index
         /// </summary>
-        /// <returns>Vista Admin/Index si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado </returns>
+        /// <returns>Vista Admin/Index si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado </returns>
         public ActionResult Index()
         {
             if (isAdmin())
@@ -51,7 +51,7 @@ namespace GesTenis.Controllers
         /// <summary>
         /// Muestra el listado de socios /Admin/Listadodesocios
         /// </summary>
-        /// <returns>Vista Admin/Listadodesocios si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/Listadodesocios si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult ListadoDeSocios()
         {
             if (isAdmin()) return View(db.socios.ToList());
@@ -61,7 +61,7 @@ namespace GesTenis.Controllers
         /// <summary>
         /// Muestra el formulario para dar de alta un socio /Admin/Nuevosocio
         /// </summary>
-        /// <returns>Vista Admin/Nuevosocio si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/Nuevosocio si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult NuevoSocio()
         {
             if (isAdmin()) return View();
@@ -114,7 +114,7 @@ namespace GesTenis.Controllers
         /// Devuelve listado de socios filtrado por nif, dentro de una vista parcial
         /// </summary>
         /// <param name="nif">nif por el que filtrar la búsqueda</param>
-        /// <returns>Lista de socios filtrada por nif si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Lista de socios filtrada por nif si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         [HttpPost]
         public ActionResult LoadSocios(string nif)
         {
@@ -140,7 +140,7 @@ namespace GesTenis.Controllers
         /// Muestra la vista para editar socio si admin
         /// </summary>
         /// <param name="id">id del socio a editar</param>
-        /// <returns>Vista Admin/Editarsocio si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/Editarsocio si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult EditarSocio(string id)
         {
             if (isAdmin())
@@ -190,7 +190,7 @@ namespace GesTenis.Controllers
         /// Muestra la vista de detalles del socio
         /// </summary>
         /// <param name="id">id del socio para el que mostrar los detalles</param>
-        /// <returns>Vista Admin/Detallessocio si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/Detallessocio si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult DetallesSocio(string id)
         {
             if (isAdmin())
@@ -220,7 +220,7 @@ namespace GesTenis.Controllers
         /// Muestra la vista para eliminar un socio con los datos del mismo
         /// </summary>
         /// <param name="id">id del socio a eliminar</param>
-        /// <returns>Vista Admin/Eliminarsocio si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/Eliminarsocio si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult EliminarSocio(string id)
         {
             if (isAdmin())
@@ -272,7 +272,7 @@ namespace GesTenis.Controllers
         /// <summary>
         /// Muestra el listado de recursos /Admin/Listadoderecursos
         /// </summary>
-        /// <returns>Vista Admin/Listadoderecursos si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/Listadoderecursos si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult ListadoDeRecursos()
         {
             if (isAdmin()) return View(db.recursos.ToList());
@@ -282,7 +282,7 @@ namespace GesTenis.Controllers
         /// <summary>
         /// Devuelve la vista para agregar un nuevo recurso
         /// </summary>
-        /// <returns>Vista Admin/NuevoRecurso si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/NuevoRecurso si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult NuevoRecurso()
         {
             if (isAdmin()) return View();
@@ -315,7 +315,7 @@ namespace GesTenis.Controllers
         /// Muestra la vista para editar el recurso si es administrador
         /// </summary>
         /// <param name="id">id del recurso a editar</param>
-        /// <returns>Vista Admin/EditarRecurso si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/EditarRecurso si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult EditarRecurso(string id)
         {
             int id2;
@@ -367,7 +367,7 @@ namespace GesTenis.Controllers
         /// Muestra la vista de detalles del recurso pasado por parametro
         /// </summary>
         /// <param name="id">id del recurso para el que mostrar los detalles</param>
-        /// <returns>Vista Admin/DetallesRecurso si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/DetallesRecurso si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult DetallesRecurso(string id)
         {
             int id2;
@@ -399,7 +399,7 @@ namespace GesTenis.Controllers
         /// Muestra la vista para eliminar un recurso con los datos del mismo
         /// </summary>
         /// <param name="id">id del recurso a eliminar</param>
-        /// <returns>Vista Admin/EliminarRecurso si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/EliminarRecurso si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult EliminarRecurso(string id)
         {
             int id2;
@@ -454,7 +454,7 @@ namespace GesTenis.Controllers
         /// <summary>
         /// Muestra el listado de reservas Admin/ListadoDeReservas
         /// </summary>
-        /// <returns>Vista Admin/ListadoDeReservas si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/ListadoDeReservas si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult ListadoDeReservas()
         {
             if (isAdmin())
@@ -470,7 +470,7 @@ namespace GesTenis.Controllers
         /// Devuelve el listado de reservas filtrado por fecha, dentro de una vista parcial
         /// </summary>
         /// <param name="fecha">fecha sobre la que filtrar la busqueda</param>
-        /// <returns>Lista de reservas filtrada por fecha si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Lista de reservas filtrada por fecha si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         [HttpPost]
         public ActionResult LoadReservas(DateTime fecha)
         {
@@ -489,7 +489,7 @@ namespace GesTenis.Controllers
         /// <summary>
         /// Muestra la vista para realizar una nueva reserva
         /// </summary>
-        /// <returns>Vista Admin/NuevaReserva si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/NuevaReserva si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult NuevaReserva()
         {
             if (isAdmin())
@@ -608,7 +608,7 @@ namespace GesTenis.Controllers
         /// Muestra la vista para editar la reserva con el id que pasamos como parametro (si existe la reserva)
         /// </summary>
         /// <param name="id">id de la reserva a editar</param>
-        /// <returns>Vista Admin/EditarReserva si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/EditarReserva si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult EditarReserva(int? id)
         {
             if (isAdmin())
@@ -660,7 +660,7 @@ namespace GesTenis.Controllers
         /// Muestra la vista de detalles de la reserva con el id que pasamos como parametro (si existe la reserva)
         /// </summary>
         /// <param name="id">id de la reserva para ver sus detalles</param>
-        /// <returns>Vista Admin/DetallesReserva si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/DetallesReserva si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult DetallesReserva(int? id)
         {
             if (isAdmin())
@@ -690,7 +690,7 @@ namespace GesTenis.Controllers
         /// Muestra la vista para eliminar una reserva, si ésta existe
         /// </summary>
         /// <param name="id">id de la reserva a eliminar</param>
-        /// <returns>Vista Admin/EliminarReserva si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/EliminarReserva si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult EliminarReserva(int? id)
         {
             if (isAdmin())
@@ -734,6 +734,11 @@ namespace GesTenis.Controllers
             return RedirectToAction("ListadoDeReservas");
         }
 
+        /// <summary>
+        /// Genera la factura de la reserva id pasada como parametro, si la reserva ha sido pagada, y la devuelve al administrador
+        /// </summary>
+        /// <param name="id">id de la reserva para la cual mostrar la factura</param>
+        /// <returns>pdf con la factura si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult VerFacturaReserva(int? id)
         {
             if (isAdmin())
@@ -807,7 +812,7 @@ namespace GesTenis.Controllers
         /// <summary>
         /// Muestra la vista para cambiar la contraseña del administrador
         /// </summary>
-        /// <returns>Vista Admin/CambiarContrasena si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/CambiarContrasena si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult CambiarContrasena()
         {
             if (isAdmin()) return View();
@@ -853,7 +858,7 @@ namespace GesTenis.Controllers
         /// <summary>
         /// Muestra la vista de Datos del administrador
         /// </summary>
-        /// <returns>Vista Admin/MisDatos si admin, sino redirige a /Home/index o /Socio/index dependiendo si es socio o no logueado</returns>
+        /// <returns>Vista Admin/MisDatos si admin, sino redirige a /Socio/index o /Home/index dependiendo si es socio o no logueado</returns>
         public ActionResult MisDatos()
         {
             if (isAdmin())

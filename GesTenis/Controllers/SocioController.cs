@@ -21,7 +21,12 @@ namespace GesTenis.Controllers
         /// Instancia del contexto que referencia a la BBDD
         /// </summary>
         private gestenis_defEntities db = new gestenis_defEntities();
-        
+
+        /// <summary>
+        /// Instancia del objeto PDFNetLoader necesario para la generacion del pdf en la factura
+        /// </summary>
+        private static pdftron.PDFNetLoader loader = pdftron.PDFNetLoader.Instance();
+
         /// <summary>
         /// Devuelve la pagina de inicio del socio si esta logueado.
         /// </summary>
@@ -276,6 +281,11 @@ namespace GesTenis.Controllers
             return RedirectToAction("MisReservas");
         }
 
+        /// <summary>
+        /// Genera la factura de la reserva id pasada como parametro, si la factura pertenece al socio y si ha pagado la reserva, y la devuelve al socio
+        /// </summary>
+        /// <param name="id">id de la reserva para la cual mostrar la factura</param>
+        /// <returns>pdf con la factura si socio, sino redirige a /Home/index o /Admin/index dependiendo si es admin o no logueado</returns>
         public ActionResult VerFacturaReserva(int? id)
         {
             if (isSocio())
