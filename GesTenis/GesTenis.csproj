@@ -267,7 +267,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Tarifas.cshtml" />
     <Content Include="Views\Home\Contacto.cshtml" />
@@ -311,6 +310,7 @@
     <Content Include="Views\Socio\DetallesReserva.cshtml" />
     <Content Include="Views\Socio\EliminarReserva.cshtml" />
     <Content Include="Views\Admin\LoadReservas.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

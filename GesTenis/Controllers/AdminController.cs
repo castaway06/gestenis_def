@@ -22,6 +22,9 @@ namespace GesTenis.Controllers
         /// </summary>
         private gestenis_defEntities db = new gestenis_defEntities();
 
+        /// <summary>
+        /// Instancia del objeto PDFNetLoader necesario para la generacion del pdf en la factura
+        /// </summary>
         private static pdftron.PDFNetLoader loader = pdftron.PDFNetLoader.Instance();
 
         /// <summary>
@@ -265,7 +268,7 @@ namespace GesTenis.Controllers
 
 
         #region RECURSOS
-        
+
         /// <summary>
         /// Muestra el listado de recursos /Admin/Listadoderecursos
         /// </summary>
@@ -519,6 +522,10 @@ namespace GesTenis.Controllers
                 {
                     addError("El socio tiene expirada su cuota de socio o aún no ha sido activado");
                 }
+                if (DateTime.Compare(fecha_baja, model.fecha) < 0)
+                {
+                    addError("No puede realizar la reserva, la cuota del socio expira antes de la fecha de reserva");
+                }
 
                 // Recuperamos el recurso y comprobamos si existe y esta disponible
                 recursos db_recurso = db.recursos.Find(model.id_rec);
@@ -530,7 +537,7 @@ namespace GesTenis.Controllers
                 {
                     addError("El recurso seleccionado no está disponible");
                 }
-                
+
                 reservas reserva = new reservas();
                 reserva.fecha = model.fecha;
                 reserva.hora = new DateTime(reserva.fecha.Year, reserva.fecha.Month, reserva.fecha.Day, model.hora.Hour, model.hora.Minute, model.hora.Second);
@@ -538,11 +545,11 @@ namespace GesTenis.Controllers
                 reserva.precio = 3;
 
                 // Comprobacion que la fecha y/u hora no son anteriores a hoy
-                if (DateTime.Compare(reserva.fecha, DateTime.Today) <0)
+                if (DateTime.Compare(reserva.fecha, DateTime.Today) < 0)
                 {
                     addError("La fecha de la reserva no puede ser anterior a hoy");
                 }
-                if (DateTime.Compare(reserva.hora, DateTime.Now) <0)
+                if (DateTime.Compare(reserva.hora, DateTime.Now) < 0)
                 {
                     addError("La hora de la reserva no puede ser anterior a ahora");
                 }
@@ -563,7 +570,7 @@ namespace GesTenis.Controllers
                 if (errors != null)
                 {
                     saveErrors();
-                    return RedirectToAction("NuevaReserva","Admin");
+                    return RedirectToAction("NuevaReserva", "Admin");
                 }
                 // Guardamos los datos en la BBDD
                 reserva.socios = db_socio;
@@ -582,7 +589,7 @@ namespace GesTenis.Controllers
                 // Envio de email al socio con los datos de la reserva
                 string subject = "Reserva realizada en Gestenis";
                 string body = "<h1>Esto es un mensaje automático del sistema</h1>"
-                    + "<p>" +db_socio.nombre +" el administrador de sistema le ha realizado correctamente una reserva en GesTenis.</p>"
+                    + "<p>" + db_socio.nombre + " el administrador de sistema le ha realizado correctamente una reserva en GesTenis.</p>"
                     + "<p>Estos son los datos de la reserva:</p>"
                     + "<p>Nombre del recurso: " + reserva.recursos.nombre_rec + "</p>"
                     + "<p>Día: " + reserva.fecha.Date.ToString() + "</p>"
@@ -727,43 +734,68 @@ namespace GesTenis.Controllers
             return RedirectToAction("ListadoDeReservas");
         }
 
-        public ActionResult VisualizarFactura()
+        public ActionResult VerFacturaReserva(int? id)
         {
-
-            PDFNet.Initialize();
-
-            // Ruta relavita a las carpetas que contienen los archivos (Relative path to the folder containing test files)
-            string input_path = "c:/Google Drive/PFC/pdf/";
-            string output_path = "c:/Google Drive/PFC/pdf/Output/";
-            try
+            if (isAdmin())
             {
-                // Merge XFDF from string
-                PDFDoc in_doc = new PDFDoc(input_path + "factura.pdf");
+                reservas reserva = db.reservas.Find(id);
+                if (reserva == null)
                 {
-                    in_doc.InitSecurityHandler();
+                    addError("La reserva para la cual desea ver la factura no existe");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeReservas", "Admin");
+                }
+                if (reserva.pagado == false)
+                {
+                    addError("La factura no puede ser visualizada hasta que la reserva sea abonada");
+                    saveErrors();
+                    return RedirectToAction("ListadoDeReservas", "Admin");
+                }
+              
+                // Creacion del pdf a partir de los datos xml en la BBDD
+                PDFNet.Initialize();
 
-                    Debug.WriteLine("Merge XFDF string into PDF.");
-
-                    //string str = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><xfdf xmlns=\"http://ns.adobe.com/xfdf\" xml:space=\"preserve\"><square subject=\"Rectangle\" page=\"0\" name=\"cf4d2e58-e9c5-2a58-5b4d-9b4b1a330e45\" title=\"user\" creationdate=\"D:20120827112326-07'00'\" date=\"D:20120827112326-07'00'\" rect=\"227.7814207650273,597.6174863387978,437.07103825136608,705.0491803278688\" color=\"#000000\" interior-color=\"#FFFF00\" flags=\"print\" width=\"1\"><popup flags=\"print,nozoom,norotate\" open=\"no\" page=\"0\" rect=\"0,792,0,792\" /></square></xfdf>";
-                    facturas fac = db.facturas.Find(35);
-                    string str = fac.xml_factura;
-                    Debug.WriteLine(str);
-
-                    using (FDFDoc fdoc = new FDFDoc(FDFDoc.CreateFromXFDF(str)))
+                // Ruta relavita a las carpetas que contienen los archivos
+                string input_path = "c:/Google Drive/PFC/pdf/";
+                string output_path = "c:/Google Drive/PFC/pdf/Output/";
+                try
+                {
+                    // Juntar XFDF desde el xml string
+                    PDFDoc in_doc = new PDFDoc(input_path + "factura.pdf");
                     {
-                        in_doc.FDFMerge(fdoc);
-                        in_doc.Save(output_path + "numbered_modified.pdf", SDFDoc.SaveOptions.e_linearized);
-                        Debug.WriteLine("Merge complete.");
+                        in_doc.InitSecurityHandler();
+
+                        //Debug.WriteLine("Juntamos XFDF string con el PDF...");
+
+                        //reservas reserva = db.reservas.Find(id);
+                        string str = reserva.facturas.xml_factura;
+                        //Debug.WriteLine(str);
+
+                        using (FDFDoc fdoc = new FDFDoc(FDFDoc.CreateFromXFDF(str)))
+                        {
+                            in_doc.FDFMerge(fdoc);
+                            // Iniciamos los permisos del pdf, para que no se pueda editar
+                            StdSecurityHandler newHandler = new StdSecurityHandler();
+                            newHandler.SetPermission(SecurityHandler.Permission.e_doc_modify, false);
+                            newHandler.SetPermission(SecurityHandler.Permission.e_fill_forms, false);
+                            newHandler.SetPermission(SecurityHandler.Permission.e_extract_content, false);
+                            newHandler.SetPermission(SecurityHandler.Permission.e_mod_annot, false);
+
+                            in_doc.SetSecurityHandler(newHandler);
+                            in_doc.Save(output_path + "factura_modificada.pdf", SDFDoc.SaveOptions.e_linearized);
+                            Debug.WriteLine("Juntado completado.");
+                        }
                     }
                 }
-            }
-            catch (PDFNetException e)
-            {
-                Console.WriteLine(e.Message);
-            }
+                catch (PDFNetException e)
+                {
+                    Debug.WriteLine(e.Message);
+                }
 
-
-            return File("c:/Google drive/PFC/pdf/output/numbered_modified.pdf", "application/pdf");
+                return File("c:/Google drive/PFC/pdf/output/factura_modificada.pdf", "application/pdf");
+            }
+            else
+                return RedirectToAction("Index", isSocio() ? "Socio" : "Home");
         }
 
         //---------------------------------------------------------------------------------------

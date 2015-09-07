@@ -6,6 +6,12 @@ using System.Web;
 using System.Web.Mvc;
 using GesTenis.tools;
 using System.Data.Entity;
+using pdftron;
+using pdftron.PDF;
+using pdftron.FDF;
+using pdftron.SDF;
+using System.Diagnostics;
+using pdftron.Common;
 
 namespace GesTenis.Controllers
 {
@@ -84,6 +90,11 @@ namespace GesTenis.Controllers
                 if (DateTime.Compare(fecha_baja, DateTime.Today) < 0)
                 {
                     addError("No puede realizar la reserva, su cuota ha expirado o aún no ha pagado su primera cuota de socio");
+                }
+
+                if (DateTime.Compare(fecha_baja, model.fecha) < 0)
+                {
+                    addError("No puede realizar la reserva, su cuota expira antes de la fecha de reserva");
                 }
 
                 // Recuperamos el recurso y comprobamos que existe y esta disponible
@@ -265,6 +276,76 @@ namespace GesTenis.Controllers
             return RedirectToAction("MisReservas");
         }
 
+        public ActionResult VerFacturaReserva(int? id)
+        {
+            if (isSocio())
+            {
+                reservas reserva = db.reservas.Find(id);
+                if (reserva == null)
+                {
+                    addError("No tiene permisos para visualizar esta reserva");
+                    saveErrors();
+                    return RedirectToAction("MisReservas", "Socio");
+                }
+                string socio_id = (string)Session["UserID"];
+                if (reserva.socios.id != socio_id)
+                {
+                    addError("No tiene permisos para visualizar esta reserva");
+                    saveErrors();
+                    return RedirectToAction("MisReservas", "Socio"); 
+                }
+                if (reserva.pagado == false)
+                {
+                    addError("La factura no puede ser visualizada hasta que la reserva sea abonada");
+                    saveErrors();
+                    return RedirectToAction("MisReservas", "Socio");
+                }
+
+                // Creacion del pdf a partir de los datos xml en la BBDD
+                PDFNet.Initialize();
+
+                // Ruta relavita a las carpetas que contienen los archivos
+                string input_path = "c:/Google Drive/PFC/pdf/";
+                string output_path = "c:/Google Drive/PFC/pdf/Output/";
+                try
+                {
+                    // Juntar XFDF desde el xml string
+                    PDFDoc in_doc = new PDFDoc(input_path + "factura.pdf");
+                    {
+                        in_doc.InitSecurityHandler();
+
+                        //Debug.WriteLine("Juntamos XFDF string con el PDF...");
+
+                        //reservas reserva = db.reservas.Find(id);
+                        string str = reserva.facturas.xml_factura;
+                        //Debug.WriteLine(str);
+
+                        using (FDFDoc fdoc = new FDFDoc(FDFDoc.CreateFromXFDF(str)))
+                        {
+                            in_doc.FDFMerge(fdoc);
+                            // Iniciamos los permisos del pdf, para que no se pueda editar
+                            StdSecurityHandler newHandler = new StdSecurityHandler();
+                            newHandler.SetPermission(SecurityHandler.Permission.e_doc_modify, false);
+                            newHandler.SetPermission(SecurityHandler.Permission.e_fill_forms, false);
+                            newHandler.SetPermission(SecurityHandler.Permission.e_extract_content, false);
+                            newHandler.SetPermission(SecurityHandler.Permission.e_mod_annot, false);
+
+                            in_doc.SetSecurityHandler(newHandler);
+                            in_doc.Save(output_path + "factura_modificada.pdf", SDFDoc.SaveOptions.e_linearized);
+                            Debug.WriteLine("Juntado completado.");
+                        }
+                    }
+                }
+                catch (PDFNetException e)
+                {
+                    Debug.WriteLine(e.Message);
+                }
+
+                return File("c:/Google drive/PFC/pdf/output/factura_modificada.pdf", "application/pdf");
+            }
+            else
+                return RedirectToAction("Index", isAdmin() ? "Admin" : "Home");
+        }
 
         //----------------------------------------------------------------
         #endregion RESERVAS SOCIO

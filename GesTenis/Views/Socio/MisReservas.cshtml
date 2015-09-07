@@ -59,16 +59,36 @@
                     </td>
                     @if (DateTime.Compare(item.fecha, DateTime.Today) >= 0)
                     {
-                        <td>
-                            @Html.ActionLink("Detalles", "DetallesReserva", new { id = item.id }) |
-                            @Html.ActionLink("Eliminar", "EliminarReserva", new { id = item.id })
-                        </td>
+                        if (item.pagado)
+                        {
+                            <td>
+                                @Html.ActionLink("Detalles", "DetallesReserva", new { id = item.id }) |
+                                @Html.ActionLink("Eliminar", "EliminarReserva", new { id = item.id }) |
+                                @Html.ActionLink("Factura", "VerFacturaReserva", new { id = item.id })
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                @Html.ActionLink("Detalles", "DetallesReserva", new { id = item.id }) |
+                                @Html.ActionLink("Eliminar", "EliminarReserva", new { id = item.id })
+                            </td>
+                        }
                     }
                     else
                     {
-                        <td>
-                            No puede realizar acciones
-                        </td>
+                        if (item.pagado)
+                        {
+                            <td>
+                                @Html.ActionLink("Factura", "VerFacturaReserva", new { id = item.id })
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                No puede realizar acciones
+                            </td>
+                        }
                     }
                 </tr>
             }

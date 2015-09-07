@@ -53,11 +53,23 @@ else
                     <td>
                         @Html.DisplayFor(modelItem => item.precio)
                     </td>
-                    <td>
-                        @Html.ActionLink("Editar", "EditarReserva", new { id = item.id }) |
-                        @Html.ActionLink("Detalles", "DetallesReserva", new { id = item.id }) |
-                        @Html.ActionLink("Eliminar", "EliminarReserva", new { id = item.id })
-                    </td>
+                    @if (item.pagado)
+                    {
+                        <td>
+                            @Html.ActionLink("Editar", "EditarReserva", new { id = item.id }) |
+                            @Html.ActionLink("Detalles", "DetallesReserva", new { id = item.id }) |
+                            @Html.ActionLink("Eliminar", "EliminarReserva", new { id = item.id }) |
+                            @Html.ActionLink("Factura", "VerFacturaReserva", new { id = item.id })
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.ActionLink("Editar", "EditarReserva", new { id = item.id }) |
+                            @Html.ActionLink("Detalles", "DetallesReserva", new { id = item.id }) |
+                            @Html.ActionLink("Eliminar", "EliminarReserva", new { id = item.id }) |
+                        </td>
+                    }
                 </tr>
             }
 

@@ -61,4 +61,8 @@
 <ul>
     <h4>Acciones</h4>
     <li>@Html.ActionLink("Ir a mis reservas", "MisReservas")</li>
+    @if (Model.pagado)
+    {
+        <li>@Html.ActionLink("Ver factura", "VerFacturaReserva", new { id = Model.id })</li>
+    }
 </ul>

@@ -19,6 +19,9 @@ namespace GesTenis.Controllers
         /// </summary>
         private gestenis_defEntities db = new gestenis_defEntities();
 
+        /// <summary>
+        /// Instancia del objeto PDFNetLoader necesario para la generacion del pdf en la factura
+        /// </summary>
         private static pdftron.PDFNetLoader loader = pdftron.PDFNetLoader.Instance();
 
 
@@ -206,6 +209,12 @@ namespace GesTenis.Controllers
         /// <returns>Vista /home/contacto</returns>
         public ActionResult Contacto()
         {
+            return View();
+        }
+
+        public ActionResult Error()
+        {
+            Response.StatusCode = 404;
             return View();
         }
     }
