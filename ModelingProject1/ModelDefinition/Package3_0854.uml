@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="ce3cbfdd-73ff-419c-9a96-371b64c35a99"
+  name="Optimization"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="ea422956-7a10-4b5e-9c4c-0f12e1d3861f"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSystem.Web.Optimization"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="bfff17fa-acb6-4d93-bc1f-6cf851c5cf92">
+      <profileInstance
+        Id="6bc172f2-302e-48fa-a7ba-1289f269454e"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="769daa8e-22a2-45d9-9cb2-8effcd166af7"
+        name="BundleCollection"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="1f4bfdca-b86d-427c-9690-83e589479fde"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2Fpackages%2FMicrosoft.AspNet.Web.Optimization.1.1.3%2Flib%2Fnet40%2FSystem.Web.Optimization.dll&quot; Namespace%3DSystem.Web.Optimization Type%3DBundleCollection"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="329b408e-04d0-4960-844c-763b61a5bf53"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d6590c84-62dd-41ec-a2d2-d2e08969e312">
+                <propertyInstance
+                  Id="9941d4af-364e-41b0-a17d-8190fd12ef71"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f2da9f23-2f59-44de-9cb6-f5a16e09e98a">
+                <propertyInstance
+                  Id="9be7e761-b790-4316-a40a-ffa23bbce773"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dc289929-c729-40ad-a91c-bdc6466cf804">
+                <propertyInstance
+                  Id="1fafb020-04af-440e-9b1c-949174c9bbd0"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="42ebc00b-e377-488e-ae8c-94e600ec262c">
+                <propertyInstance
+                  Id="03b1754f-d07d-440c-888b-c6b987f8a18e"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0b6a8f09-2cd3-4c08-92c1-bb13ba9b3cd1">
+                <propertyInstance
+                  Id="beecfd45-3bc1-42a1-8025-3e1574f0fcdf"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

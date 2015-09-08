@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="c7538da0-042e-4d6c-92c5-c7b31edfab3d"
+  name="pdftron"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="58c8b59d-52f5-4638-b11a-53759d915ed1"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dpdftron"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="09df61de-faa7-4945-b0ee-3b9f230beedb">
+      <profileInstance
+        Id="0b587002-9197-44e2-97a5-95f3b7f966aa"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="80d347dc-6725-4c8e-80d8-be04199521ca"
+        name="PDFNetLoader"
+        visibility="Private"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="63d82cfc-0ee0-4476-abd4-7e4f17eef547"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2Fpackages%2FPDFNet.6.5.1.31640%2Flib%2Fnet40%2FPDFNetLoader.dll&quot; Namespace%3Dpdftron Type%3DPDFNetLoader"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="0dcd4e4b-9237-4470-88c5-45eff96c2517"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="63192942-fc99-46e0-a79f-5ff905152056">
+                <propertyInstance
+                  Id="b7f3fde8-6da0-4af3-860d-261f6d5f11b2"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2b340287-e8bb-4b5e-b653-ba67b7a52656">
+                <propertyInstance
+                  Id="3f4b6196-282b-49a9-9cbc-e90b430b0994"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6faa1b1c-de82-4d1d-894e-44972743cf9c">
+                <propertyInstance
+                  Id="9d143d6c-c3d5-43ee-b9ff-ceaa253d0ebf"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0b5d5f5a-0311-41ae-953a-bfb0fcb08a1f">
+                <propertyInstance
+                  Id="519e6117-10b6-4a0d-9c3c-7e65394d0d69"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="84161d7b-a930-4a75-9506-4db3899b7158">
+                <propertyInstance
+                  Id="e4b2f6aa-5a4f-4e7d-9322-7ee4761d9cdf"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

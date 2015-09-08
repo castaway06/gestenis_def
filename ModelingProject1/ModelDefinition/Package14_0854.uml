@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="3294da91-c681-494a-b7ee-a2bb01d93aa7"
+  name="tools"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="de9a4def-6808-48bb-b0df-f2a0f117b87d"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DGesTenis.tools"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="10abf72b-1550-401e-a361-1478d8d117a5"
+        name="Tools"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="99d4a105-c2b8-4b38-a537-826293e9bb5a"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="503fe276-5d6c-43a7-9afd-9c8b0abfe3d5"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="094c43cf-51e1-4ccb-9dcd-880a2ecd8973">
+                <propertyInstance
+                  Id="370bed18-893d-44eb-b7d1-b7dc174a3e84"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ffee373a-ecde-4c43-a4fc-cbd061e43652">
+                <propertyInstance
+                  Id="7bf3117e-60a0-41b4-9ac9-5e3a2475f437"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a96e44ab-e555-40c4-9142-2816e35cbad0">
+                <propertyInstance
+                  Id="5c6121ea-8368-46ec-8031-cb11c446a191"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a8fbd4eb-dc8c-4b9d-8934-3c206dc7c2c7">
+                <propertyInstance
+                  Id="a4080d8e-d064-4964-a7dd-cf0ba0020810"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="75ea2e5e-a7cc-4a70-9051-7e6d8e0bd4a7">
+                <propertyInstance
+                  Id="a206a32e-4ba5-4421-b066-c37571496af0"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="fb1ef784-430a-4a78-a858-61c5a6e92af1"
+            name="randomPassword"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c2be1d56-1cfb-4abd-a164-d237abc99714"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools Member%3D(Name%3DrandomPassword OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8cbbd800-0658-41b5-ab7e-b2e45969beb5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66c8971a-c9de-4d8d-893b-3e8c24ceb75e">
+                    <propertyInstance
+                      Id="2594487e-8211-49a7-9e5a-7da6caa914c3"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="983df4eb-b21e-428f-9104-944c81b68180">
+                    <propertyInstance
+                      Id="c010a239-f52f-47a0-bd4d-85263a2f0fda"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="42603c8d-558d-45b4-84db-0ffbc30ac856">
+                    <propertyInstance
+                      Id="6ae67c1b-22a7-4a1f-a480-35747f86e215"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c73c5f66-725f-42c6-8a27-5a765fb90f8d">
+                    <propertyInstance
+                      Id="8d86a297-cda6-48eb-8a34-27ebd33a32bf"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="907b45bb-45ad-43ed-a930-658d1981433b">
+                    <propertyInstance
+                      Id="dfaf4555-fc9e-49fc-a8e9-048f1af7c555"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a5b399d-c839-41eb-9355-38a6cf6f82ee">
+                    <propertyInstance
+                      Id="191ecc40-9242-4469-8faf-f79b4349b5de"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="66c4f17a-62a1-4538-96ef-3676419fc1f7"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3d729cf5-bf6f-4ae6-a49e-309303f64093"
+                  name="length"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="96738700-4897-41fb-8f4b-7bd05dcd4fbd"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools Member%3D(Name%3DrandomPassword OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dlength"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b9bb0314-1462-48ce-b7ee-625daa2810e1"
+            name="SHA256Encrypt"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9850c167-3286-4f9c-adc3-d25ab4b6b346"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools Member%3D(Name%3DSHA256Encrypt OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6e72b196-44a3-42fd-a935-34b36e77d5b5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d760aae-eade-4882-a07a-881786496c44">
+                    <propertyInstance
+                      Id="0b718844-c56d-470c-8482-5fe1334df761"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="92fcd4f6-93ae-4808-af4b-969d65f0f2d1">
+                    <propertyInstance
+                      Id="4da0e9d2-5dbf-49eb-b79a-7b3500c99495"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb41acac-a833-4202-a70f-058c8f440d40">
+                    <propertyInstance
+                      Id="3fbb37a9-ad08-4118-be94-6010df63626b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="331f6382-933e-4dd5-916c-877647fe70a1">
+                    <propertyInstance
+                      Id="1bd3de9c-9eb1-4ed4-a633-ecf4e61727c5"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="720f07d4-e0f8-43c8-a2ad-ad3a91f5039a">
+                    <propertyInstance
+                      Id="d6957bdc-1b29-4062-b9fe-f18c4aa8cb90"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29d100eb-1b3e-45c4-b782-f0915f6d0df8">
+                    <propertyInstance
+                      Id="85157ebf-d2bb-40a1-9daa-9fc5d05b8a7b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0d93e3c4-86e8-47a1-9cca-08d15f349baf"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5e67b5cb-9724-4aa1-bc1c-7bfc5ee13181"
+                  name="input"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="6dc8c4e3-1bb9-4cb4-a590-8e240581dfad"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools Member%3D(Name%3DSHA256Encrypt OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dinput"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="9a3ac9fb-4f0e-41be-9f5d-7c0d352a1cb0"
+            name="sendEmail"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d12b4311-c396-42a2-9829-74f2eb16af52"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools Member%3D(Name%3DsendEmail OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis Type%3Dsocios)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c75dca62-5398-4f02-b4ac-9a84aae869d5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa98c25e-2c7e-4c50-86b2-f0a3be17cb53">
+                    <propertyInstance
+                      Id="4c4c8141-f7d7-4c77-b73c-ca97eb3e3c8e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8bbcee17-973e-45c6-a6c3-144d92c613fa">
+                    <propertyInstance
+                      Id="9971630c-cdac-41e4-99ce-6ee2fec4df14"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c62b1e37-2044-4aaa-8f9f-03746564d96d">
+                    <propertyInstance
+                      Id="2a56950e-aa5f-4343-bb92-70a069c5ae6c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3fd80084-80bd-48f4-981d-93107c73eb9a">
+                    <propertyInstance
+                      Id="555851d3-21c6-45ca-b8f0-071a4d83425e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6d738131-81b8-4e6a-8db9-d32c5f537e4c">
+                    <propertyInstance
+                      Id="0836d63d-97c6-49bc-af3a-fd2b89b2268a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="09fc0bab-7248-4cba-a188-751cf17f3e67">
+                    <propertyInstance
+                      Id="879b2946-8150-4c4f-b417-eb2f38631ffe"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2e12f832-bfd2-45ae-873b-da2fcaffe59c"
+                  name="socio"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="8adaa452-89e0-4b0e-a7a6-0a35a3b6a251"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools Member%3D(Name%3DsendEmail OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis Type%3Dsocios)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dsocio"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="0f408d79-ced0-4ed0-9c45-455f7462cf4f"
+                      LastKnownName="socios"
+                      LastKnownLocation="Package_0854.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e94fde49-0dda-4a81-bf26-c52a6c615848"
+                  name="subject"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="906a6ff7-fed9-444d-86e8-d1fc74a7e292"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools Member%3D(Name%3DsendEmail OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis Type%3Dsocios)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dsubject"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="279f8f7a-7c5d-4654-bd80-bbaa6db62e9c"
+                  name="body"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="bce6c655-de50-4e28-a3b8-8519c316a627"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools Member%3D(Name%3DsendEmail OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis Type%3Dsocios)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dbody"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="29a5ba75-8c40-40eb-abe4-cf042cb861dd"
+            name="generarXmlFactura"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="f9d889bb-8e2f-4638-abb5-aa98c6826146"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools Member%3D(Name%3DgenerarXmlFactura OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis Type%3Dfacturas)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis Type%3Dreservas)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d3a91a51-ece1-4be9-bcc5-1440e47aa6f1"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c77b1ec5-d2cb-4c54-838f-0eed1b4b222a">
+                    <propertyInstance
+                      Id="23c9839b-b4bd-42f6-ae6c-969e358f72cb"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8d8d5d58-d001-4725-983d-373dea7bb071">
+                    <propertyInstance
+                      Id="fe20fd27-822a-4402-99a3-7348943db560"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="923effd8-3465-4434-9a8f-9f85395d29c4">
+                    <propertyInstance
+                      Id="2637a124-555a-4d67-8742-7ec97eac3b14"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9b60b543-f152-46dc-8d68-e70b7dc8d87d">
+                    <propertyInstance
+                      Id="a953f0ce-7228-4e7c-a402-54f319abd47d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6533b398-5e33-4a77-9b57-8d2ca52e6c56">
+                    <propertyInstance
+                      Id="1e9f5cec-7809-474f-b546-1dca9abfd138"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="82d1a88b-257a-4bc0-a3c3-fbb30aeaa1f1">
+                    <propertyInstance
+                      Id="7bf28754-2915-4e58-8755-634f3b37b713"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4ad08684-73d3-489c-ad30-c8057d462b13"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e6f64d92-d3d8-4a1e-85b1-558b1f5d5cc4"
+                  name="factura"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f8244714-3e51-4ae0-a75a-154190a6c9ec"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools Member%3D(Name%3DgenerarXmlFactura OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis Type%3Dfacturas)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis Type%3Dreservas)]) ParameterIdentifier%3Dfactura"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b753652e-f09d-4b76-9066-fd2ebffa2eea"
+                      LastKnownName="facturas"
+                      LastKnownLocation="Package_0854.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="85c4d32c-3471-40d2-8e11-7884a1a74512"
+                  name="reserva"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="bc9870bb-ceb1-4388-9113-6e4f861ba1a9"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools Member%3D(Name%3DgenerarXmlFactura OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis Type%3Dfacturas)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis Type%3Dreservas)]) ParameterIdentifier%3Dreserva"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="c8754085-2a22-4380-92e5-1054b0e6a23f"
+                      LastKnownName="reservas"
+                      LastKnownLocation="Package_0854.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="811afbe2-4925-45e4-a132-ff63345d3585"
+            name="Tools"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="75bccb4d-601f-4a93-a4e1-d14a3ba14f33"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.tools Type%3DTools Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fc25cb0c-0276-4263-b704-b647722040bf"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="81812cd5-4f82-4e33-9340-fa2715dcf28e">
+                    <propertyInstance
+                      Id="0b579aaa-0c68-4197-9c7f-42539aa46364"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4d676f80-1175-40a3-856e-07c00474a92f">
+                    <propertyInstance
+                      Id="af57fe1c-eaeb-4577-b579-2f62f1ead7e0"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d64b9195-9407-42d7-99aa-61bfe9f9430a">
+                    <propertyInstance
+                      Id="381ed48a-431f-4fb7-b593-41bbe32f95cb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6b429016-f76c-40f4-a0b7-26c0a05a5db0">
+                    <propertyInstance
+                      Id="f5a32470-64c0-4c4a-a7a4-c389d21061fc"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8a58f296-ff3c-49b5-b983-58a1ba6e03a8">
+                    <propertyInstance
+                      Id="920397b5-0e42-478e-95eb-e965a4b46b38"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3306a0db-e6db-4357-8e0f-ab8f047a7a9e">
+                    <propertyInstance
+                      Id="95593286-5f02-40ae-b494-7631a695e761"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

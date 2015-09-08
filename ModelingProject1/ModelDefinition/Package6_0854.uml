@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="e4fb65c9-ea68-47ba-9f64-3c6197d1e6ae"
+  name="Owin"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="d29366b6-344f-4576-8e3a-7a1281497b84"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DOwin"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="07004bd3-e931-4881-9381-a724a72b42d0">
+      <profileInstance
+        Id="c96b42bd-358c-4bd7-84da-edf9a30a652e"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="6853aa6a-47a8-43b5-8ae0-874695367f77"
+        name="IAppBuilder"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="2972f134-a05c-4981-bda7-d1160d299f3f"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2Fpackages%2FOwin.1.0%2Flib%2Fnet40%2FOwin.dll&quot; Namespace%3DOwin Type%3DIAppBuilder"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="72a9f326-641f-4ff1-b24d-58bd1c9cb429"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="41f4da9b-bf88-4f9d-aa83-563a873b483e">
+                <propertyInstance
+                  Id="6bcfbd96-f69c-4ff7-8171-395f3ccc04ff"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fb92b205-01bc-46b5-b632-7f278477acfb">
+                <propertyInstance
+                  Id="6e5d6bec-224b-4b88-8373-d82b06000536"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a8a3f757-8279-47b6-9268-986668815f99">
+                <propertyInstance
+                  Id="d334e57c-c6ca-4944-8229-d8aede254825"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="26ccd2c4-ec36-4c42-b772-49f6ddf6c0cb">
+                <propertyInstance
+                  Id="f324fdb6-0155-4695-8042-fcb623492268"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

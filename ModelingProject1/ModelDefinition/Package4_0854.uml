@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="a3ec956e-0c70-4dd0-9175-b7b5a4ea16f9"
+  name="Mvc"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="271b67d0-5c85-4418-b6c5-a4354303e2fb"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSystem.Web.Mvc"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="acfbc44a-92b3-407e-839e-21ddbc2e8ee3">
+      <profileInstance
+        Id="f542450e-c08f-476d-a1a5-10041717d9b8"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="d69798c2-0f44-4dbf-af7a-6a5cdc73acea"
+        name="GlobalFilterCollection"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="00706513-bbad-4339-b912-051db69dd804"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2Fpackages%2FMicrosoft.AspNet.Mvc.5.2.2%2Flib%2Fnet45%2FSystem.Web.Mvc.dll&quot; Namespace%3DSystem.Web.Mvc Type%3DGlobalFilterCollection"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="58521569-bb04-49b4-8b1d-06a62a5b6047"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bc385bd6-7b72-410a-8fd9-1523546dbdad">
+                <propertyInstance
+                  Id="70846190-edc6-478d-a791-779fa4c83d03"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bec062f9-f89d-46c8-ac9f-977a5e471e8f">
+                <propertyInstance
+                  Id="e2041cc7-a17f-44a9-a2bc-e4cf60d4e94b"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="45eac95b-7e0f-4143-8727-61d8b7c80363">
+                <propertyInstance
+                  Id="05bbef7a-838a-48bb-b9d1-9e0be96d70f7"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f5849f0d-2639-4c1f-9ed8-57bee6c9ff0e">
+                <propertyInstance
+                  Id="c44ced8e-dfa8-4295-8ef4-9ee8ac3b92f2"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="89fea7f3-1f9f-444d-b945-b4e9da6fe57b">
+                <propertyInstance
+                  Id="a393dae3-443b-4e92-bc5a-9628c2c92223"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b687cddf-cd03-42af-81a8-bd5c1445336a"
+        name="ActionResult"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="b7005af5-46e5-44df-8149-6b100c8dd059"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2Fpackages%2FMicrosoft.AspNet.Mvc.5.2.2%2Flib%2Fnet45%2FSystem.Web.Mvc.dll&quot; Namespace%3DSystem.Web.Mvc Type%3DActionResult"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="117aabe3-946f-4ca3-bee9-24bb63d6c13f"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9c4a3974-4f17-403d-970e-ac088a20d448">
+                <propertyInstance
+                  Id="2c1db303-dbb6-4818-a45a-00d00b8281ac"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ad5d8749-e374-4e18-acd8-81be23dc2328">
+                <propertyInstance
+                  Id="87e8b722-9f4e-4489-ae0e-c5ac73859460"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="20625326-28ad-4299-b2fd-82b82e0e45ff">
+                <propertyInstance
+                  Id="eb87a8f1-78d4-4ec6-b0f2-1b1e8c070cd3"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="37149746-0804-4486-9bf1-db8c81c56ce7">
+                <propertyInstance
+                  Id="39963a7a-827d-4413-ad86-ef293469fef3"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="eb3b74d7-44fc-4279-b3a4-b88c934f7b8a">
+                <propertyInstance
+                  Id="4a2cf417-5544-4eee-9cea-7026509f0f5f"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b01445c7-c7c3-42a6-bc88-d36a3478d41b"
+        name="Controller"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="2c349785-df1f-48bb-933a-e3f89b6ea25b"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2Fpackages%2FMicrosoft.AspNet.Mvc.5.2.2%2Flib%2Fnet45%2FSystem.Web.Mvc.dll&quot; Namespace%3DSystem.Web.Mvc Type%3DController"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="96ed7a98-9850-44ae-b903-951546b03ca8"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8b99408a-e8aa-44e7-ac61-b575471fc150">
+                <propertyInstance
+                  Id="5fac6c0b-f730-43d2-b29a-89e9bb4fb020"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="589f8e24-ad02-4848-a24f-f73e1316c7ea">
+                <propertyInstance
+                  Id="b05d2338-acd1-4340-9e9a-549b729336d0"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cb838ee2-372d-4e74-bfb9-fb6a2731a3b1">
+                <propertyInstance
+                  Id="ab5b71cc-cb61-4101-8c8d-863ebbfdd1ed"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="42bdf4ac-3736-4bb4-b734-e78438e0ceba">
+                <propertyInstance
+                  Id="e890bb54-d928-46f9-8150-389f9cf6ab27"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dab90aa6-08a2-4b6b-b249-826b63e5e2cd">
+                <propertyInstance
+                  Id="52c90429-3875-4ece-b1eb-983e9d793268"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3736cc69-d2c3-4fa4-b0f1-b19de2eb69ea"
+        name="ActionExecutingContext"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="64ba4e8d-1ad3-4644-b262-58afb8a194ce"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2Fpackages%2FMicrosoft.AspNet.Mvc.5.2.2%2Flib%2Fnet45%2FSystem.Web.Mvc.dll&quot; Namespace%3DSystem.Web.Mvc Type%3DActionExecutingContext"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="8ab8deed-d686-411c-b143-48495a1c28dd"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="90566674-c7cb-4c3d-9867-46ac5c1709db">
+                <propertyInstance
+                  Id="36255fcc-af75-4bd5-8966-66da9043e4f3"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="da51fea1-e119-4143-9d2e-15adb9473bde">
+                <propertyInstance
+                  Id="79667374-094a-4d6f-bcba-64780c9bbcb9"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bee3e13b-2e85-472a-9a48-1c7e5b40b0ca">
+                <propertyInstance
+                  Id="51ed906d-36c3-4e2d-9449-bdc1f2f29224"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d4e94b51-c0f1-4cf6-bbec-3fcdbe421c07">
+                <propertyInstance
+                  Id="0909e4d5-b16b-4540-8d95-b92d9a0a89f8"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a3b6ae6e-f53d-437a-abce-d321b5800dde">
+                <propertyInstance
+                  Id="294da3ca-353c-4bc5-bcbe-0b42afead326"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="132326a9-59a2-4609-935c-3311da815b32"
+        name="ActionFilterAttribute"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="487655d3-3676-46fa-ac80-477222edb5ce"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2Fpackages%2FMicrosoft.AspNet.Mvc.5.2.2%2Flib%2Fnet45%2FSystem.Web.Mvc.dll&quot; Namespace%3DSystem.Web.Mvc Type%3DActionFilterAttribute"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="f01443b9-ba28-44c3-8d52-c7ab5029b70e"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9e2129fc-71e5-41ee-8400-3d24b50a280b">
+                <propertyInstance
+                  Id="ff0e78cc-a8dd-4791-ac20-9e0ed6e9a4b1"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="44d8caa1-c06d-4537-bcd4-18197052de23">
+                <propertyInstance
+                  Id="8720c6ac-c4e9-46d5-897f-c922cf71bb1d"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="52668626-1840-48d7-b685-1f17e277aa6d">
+                <propertyInstance
+                  Id="9ed492ad-179d-4baf-95ec-99a997bdde77"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b203f0c6-ac09-4d64-ae65-8b587984fcaa">
+                <propertyInstance
+                  Id="26b0ba6c-871a-482c-89ca-63cd4959c17e"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="338a5246-8a63-4445-806f-ec0b7dad06b4">
+                <propertyInstance
+                  Id="765c6a81-9dc7-4436-b190-8e76ff1aed57"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

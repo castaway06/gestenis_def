@@ -1,0 +1,2038 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="fbf48baf-dad3-453a-9745-612b0d839185"
+  name="Models"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="10d84ecc-76bb-42ad-ab85-31a57e06eddf"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DGesTenis.Models"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="b2b49eb0-dbe4-42e7-a02a-1fcfc0e8a262"
+        name="nuevaReservaAdminViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="c292ecbb-3d8c-4e09-bb51-945247807a7d"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DnuevaReservaAdminViewModel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="449aa976-c7d1-402d-b529-d510f3b9d56b"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="32624151-dc83-4705-952c-6bb63cec2e34">
+                <propertyInstance
+                  Id="3027f09e-1c98-40c8-bf9e-6a234d09e9b7"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="88cc9cbf-95cd-4299-a586-44888526e2c9">
+                <propertyInstance
+                  Id="fccd846f-d089-4beb-a839-db115e5d797f"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ccd57e0a-75d2-483d-be30-bc751456812e">
+                <propertyInstance
+                  Id="5b22ff97-7e01-4876-ae2a-9f364cf40e68"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="02ec38b1-9252-4223-91ed-11a21def9fcc">
+                <propertyInstance
+                  Id="f585595e-ad24-4f32-a3c6-dd2f61218d49"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d52d342d-9ecd-4b77-ad02-4ce449c861c7">
+                <propertyInstance
+                  Id="d9647c83-9c94-4259-a6cd-7f986e6236af"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="58acf1a0-04db-4940-af1e-704298ab4c43"
+            isDerived="false"
+            sourceEndRoleName="nuevaReservaAdminViewModel"
+            targetEndRoleName="fecha"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3ba94ec7-8e8f-43db-b0cd-aeee55dbd44e"
+              LastKnownName="DateTime"
+              LastKnownLocation="Package1_0854.uml" />
+            <description>Property fecha references type DateTime.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8fda8860-7444-4903-9180-42d96a6d5251"
+                  name="nuevaReservaAdminViewModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="a4872239-a1f3-4fb1-b021-ee19e4869674"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="53cccac8-d0ce-4a42-b05b-ea3d87809f32"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ed20778b-d7d8-43a2-aa86-cdc27b7566b2"
+                  name="fecha"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="cdacd9c4-299a-4d6c-853d-46287224bd9c"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="38b13a02-77eb-4018-97ec-cfc61787ae79"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9216fc5f-c69e-4bdf-bc2c-524bdf14d025"
+            isDerived="false"
+            sourceEndRoleName="nuevaReservaAdminViewModel"
+            targetEndRoleName="hora"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3ba94ec7-8e8f-43db-b0cd-aeee55dbd44e"
+              LastKnownName="DateTime"
+              LastKnownLocation="Package1_0854.uml" />
+            <description>Property hora references type DateTime.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b8093e43-6035-46c6-800c-67b2e216df5a"
+                  name="nuevaReservaAdminViewModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="f4784803-f6e7-46df-9d33-ae7c97d63b5e"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="79a3c37c-6bb3-492c-86d2-d1eb5e31cc37"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4201b48a-0c63-4957-91ea-95bb1f35a116"
+                  name="hora"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="6360693a-7078-4f93-87f3-d50fa5a81054"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f19ebc08-66bd-4a12-a7c4-d052f59804e9"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="ec37636e-54c7-4123-ac34-d7340289bb9e"
+            name="id_soc"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="734cf95f-27da-4b9c-b39e-7c423b27343a"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DnuevaReservaAdminViewModel Member%3Did_soc"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5b6b7512-56c0-465d-834c-62a0e66caa83"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1cc6f313-efb8-4747-a7a8-c015c061f4f2">
+                    <propertyInstance
+                      Id="e7d26c9f-a0ce-4ded-91c0-dbe8e4b7978d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f5b9b39b-9643-464c-8d1b-2a4a98231510">
+                    <propertyInstance
+                      Id="0413d7c9-79e1-4aeb-866b-9a2966ac6788"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8166f9de-34df-4355-8cfc-063e86e1984d">
+                    <propertyInstance
+                      Id="46fe9978-9c37-4a3d-8a7b-7e10be09a9eb"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9aee0cf9-4898-42b0-a9c1-311fdda83576">
+                    <propertyInstance
+                      Id="72b9bd37-ab1b-44f8-9f7d-e11180d9a6ae"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f6dcba12-226a-4afd-969b-c544965f554e">
+                    <propertyInstance
+                      Id="2c2f7cf1-d00d-4420-83a8-ff71b7885797"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aba2cc9a-5c20-492d-8080-9695ca1bdbad">
+                    <propertyInstance
+                      Id="2ebf5842-97f4-4010-af48-42ef161074cd"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="453a4f82-9ac5-409c-b0bf-84fb65ae7af2">
+                    <propertyInstance
+                      Id="be726c03-9850-457a-a8a4-81ea74a92ea2"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e7ee58c5-a6e5-4ad0-b3d3-2142bca3bf7e"
+            name="fecha"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="40e54bd4-484c-4c08-baed-9fc2cc9442e2"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DnuevaReservaAdminViewModel Member%3Dfecha"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fd410f63-5ef2-41c2-abba-f39f18681a4e"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc3c9b58-fd84-415e-93fa-b1212df767c2">
+                    <propertyInstance
+                      Id="3491a1ed-2e1c-4199-a0ef-994c52104efd"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="86455e89-95fb-4af7-823b-0968163870f6">
+                    <propertyInstance
+                      Id="2c82e803-27ec-42cc-8cf8-ea4e6492a361"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="24d6721b-842a-47a8-9d1e-22fe8c8be9c2">
+                    <propertyInstance
+                      Id="301372e1-05bb-4ed3-acdd-8a7dce62c46d"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="897f4b62-b0f4-4a32-b4e9-9801e9dcf97e">
+                    <propertyInstance
+                      Id="a8b52178-91eb-42ac-bb0a-42d9135c59ac"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="98d2e386-08ae-4df8-bdfd-25862856eb74">
+                    <propertyInstance
+                      Id="36956d21-134b-4651-8993-04b7d0e537d3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="581cc3c7-29d1-48a5-b0f7-90e4d60379d1">
+                    <propertyInstance
+                      Id="1f6c3da4-e573-4fb1-b742-88e4abe8a789"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d2b2db1a-5697-4dfe-9aa4-27ea7d210212">
+                    <propertyInstance
+                      Id="5c0eae7b-a3f3-4fad-a278-7432dcf61538"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="3ba94ec7-8e8f-43db-b0cd-aeee55dbd44e"
+                LastKnownName="DateTime"
+                LastKnownLocation="Package1_0854.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6d51bd36-6a5c-4687-941a-67aa41530a88"
+            name="id_rec"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="b36a1b59-d9d0-485d-8dfa-1e38d478a8cf"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DnuevaReservaAdminViewModel Member%3Did_rec"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6fc9d5ea-eee4-42d1-b5bf-9245864f64d3"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="889d297e-1239-4ed8-93fc-e3d6e0fe1451">
+                    <propertyInstance
+                      Id="876eb04b-0071-451a-a461-42fddc99b5a5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cbb3932b-5cd8-4ae4-ac76-c0d2d7b6549c">
+                    <propertyInstance
+                      Id="362092bc-77f1-4cbc-bfc0-664781d37151"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e713e728-7d9e-488a-959d-07c5a2444097">
+                    <propertyInstance
+                      Id="2e38ba0d-a612-4b59-b2a1-1217df4eca8c"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1c16068e-f980-4db4-a982-28db14f7ba07">
+                    <propertyInstance
+                      Id="3ec2b3f9-a67b-4eb3-9c17-d86f0c053c40"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1c08bafc-7d85-4b0f-96ec-7b26faf9d010">
+                    <propertyInstance
+                      Id="f6a58702-a626-423c-baf5-f8fd29eccb49"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0de58c62-1ad5-4131-9e9a-fc90faeb2116">
+                    <propertyInstance
+                      Id="6a45b591-21c8-433e-8ccb-e670c91dcd57"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="963f9911-d934-4a3f-8574-2b6c85ae75ec">
+                    <propertyInstance
+                      Id="c4fcc4cd-9fe2-4a39-8ae7-09b3a3fd375f"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5fedcb5f-3527-4bea-9725-c02255b20645"
+            name="hora"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="4a9cf5de-8365-4463-8167-fd98673d3af3"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DnuevaReservaAdminViewModel Member%3Dhora"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a428a436-bb1b-499a-8888-12cab1313fa8"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6e55ed49-2ccc-4479-bf02-811c6af42da1">
+                    <propertyInstance
+                      Id="05960144-8bfa-4234-a6a4-46d2dcaa5cfe"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7fa21208-ce3e-43c2-9d58-0f47a8e89853">
+                    <propertyInstance
+                      Id="3df4b848-5124-48ff-81db-d2e0a98c3cde"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9d16f741-aedf-4c74-a38a-1a576ea5c86b">
+                    <propertyInstance
+                      Id="1e75982b-cf66-4334-8c96-426ab58a38da"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a83363d6-7d2a-4306-92d5-e90f65096bbe">
+                    <propertyInstance
+                      Id="1f122949-edb8-410c-8d8d-a1d83bfb3067"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4ff97354-13f3-4cad-8d48-2a6d46583255">
+                    <propertyInstance
+                      Id="be694d9d-21f8-46a2-9832-d9356cf2b5dd"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="69d053c7-f0ef-43ca-8adb-9382e7daf58e">
+                    <propertyInstance
+                      Id="8336a3f0-e237-422d-881f-bc9cc620b0c0"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e8351dd-f350-4892-a05f-b7b146561d8e">
+                    <propertyInstance
+                      Id="4c054321-5c7e-421b-a154-c32a52023ee1"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="3ba94ec7-8e8f-43db-b0cd-aeee55dbd44e"
+                LastKnownName="DateTime"
+                LastKnownLocation="Package1_0854.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="42ab1b6b-6b49-4e5a-ad72-18e02724a43b"
+            name="pagado"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="75f132b9-fd23-462f-88eb-da4e98ea5ca3"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DnuevaReservaAdminViewModel Member%3Dpagado"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a999937e-42a5-4400-914c-a455ab35661a"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="354755eb-9205-443a-81ba-ea4c7afb2c92">
+                    <propertyInstance
+                      Id="acadb5e6-30a4-47e7-bd4b-26c63a57391d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1f239678-20d4-4697-a764-236bac109b61">
+                    <propertyInstance
+                      Id="00d71cf7-06e2-4941-97e1-3519dac9ee85"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="595ac1e3-119d-4f1c-a930-a7c4d043ebeb">
+                    <propertyInstance
+                      Id="c6413161-a277-404c-a83e-01d1bdc6e97c"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ed40e1e3-55c0-49a3-9131-0bf67d677431">
+                    <propertyInstance
+                      Id="e36e547b-6093-43b4-ac9b-5fcfd63e43d4"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f0eb3a54-4347-49b8-971b-3141916cc2fa">
+                    <propertyInstance
+                      Id="5197e8e9-4517-4afd-97d0-11041fcafb7d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b95c8df3-db03-4121-b529-25bf459d8c66">
+                    <propertyInstance
+                      Id="30572406-ad62-49ee-bcf8-c0ff60b07ba2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="22498d5b-f867-4817-ae64-a00daa207f18">
+                    <propertyInstance
+                      Id="e421da7e-9313-4e84-ad4f-c84a98244abb"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="e39a86a2-8e37-4356-9cc9-882247277554"
+            name="nuevaReservaAdminViewModel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="0ff46c6c-53f1-4ea0-a498-1afffcee3726"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DnuevaReservaAdminViewModel Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="302cb46b-0bbb-4e47-b998-4d78becc2fd6"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d5a6fb6e-6af5-43cc-a4a6-b39a6ce24283">
+                    <propertyInstance
+                      Id="b097aaa9-34b0-4f89-b584-c6b352040b0c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2f4c8b48-9534-41c5-9e2d-a209ac348421">
+                    <propertyInstance
+                      Id="711f11e7-a245-49bb-a16f-169d98cd6a9d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="76807b7f-1276-4158-bc84-8a27bdc9cd70">
+                    <propertyInstance
+                      Id="94829d2e-3e3c-40f8-823e-ef3f17db7f9c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="282020e0-958c-4c05-ba7c-412cda788156">
+                    <propertyInstance
+                      Id="d1e84984-18ad-4f6c-88e3-5335acf19f46"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fb051d39-fca3-44ce-a1e6-b4c90d5f97b4">
+                    <propertyInstance
+                      Id="6748488f-9a71-4cdd-8441-f06e00b477b7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d0959b36-b873-4376-a217-600c7d0b6287">
+                    <propertyInstance
+                      Id="7b810aab-a971-41dd-9de2-2a9d6314f3fb"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e0ce3487-36a8-471e-a747-82eb76405f36"
+        name="CambiarContrasenaViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="6fe75b87-5044-45c7-a2e0-1f91a1e3ea5b"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DCambiarContrasenaViewModel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="de777caf-1bc5-43e5-9653-bd44d808cbb2"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bd03467b-c5d4-4c1e-89c8-314a6d7e7b16">
+                <propertyInstance
+                  Id="0d01f62e-4c6d-4ab2-bcdf-218c2deef169"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="95fde039-4b9d-46e7-876b-5502de767906">
+                <propertyInstance
+                  Id="8c60cb12-d19d-4ae6-9b64-cea479e18c24"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cda1c567-ca5d-45be-9e9e-0fa8c7f5b0f1">
+                <propertyInstance
+                  Id="7853bcb8-1921-46f2-917f-ca38a1afa7e8"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c12841ea-bc10-4878-850b-787c23a4470f">
+                <propertyInstance
+                  Id="dc9a7354-83a3-45c3-91df-e74e6135f60a"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d819ef40-d54a-4f70-9eed-5c6d03690106">
+                <propertyInstance
+                  Id="5e51c78a-40ec-45ab-85ff-a7c53bee6730"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="5628bcb9-f26b-4041-8221-1db34f6ae5a5"
+            name="newPass"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="76d2ea6c-e1fb-4cea-9f60-19d991647c53"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DCambiarContrasenaViewModel Member%3DnewPass"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2ff96cf2-fedf-4806-bc49-3192c96bd2a3"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66ba1227-a439-4055-b2d5-48ffefe017bc">
+                    <propertyInstance
+                      Id="75f80338-a21a-437a-97d1-0827b3ed8b4d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="645dd86e-128f-47e3-bb53-4b199ec94334">
+                    <propertyInstance
+                      Id="3db900b0-eaad-4117-ad30-9f1a371ec4c6"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9575de51-4c3b-407a-a5d0-b6772da1904a">
+                    <propertyInstance
+                      Id="6c9ca46f-d857-4d82-a30d-e9c1c00d1c4d"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c9ff188f-fd68-43b4-9103-aa67755771eb">
+                    <propertyInstance
+                      Id="28b32dff-bedb-424b-bb0c-b0abad6dcb31"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ba34966-3d27-4296-9fcb-60fde68ecb16">
+                    <propertyInstance
+                      Id="249402df-ca5d-40f4-8ddc-17fb55ed8bbc"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="974d04df-b8cd-4084-ae33-31f103be1994">
+                    <propertyInstance
+                      Id="eb19df54-7dbd-443f-be69-7b39b617f82e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="616c68a5-d9f5-4208-87cb-6bf097ba1bfb">
+                    <propertyInstance
+                      Id="fefeb053-8a86-4c1b-963d-ee97fd0c5f92"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0f19b066-757e-43b4-960c-585a4efdd0b4"
+            name="verifyNewPass"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ba1e54d9-d9c3-458a-9d9f-89722518d6c7"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DCambiarContrasenaViewModel Member%3DverifyNewPass"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fa9ad1a2-6e8c-4e73-9a07-e2f775d33753"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a3ce69d2-5a52-4357-abc2-fb3c66975b22">
+                    <propertyInstance
+                      Id="a9c6f14e-7ed0-49c1-b5e9-302b65ed17b1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a080d03f-8d76-462b-b550-74099418c5d9">
+                    <propertyInstance
+                      Id="a3f19ede-2643-4a9b-8bc4-6cb4a7583702"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e32c6d48-1214-4169-bf48-c13e7e970288">
+                    <propertyInstance
+                      Id="9c9da68c-1261-4d25-a08c-9a0196c01be4"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f51dad91-369d-486c-b15d-d7838b9992fd">
+                    <propertyInstance
+                      Id="29c9efc7-f72b-4d71-93e6-c614250612f4"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d11a44e8-252d-4d2e-b1ad-2b2d5b069534">
+                    <propertyInstance
+                      Id="6d150848-580c-4186-ac08-9122d777fd8a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6530e4be-2839-4e15-a837-36448d1ef08d">
+                    <propertyInstance
+                      Id="b11e58cd-f552-4d6b-a182-b84994465eb9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="584c6e46-a4c9-4a72-b6d3-e95be34b7908">
+                    <propertyInstance
+                      Id="64c93dcf-4342-4c7e-895c-2f5ef9aa02ff"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="79756298-e251-4108-8fe3-9c682c72ab90"
+            name="oldPass"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="28abf2ab-91dd-4178-8f27-00b1dd1e0afd"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DCambiarContrasenaViewModel Member%3DoldPass"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7945c616-bc3f-4eda-b345-ebffcb0b72aa"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="741b6076-aa89-4e0c-a18a-cf82bef0fefe">
+                    <propertyInstance
+                      Id="d1949f75-e89f-495d-af05-7b906ee1b4f4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="786ea7fc-31b6-4a72-aec0-77c230e1c3b7">
+                    <propertyInstance
+                      Id="77f9d995-0603-4d59-9b98-c264ab6c65df"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0223fe09-7e6b-4978-b199-2b39be8e35a8">
+                    <propertyInstance
+                      Id="66ed796d-08ab-4ae2-950e-aa5b5e2d1727"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bcdc3aa8-f183-4381-80d9-0cb5dfa6c09c">
+                    <propertyInstance
+                      Id="bbbc8e3b-9879-40c7-b3fc-7429f86ecd66"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e83281d2-52bd-40b8-a278-0dfd56c9a25e">
+                    <propertyInstance
+                      Id="402ad8ed-7f7c-43f0-93e4-4e768398c69b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="850da02a-6d42-467e-b292-e00b8375e1bf">
+                    <propertyInstance
+                      Id="f5f03c17-8ed7-47dc-b33c-a0c06abf0072"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="60a4c3d6-d08a-4a97-97e0-c9f6120f1955">
+                    <propertyInstance
+                      Id="ba256db5-e5ef-4af0-97e3-71950e5f6a92"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="17bb0bf1-b9e3-485e-84ef-1a3e24f96bd1"
+            name="CambiarContrasenaViewModel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="89f8055f-5d3a-40c5-8c76-cc4deb458e7f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DCambiarContrasenaViewModel Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="06d7a1c6-47b9-43ff-889a-f4d12f467a50"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9775f33a-f51e-4e6f-82cc-3a5dcb94aed3">
+                    <propertyInstance
+                      Id="7fae6e95-01f4-4f3c-975c-3310c67acf06"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="274bd33d-4b0f-4087-8ef2-6c6cfa4ee127">
+                    <propertyInstance
+                      Id="e057917d-503f-4b2c-9c86-637824a8f70f"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="858baef7-31ed-42ed-bfef-e69f27d88f59">
+                    <propertyInstance
+                      Id="eea7949a-8d67-4593-b45f-222a5b3b1e6e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7f978729-40a3-4ad1-9b4f-43c067f8b674">
+                    <propertyInstance
+                      Id="22ad6bbc-24be-40af-b203-b3a09e667d90"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a8423aae-eed3-4b5b-8565-528773935fa9">
+                    <propertyInstance
+                      Id="12323acf-145e-4852-8320-cf8a5227f493"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b56363f8-a4b5-416a-88cc-c8d485a83aae">
+                    <propertyInstance
+                      Id="a83bfb51-aba9-43f6-b689-07ed6c4013e0"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a1380342-5dc1-4f02-aa01-ea7e7bea0b0d"
+        name="LoginViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="06b4d9ae-cc22-403c-ad1a-35d1ca2eceab"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DLoginViewModel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="23148813-04df-48e7-abc4-0720fdcaff17"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7c0760a4-b304-49e4-a965-c684471c5eb2">
+                <propertyInstance
+                  Id="80cd6428-b211-4184-80fb-6b4e1ce62d0b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ecadbee7-12c3-460c-8962-9c9f20ced91d">
+                <propertyInstance
+                  Id="008f3235-4369-4031-bbc7-64ff314cf8d9"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="47a5418c-1893-48c1-af7a-ba84f1713f05">
+                <propertyInstance
+                  Id="19698499-a541-4ec6-b447-c42ea258d633"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b05b0b55-bd93-4f57-b5f4-28c9091986cc">
+                <propertyInstance
+                  Id="d0a38f2a-71ba-49dc-bfe2-270515b79d92"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="66faf541-42fc-46cf-9257-b373a0b57020">
+                <propertyInstance
+                  Id="1a1f8198-7165-435a-8853-376689a5856f"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="a7b9e6b3-f3ba-4c1c-a212-2befdf2b1a46"
+            name="userId"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="6364302d-5734-43bd-a013-ceca5d2a4035"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DLoginViewModel Member%3DuserId"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4ccbc8fe-bca8-4533-a498-b6dc9103aa3e"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0faa6acc-6346-4d16-9518-a432d883c680">
+                    <propertyInstance
+                      Id="0343a428-8fd3-4fe5-87b5-a6bb4ea8d49d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aae32d40-e2ac-4d7e-b058-6cce2db5ae3c">
+                    <propertyInstance
+                      Id="90467d3c-a7b8-4b61-ba6a-bf7368a4016c"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e2eb3736-93c2-4368-85d4-73d45ea13250">
+                    <propertyInstance
+                      Id="1a772088-c67a-4068-b6ec-12a1a2e55897"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b23b80a9-e102-40d7-8ee6-cb8da070989b">
+                    <propertyInstance
+                      Id="885e0f60-fa91-4989-a3f2-c15a29f4ca4c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b1e633bd-167b-49ef-ba56-e3c47d8b0453">
+                    <propertyInstance
+                      Id="9353e375-5205-4a10-bb3e-269966a346f3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4b06ce1d-56af-4c4f-9cb4-9eb0ee4b37ab">
+                    <propertyInstance
+                      Id="b1ced11d-7e38-44a8-a714-74fdff2d31be"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bb015e2c-c18d-4adf-a070-e2d0f849bfd9">
+                    <propertyInstance
+                      Id="86fda172-e4e6-488c-88f5-b4850e1e0260"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f2c8e23a-1dc8-4dc3-aae8-47a8b7aeb47c"
+            name="userPassword"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="2bd6059a-c083-49fd-84c5-2867214df963"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DLoginViewModel Member%3DuserPassword"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a67bb890-c7f3-4b2b-9d4a-f932ab02633e"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b431b163-a1a6-45f7-8569-1972dd5838d8">
+                    <propertyInstance
+                      Id="9a1f64ce-910c-4044-a032-89482adb8008"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ebe2e5c9-c76c-4e22-8daa-1676ba67c0b9">
+                    <propertyInstance
+                      Id="344538d1-2eb8-4a92-8aab-2cea67c831b2"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a249d3f2-a85f-422e-b834-d8f48e9e0719">
+                    <propertyInstance
+                      Id="06b2e353-b83c-40dd-9096-cc7b9159e8b0"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bd56d016-0a2c-4f37-9f5c-38c251eaa6b8">
+                    <propertyInstance
+                      Id="c5acc572-e226-4938-a3a6-4e1cb71d3104"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="668c4eda-94dd-47c7-91f0-94cb2c5bb9a5">
+                    <propertyInstance
+                      Id="9d88508f-9bbe-41ba-ac4b-596b8546f684"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="048620aa-80d8-4cf8-8f54-1413252651d4">
+                    <propertyInstance
+                      Id="a1fdcd65-7fdd-482d-b61d-279a49fbd992"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dfb14bf4-922a-4edb-bdea-7397f6a0317d">
+                    <propertyInstance
+                      Id="f514d9ad-4e9c-4bf5-8d9a-f7178f622090"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="8cfccd43-9997-44bb-a7ea-de66e9659e6c"
+            name="LoginViewModel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="8eb54a7f-d289-4fc8-86ea-e919358d7df0"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DLoginViewModel Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="515536a3-c793-402e-b3ca-c9eec64586ab"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9770084e-3c32-4341-bc00-eefbc17e7ffe">
+                    <propertyInstance
+                      Id="e7c1089b-1efa-4254-9552-476b37a12e3a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="efa2f383-f515-47f0-adcf-190a8adf39cd">
+                    <propertyInstance
+                      Id="c49cd0a1-38ef-45c8-8877-f4fdeae7f890"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="48ed118e-fa49-462e-ab27-406d8164c3b8">
+                    <propertyInstance
+                      Id="f2b01197-6486-42cc-8543-a005461b1513"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8ecda316-8a88-4654-bb00-7ca9b0561fbd">
+                    <propertyInstance
+                      Id="37ecce75-ced9-4b98-8392-595037d53c0f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="12d20454-4192-4023-b0ae-db51251abb99">
+                    <propertyInstance
+                      Id="0acfdeec-3174-4993-9829-71b14ca9a731"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="44c962cb-9312-448b-b076-d0a99e03a64f">
+                    <propertyInstance
+                      Id="833d67ef-566b-468c-8ef9-128453c80f23"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="850b29b6-0c85-4613-a0b0-aebd536ee806"
+        name="RecuperarContrasenaViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="1b7f1b71-34a2-4d16-9116-89da1172c465"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DRecuperarContrasenaViewModel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="83d19dca-6b5e-4032-b3d1-e76daa25ee7c"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ce49031d-ec23-4000-8266-2b7218e81152">
+                <propertyInstance
+                  Id="4224e77c-7f05-42f6-87fe-56e2f405f452"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0ce9ffb3-a100-48ae-965f-c65ffdd76559">
+                <propertyInstance
+                  Id="ce45a245-ea50-4509-adc0-57e63d320997"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4dcf7cf0-3bc2-4bc7-b5bf-cc0f4db73d97">
+                <propertyInstance
+                  Id="f74dd15b-5dda-42f8-bbe1-7a0f43d75f62"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e90bc28d-42c4-4920-a8c1-76ed90c57ecc">
+                <propertyInstance
+                  Id="99ae0ced-7623-433b-83f9-a6d13ffea2fd"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="969654b4-da6b-46e8-9e54-0e5539944dea">
+                <propertyInstance
+                  Id="3dd19ba6-6c93-4476-9b60-4324a8ac23dc"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="e71d490a-ded7-4bbc-9755-7597f5229f13"
+            name="email"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="d76e9c60-65dc-463a-bb61-a2b8755654f5"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DRecuperarContrasenaViewModel Member%3Demail"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ff7e81b8-c67c-41a0-8fa5-097fb30ade20"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e884840-d885-4f77-8e2e-2c6351a475d8">
+                    <propertyInstance
+                      Id="b066d9d8-182a-4036-b3f1-2ad56b6e977f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="034a23bc-b1ca-43cd-9bd6-8dccbc32ce8c">
+                    <propertyInstance
+                      Id="f280a161-9a26-425d-9fac-90e21d906d7f"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="835b2d4e-6646-46a2-adaf-174565a602eb">
+                    <propertyInstance
+                      Id="3df40385-ce8a-48f1-9afb-c2bf782b06e3"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ad8e8fd4-05a6-439f-93d7-991665320e92">
+                    <propertyInstance
+                      Id="7ac78d0c-b195-4000-ac13-4828dd84729a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="50f74fe9-5e2e-40e8-971d-2ebf02069064">
+                    <propertyInstance
+                      Id="60e4b288-8edf-40cd-a518-a7ce039e89fa"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ce9275df-afd2-4d17-b7fb-341bf6677afc">
+                    <propertyInstance
+                      Id="c2ace173-9951-4700-8dfc-9c4cf2f82844"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d4d3b3bd-afbf-4538-8f34-bc2a19dd2249">
+                    <propertyInstance
+                      Id="8bc17669-1750-4b1a-8dcf-d70cf94f522a"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="33d97bec-413e-4b25-b0d2-be82c364fcfd"
+            name="RecuperarContrasenaViewModel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c727f989-7267-4349-961c-2f64f16d79f4"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DRecuperarContrasenaViewModel Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="329944f0-8a40-4400-99fc-aa1eefb4a0a6"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a298d92-3801-49fb-a997-a73a32945121">
+                    <propertyInstance
+                      Id="d30c74f9-97bc-44b5-82cd-947b767cb7a3"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8c990e75-0a72-43db-b487-0cd4c7d0be27">
+                    <propertyInstance
+                      Id="7eda94c5-15d1-4c13-baa9-94451a46f127"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c7f2095b-7877-4a97-bb52-5902faf0132c">
+                    <propertyInstance
+                      Id="974dbcf2-3129-4eea-8ecd-0ab596b987dd"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb2bc53e-afc3-4fc7-b837-e4c393ecb0e6">
+                    <propertyInstance
+                      Id="f0d36296-faae-4d77-b4e4-6c6e6202cb0e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d39262e9-461b-4d8f-989b-3af5043eb03d">
+                    <propertyInstance
+                      Id="db95551f-88d7-4cac-b043-c25ece7848c6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="14737c94-c92e-4579-8c51-5fb3e843d2bb">
+                    <propertyInstance
+                      Id="78ce8fbd-b586-4c23-b292-7ea479abc818"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3ca07356-dfd6-4afa-8c06-148918449207"
+        name="nuevaReservaSocioViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="d194cc6c-7a02-4362-bca7-7f6c72d060b8"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DnuevaReservaSocioViewModel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="d7e648a6-316b-4b24-9050-2b49ca6f469f"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7c45c4bc-b12b-45bf-96b1-4f7562f62cd2">
+                <propertyInstance
+                  Id="99e782d2-dd97-4ad9-adf8-879904d69b7e"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3df33d79-aedc-4203-bb59-7885e55635d8">
+                <propertyInstance
+                  Id="84e2a622-6f41-4396-86be-de65a9d2f435"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8eb4e89c-3fd3-46ab-8ec6-19d545bbc71d">
+                <propertyInstance
+                  Id="c27af800-d0db-45ca-be3e-8131bff32f3d"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ec157673-6836-4c4c-b224-babe07f5f71c">
+                <propertyInstance
+                  Id="1d1e98cf-013b-46d5-a435-94405de05f55"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7699e077-2dd4-4d81-abad-1fb9c92428f7">
+                <propertyInstance
+                  Id="7104076f-822a-4df7-9fc3-251725162063"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="529f3f0b-b29c-42b3-915a-f543b9feff23"
+            isDerived="false"
+            sourceEndRoleName="nuevaReservaSocioViewModel"
+            targetEndRoleName="fecha"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3ba94ec7-8e8f-43db-b0cd-aeee55dbd44e"
+              LastKnownName="DateTime"
+              LastKnownLocation="Package1_0854.uml" />
+            <description>Property fecha references type DateTime.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9dc9475e-f01e-4caf-bfa9-f6b5380b4f9a"
+                  name="nuevaReservaSocioViewModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4ce2e7c4-4013-4b9e-b421-4a20203dac5e"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="ef67f136-6517-410b-8244-c1af0c4f3986"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7d69e6c2-0a95-416a-8933-d964654331e8"
+                  name="fecha"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="2fb3fc10-f8b4-4b6f-a4b0-c147719125e8"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7c944502-4421-41dd-a624-97dc1408cb14"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="25d50fbc-5c8d-4423-a088-988e7c493bdd"
+            isDerived="false"
+            sourceEndRoleName="nuevaReservaSocioViewModel"
+            targetEndRoleName="hora"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3ba94ec7-8e8f-43db-b0cd-aeee55dbd44e"
+              LastKnownName="DateTime"
+              LastKnownLocation="Package1_0854.uml" />
+            <description>Property hora references type DateTime.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5c1e88a7-45b9-4e0c-91c3-512bc9a74ba4"
+                  name="nuevaReservaSocioViewModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="a91d4434-0c38-4760-b339-6c9fe40375d9"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="35212ab4-add9-4d7c-9d58-51d7b5cf113d"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cc227b72-d8ee-4d74-b1a8-c3d33d72d3ac"
+                  name="hora"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="1eacdb01-d7ed-412f-96e0-f57c62d670bb"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="ce9aaec7-8d0e-4cc5-83c3-98745fb6d393"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="9607953f-6168-44a0-a053-bc1326cd701f"
+            name="fecha"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="fcbc9104-d254-4e64-a7f0-1068dbd95d4a"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DnuevaReservaSocioViewModel Member%3Dfecha"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="26a791fc-2f4f-44cf-901c-9b8b2b4de4af"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bf611942-5780-47e0-ad5f-69c313e50da2">
+                    <propertyInstance
+                      Id="d096ad7b-6c4d-4fab-ad48-6254967b63e0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6c0d8919-6cb8-4113-b32c-80adeca2c8f1">
+                    <propertyInstance
+                      Id="3a3c6448-348d-46de-9221-705a3a42c1a8"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="21cbdaa9-7562-4903-8dd6-f0dabd106b23">
+                    <propertyInstance
+                      Id="76a20510-53a1-4095-93f2-88e3ecaf3f6b"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="648fbb5a-47b8-4868-936f-f63c1bdc2988">
+                    <propertyInstance
+                      Id="3d7fd029-645d-47f8-b6e4-934ca8ef6b8b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5c0adb29-b236-4aa7-b794-c87f940fb52c">
+                    <propertyInstance
+                      Id="75076e9a-295f-4539-b1f3-3d2ee4916f22"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="08b610e0-ef4b-42f6-9515-31862fe574eb">
+                    <propertyInstance
+                      Id="607376cb-44ed-4f6f-9a26-cfdcb83b1ea7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b45d07e-0416-4d75-a9f9-d95337f08ae5">
+                    <propertyInstance
+                      Id="c91c73e4-e672-4f27-86e8-f6194d147ec8"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="3ba94ec7-8e8f-43db-b0cd-aeee55dbd44e"
+                LastKnownName="DateTime"
+                LastKnownLocation="Package1_0854.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="a04e40c9-eee0-4a5b-a7b3-6752651448c7"
+            name="id_rec"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="749260f7-5984-423e-a838-aef6c0b324da"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DnuevaReservaSocioViewModel Member%3Did_rec"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4b56233a-74e3-43a9-ace7-0d4cc92f6138"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5ee3fab2-4a5b-4a84-96df-18a657550799">
+                    <propertyInstance
+                      Id="edd6d656-dedf-4111-b98f-c493ebe1c359"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e66e7f20-7822-4e81-aaf3-f16c46c9ed83">
+                    <propertyInstance
+                      Id="b122c14a-6d6f-49fe-9569-f61a022119e8"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1dd3226-1f81-4a1d-9812-15e83dc4c6e5">
+                    <propertyInstance
+                      Id="97f9ee01-3ad3-473d-b9db-107b3f33611f"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="036e6dce-2807-46c2-a50e-d63e000e7ff0">
+                    <propertyInstance
+                      Id="7765949a-b812-46a7-a122-28fe38ff372c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f0edb0f8-13d7-4195-ab78-2c44d8133e4f">
+                    <propertyInstance
+                      Id="45ced28f-c363-4d79-8c47-6990f50d445d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9d15cf96-e759-4dde-a202-b9d68372386e">
+                    <propertyInstance
+                      Id="fcb3bce2-90c7-4730-b043-d63e95f6fbce"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="855e2fc5-b2cb-4081-b340-43fa5a4cd238">
+                    <propertyInstance
+                      Id="70cac6cc-3981-4968-a990-043e1325ccae"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0010d355-00d3-497b-82f8-9b32ebf2dc23"
+            name="hora"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="8db00c88-362c-4102-bdbb-4dcb694f1ffb"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DnuevaReservaSocioViewModel Member%3Dhora"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1c5f9d78-54ce-4bce-8fc3-b85cd016c0af"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="224a2d34-4c2e-4e46-8dda-b0ddbfbd1b2a">
+                    <propertyInstance
+                      Id="2b0c6855-e3ee-46d5-9f6d-8e809ab9aca3"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7ec95813-d0d3-4071-98d5-c072341dd0df">
+                    <propertyInstance
+                      Id="78858dfc-1872-43f1-9936-1c31d39c4c8e"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9bc93dfb-980e-4984-9042-4801b3dd1865">
+                    <propertyInstance
+                      Id="ba0829ad-dc50-4191-8e0d-9fba39c3e7d6"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="280b73d1-e0c8-4ff8-8bcb-2bea29f4cf5d">
+                    <propertyInstance
+                      Id="6e71e329-02d6-4d8f-8a3b-b887c853d32f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b68c1f6c-29be-48ef-a6d6-e5096bd93019">
+                    <propertyInstance
+                      Id="b5e9dcef-8556-4d59-b14b-31906f696c64"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee628c51-eaed-40c1-847b-b0bae7fcc2d6">
+                    <propertyInstance
+                      Id="34c41bc5-69dd-4920-bf20-0e945e28a0be"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e607500-f754-403b-9e2c-0181acebbdeb">
+                    <propertyInstance
+                      Id="59f9424a-0d51-4014-893d-dd5a9910451b"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="3ba94ec7-8e8f-43db-b0cd-aeee55dbd44e"
+                LastKnownName="DateTime"
+                LastKnownLocation="Package1_0854.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="fb2652c1-e820-48ac-b80d-e6a73f0658e4"
+            name="nuevaReservaSocioViewModel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="ac0a7241-d83a-4bf0-9eac-743f1481aa47"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FGoogle Drive%2FPFC%2Fanteproyecto gestenis%2FGesTenis%2FGesTenis%2Fbin%2FGesTenis.dll&quot; Namespace%3DGesTenis.Models Type%3DnuevaReservaSocioViewModel Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fbfee915-6294-4584-97c7-9d7c2ce65813"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c31373c3-5460-4718-940d-d3c80d49bd51">
+                    <propertyInstance
+                      Id="7b2ffa60-a508-48d2-8a00-828d939cd20e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04d88f0d-cd06-4a41-bed2-6d439bb00d5e">
+                    <propertyInstance
+                      Id="4eec3277-6ada-478d-a5ed-8d0a2cb504d4"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1698c92-d331-4fe8-ae09-75a792b32f4c">
+                    <propertyInstance
+                      Id="97ebb032-4039-4bbf-956f-19a82f6f54f5"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ff5bd3f1-7388-4758-b427-7ca261f9fcd6">
+                    <propertyInstance
+                      Id="b2097434-7d75-4b2b-9f9f-e6526b9b922f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="13c93e19-1120-4d33-af15-d3a5debef0ea">
+                    <propertyInstance
+                      Id="e9d01d2d-3020-430e-a23d-5d27c90e21e8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="79185a2f-8673-4a37-a565-b730c7baa70f">
+                    <propertyInstance
+                      Id="553fccac-3e43-467c-a3f7-6857a1029106"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

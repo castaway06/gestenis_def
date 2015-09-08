@@ -5,23 +5,22 @@
 <div class="jumbotron">
     <h1>Club de tenis "El Raquetazo"</h1>
     <p><picture><img src="~/Content/imgs/fondo_cinta_red.jpg" width=100% /></picture></p>
-    <p>Club nacido de un grupo de amiguetes que aprendieron el oficio del tenis de aquellas maneras ...</p>
+    <p>Pequeño club nacido de un grupo de amigos que, con su esfuerzo, han logrado sacar adelante un proyecto lleno de ilusión.</p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2> Zona a rellenar</h2>
-        <h3> </h3>
-        <p>un ejemplo</p>
-        <p>para visualizar</p>
+        <h2> Nuestras tarifas</h2>
+        <p>Échale un vistado a nuestras tarifas</p>
+        @Html.ActionLink("Tarifas 2015-2016", "Tarifas", "Home", null, new { @class = "btn btn-default" })
     </div>
     <div class="col-md-4">
         <h2>Si aún no eres socio ...</h2>
-        <center>@Html.ActionLink("Registrate", "Registro", "Home", null, new { @class = "btn btn-default" })</center>
+        @Html.ActionLink("Registrate en GesTenis", "Registro", "Home", null, new { @class = "btn btn-default" })
     </div>
     <div class="col-md-4">
-        <h2>Inicio de sesión para SOCIOS</h2>
-        
-        <center>@Html.ActionLink("Accede", "Login", "Home", null, new { @class = "btn btn-default"})</center>
+        <h2>Inicio de sesión SOCIOS</h2>
+
+        @Html.ActionLink("Accede a GesTenis", "Login", "Home", null, new { @class = "btn btn-default" })
     </div>
 </div>
