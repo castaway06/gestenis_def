@@ -63,7 +63,8 @@ namespace GesTenis.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model)
         {
-            var db_user = (from socio in db.socios where socio.id == model.userId select socio).FirstOrDefault();
+            //var db_user = (from socio in db.socios where socio.id == model.userId select socio).FirstOrDefault();
+            var db_user = db.socios.Find(model.userId);
 
             if (db_user != null)
             {
