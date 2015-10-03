@@ -64,8 +64,19 @@ namespace GesTenis.Controllers
         public ActionResult Login(LoginViewModel model)
         {
             //var db_user = (from socio in db.socios where socio.id == model.userId select socio).FirstOrDefault();
-            var db_user = db.socios.Find(model.userId);
+            try
+            {
+                var db_user2 = db.socios.Find(model.userId);
+            }
+            catch (Exception)
+            {
+                addError("Problema conectando a la BBDD.");
+                saveErrors();
+                return RedirectToAction("login", "home");
+                throw;
+            }
 
+            var db_user = db.socios.Find(model.userId);
             if (db_user != null)
             {
                 if (Tools.SHA256Encrypt(model.userPassword) == db_user.password)
