@@ -761,7 +761,7 @@ namespace GesTenis.Controllers
                 PDFNet.Initialize();
 
                 // Ruta relavita a las carpetas que contienen los archivos
-                string input_path = "~/PFC/pdf/";
+                string input_path = "~/pdf/";
                 string output_path = "~/pdf/Output/";
                 try
                 {
