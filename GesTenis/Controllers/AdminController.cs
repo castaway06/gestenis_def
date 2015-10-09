@@ -761,8 +761,8 @@ namespace GesTenis.Controllers
                 PDFNet.Initialize();
 
                 // Ruta relavita a las carpetas que contienen los archivos
-                string input_path = "c:/Google Drive/PFC/pdf/";
-                string output_path = "c:/Google Drive/PFC/pdf/Output/";
+                string input_path = "~/PFC/pdf/";
+                string output_path = "~/pdf/Output/";
                 try
                 {
                     // Juntar XFDF desde el xml string

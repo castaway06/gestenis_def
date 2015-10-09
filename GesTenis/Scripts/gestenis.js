@@ -10,12 +10,19 @@
         closeOnDateSelect: true,
         timepicker: false
     });
-    $('.datepicker').datetimepicker({
-        format: 'd/m/Y',
-        minDate: 0,
-        closeOnDateSelect: true,
-        timepicker: false
-    });
+    //$('.datepicker').datetimepicker({
+    //    format: 'd/m/Y',
+    //    minDate: 0,
+    //    closeOnDateSelect: true,
+    //    timepicker: false
+    //});
+
+    $.datepicker.setDefaults($.datepicker.regional["es"]);
+    $('.datepicker').datepicker({
+        firstDay: 1,
+        dateFormat: 'dd/mm/yy'
+        });
+
     $('.timepicker').datetimepicker({
         format: 'H:i',
         formattime: 'H:i',

@@ -11,7 +11,8 @@
 {
 
     @Html.AntiForgeryToken()
-    @Html.Hidden("password", "")
+    @*@Html.Hidden("password", "contra")*@
+    @Html.HiddenFor(model => model.password, new { @Value = "password" })
 
     <div class="form-horizontal">
 

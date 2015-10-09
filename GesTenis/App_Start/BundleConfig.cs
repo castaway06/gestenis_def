@@ -11,6 +11,7 @@ namespace GesTenis
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/jquery-ui.js",
                         "~/Scripts/jquery.datetimepicker.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -29,7 +30,10 @@ namespace GesTenis
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/login.css",
-                      "~/Content/jquery.datetimepicker.css"));
+                      "~/Content/jquery.datetimepicker.css",
+                      "~/Content/jquery-ui.css",
+                      "~/Content/jquery-ui.structure.css",
+                      "~/Content/jquery-ui.theme.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
                         "~/Scripts/gestenis.js"));
