@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -42,7 +42,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.f_alta, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.f_alta, new { htmlAttributes = new { @class = "form-control alldatepicker" } })
+                @Html.EditorFor(model => model.f_alta, new { htmlAttributes = new { @class = "form-control", type = "date", Value = Model.f_alta.ToString("yyyy-MM-dd") } })
                 @Html.ValidationMessageFor(model => model.f_alta, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +50,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.f_baja, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.f_baja, new { htmlAttributes = new { @class = "form-control alldatepicker" } })
+                @*@{DateTime f_baja = Model.f_baja ?? default(DateTime);}*@
+                @{
+                    DateTime f_baja = Model.f_baja ?? default(DateTime);
+                    string f_baja_string = DateTime.Compare(f_baja, default(DateTime)) != 0 ? f_baja.ToString("yyyy-MM-dd") : "";
+                }
+                @Html.EditorFor(model => model.f_baja, new { htmlAttributes = new { @class = "form-control", type="date", Value = f_baja_string } })
                 @Html.ValidationMessageFor(model => model.f_baja, "", new { @class = "text-danger" })
             </div>
         </div>
